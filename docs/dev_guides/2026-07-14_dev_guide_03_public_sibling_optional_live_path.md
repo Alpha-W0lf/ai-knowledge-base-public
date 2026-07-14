@@ -5,7 +5,7 @@
 **Also touch (honesty only):** `ai_knowledge_base` — mark old scrub Guide 03 **superseded for portfolio public story**  
 **Work item:** Guide 03 re-scope — fixtures-first DoD + optional BYO YouTube live path; retire same-repo history-scrub as default public path  
 **Stage that authored this:** Write-dev-guide (pass 35)  
-**Status:** **READY** (Ready check pass 35 — awaiting Implement authorize)
+**Status:** **IMPLEMENTED** (spoke Implement pass 38 — awaiting Review)
 
 **Context SSOT:** `docs/2026-07-14_guide03_public_sibling_optional_live_path_context_summary.md`  
 **Prerequisite:** Guide 01 retrieval spine + Guide 02 packaging DoD shippable on the lineage that produced this public sibling. Public sibling already exists on GitHub.
@@ -150,14 +150,14 @@ Make the **public portfolio surface** honest and stranger-complete for Guide 03:
 
 ## Definition of Done
 
-- [ ] Public `BACKFILL_DAYS = 7`  
-- [ ] README: fixture-first Quick Start + explicit optional BYO live path (7-day) + no auto-sync claim  
-- [ ] Public PORTFOLIO_VISION + ARCHITECTURE gate-8 language match sibling strategy  
-- [ ] Private scrub Guide 03 + context marked superseded for portfolio public story (files retained)  
-- [ ] Fixture ingest + search smoke green without YouTube  
-- [ ] No committed `channels.local.json` / raw transcripts / secrets  
-- [ ] Private tip transcripts untouched  
-- [ ] Implement note written; Ready≠done until Review  
+- [x] Public `BACKFILL_DAYS = 7`  
+- [x] README: fixture-first Quick Start + explicit optional BYO live path (7-day) + no auto-sync claim  
+- [x] Public PORTFOLIO_VISION + ARCHITECTURE gate-8 language match sibling strategy  
+- [x] Private scrub Guide 03 + context marked superseded for portfolio public story (files retained)  
+- [x] Fixture ingest + search smoke green without YouTube  
+- [x] No committed `channels.local.json` / raw transcripts / secrets  
+- [x] Private tip transcripts untouched  
+- [x] Implement note written; Ready≠done until Review  
 
 ---
 

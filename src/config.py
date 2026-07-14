@@ -40,7 +40,7 @@ HYBRID_VECTOR_WEIGHT = 0.7
 
 # YouTube sync settings
 SYNC_INTERVAL_DAYS = 1  # Minimum days between syncs per channel
-BACKFILL_DAYS = 60  # How far back to go (always used, not just for new channels)
+BACKFILL_DAYS = 7  # Public demo default; raise locally for deeper BYO backfill
 MAX_RETRY_ATTEMPTS = 2  # Retry failed downloads
 RETRY_DELAY_SECONDS = 30  # Delay between retries
 PARALLEL_WORKERS = 8  # Concurrent channel listings (8-10 is safe, higher may rate-limit)

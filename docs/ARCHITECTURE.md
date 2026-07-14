@@ -2,11 +2,11 @@
 
 **Status:** Binding for portfolio v1 and private operation  
 **Created:** 2026-07-12  
-**Updated:** 2026-07-13 (Align docs pass 10 — identity debt + CE honesty)  
+**Updated:** 2026-07-14 (Guide 03 — public sibling honesty + optional BYO live path)  
 **Supersedes:** `docs/2026-01-30_architecture.md` (historical only; clean rewrite **rejected**; January file is **non-binding**)  
 **Vision:** `docs/PORTFOLIO_VISION.md`  
 **Decisions:** KB1–KB5 in `second_brain/docs/2026-07-12_portfolio_vision_workspace_and_decisions.md`; ranking detail in `second_brain/docs/2026-07-12_hybrid_rag_reranker_decision.md`  
-**Guide 01:** Implemented (pass 8) / reviewed shippable (pass 9) — shared spine + fixtures + CE seam. **Guide 02:** Packaging DoD implemented (LICENSE, empty channels + ignored overlay, path hygiene). **Not** public-flip / KB3-exec. Packaging ≠ visibility flip.
+**Guide 01:** Implemented (pass 8) / reviewed shippable (pass 9) — shared spine + fixtures + CE seam. **Guide 02:** Packaging DoD implemented (LICENSE, empty channels + ignored overlay, path hygiene). **Guide 03:** This **public sibling** is the portfolio public surface; private archive remains private. Optional private tip scrub is separate hygiene — not required for “having a public AI KB.”
 
 This document describes the **current intended system** after pass-1 critical review and pass-4 KB5 reconcile. It is implementation-shaped and binding. Do not treat the January mega-doc as an executable plan.
 
@@ -167,7 +167,7 @@ Shared post-steps: optional channel/date filters; dedupe by `doc_id`/`source_id`
 | `content_hash` | Hash of normalized file bytes/text used for chunking. Content change → replace chunks. |
 | `embedding_version` | Store model name + dimension (e.g. `nomic-embed-text@768`). Search/ingest **stop** on mismatch with clear rebuild instruction. |
 
-CE does **not** replace identity/reconcile. **Guide 01 (done):** chunks persist stable `source_id`, `source_type`, `content_hash`, `embedding_version` (`nomic-embed-text@768`); `doc_id` is deterministic from `(source_type, source_id)` — not filepath MD5. Mismatch → fail closed with rebuild instruction. **Guide 02 (done):** packaging DoD (LICENSE, empty committed channels + ignored overlay, portable MCP/plist). Remaining flip blocker: **KB3-exec** tip scrub — not identity schema.
+CE does **not** replace identity/reconcile. **Guide 01 (done):** chunks persist stable `source_id`, `source_type`, `content_hash`, `embedding_version` (`nomic-embed-text@768`); `doc_id` is deterministic from `(source_type, source_id)` — not filepath MD5. Mismatch → fail closed with rebuild instruction. **Guide 02 (done):** packaging DoD (LICENSE, empty committed channels + ignored overlay, portable MCP/plist). **Guide 03:** portfolio public surface = this sibling; private tip scrub is optional hygiene on the private archive only.
 
 ---
 
@@ -237,42 +237,42 @@ Do not collapse all `None` returns into `no_subs`. Prefer English subtitle varia
 
 ## 9. Acceptance surface (public gate)
 
-Minimum before “stranger-runnable / public flip”:
+Minimum for stranger-runnable portfolio surface vs private-remote flip:
 
-| # | Gate | Guide 01 / now | Still needed for public flip |
-|---|------|----------------|------------------------------|
+| # | Gate | Guide 01 / now | Still needed |
+|---|------|----------------|--------------|
 | 1 | Fixture corpus + fixture ingest (§7.1) | **Done** | — |
 | 2 | Identity tests (`source_id`, `content_hash`, `embedding_version`) | **Done** | — |
 | 3 | Temp-LanceDB vector + hybrid + fusion smoke | **Done** | — |
 | 4 | CE on → `ce`; forced fail → `fusion_degraded` | **Done** | — |
 | 5 | Eval stub + CE keep/justify (no false lift ads) | **Done** (`ce_keep_note`) | Larger baseline optional later |
 | 6 | MCP RO allowlist contract test | **Done** | — |
-| 7 | README fixture-first vs personal sync + packaging DoD | **Done** (Guide 02: LICENSE, overlay, portable MCP cwd, plist template) | Packaging ≠ flip |
-| 8 | KB3-exec tip-transcript scrub | Inventory only (§10) | **Human-gated scrub — still open; blocks public flip** |
+| 7 | README fixture-first vs optional BYO sync + packaging DoD | **Done** (Guide 02 + Guide 03 live-path docs) | — |
+| 8 | Tip-transcript / history scrub | **(a) Portfolio public surface = this sibling** — met by sibling existence + fixtures/packaging (tip paths curated out). **(b) Flipping the private remote public** would still need scrub — **out of scope** for this repo. | Optional private hygiene only for (b) |
 
 Schema/import must not require Ollama for status/help that does not embed (**Done** — lazy schema).
 
 ---
 
-## 10. KB3 inventory checklist (classify — do not delete in this stage)
+## 10. KB3 inventory checklist (public sibling live status)
 
-Execute scrub only after human confirmation and before visibility flip (`KB3-exec`). This stage **inventories only**.
+Historical inventory originated on the **private** archive before sibling curation. On **this public sibling**, tip-transcript rows are **not present** (do not invent files). Scrub-of-private remains optional private hygiene if Tom later flips the private remote — not required for this public surface.
 
-| Path | Provisional class | Notes |
+| Path | On public sibling | Notes |
 |------|-------------------|-------|
-| `docs/2026-01-19_01_ai_second_brain_video_transcript.md` | **remove/replace** | Full third-party YouTube transcript |
-| `docs/2026-01-19_02_ai_second_brain_video_transcript.md` | **remove/replace** | Full third-party YouTube transcript |
-| `docs/2026-01-19_this_is_why_youre_still_slow_even_with_ai_video_transcript.md` | **remove/replace** | Full third-party YouTube transcript |
-| `docs/2026-01-19_ai_second_brain_research.md` | **remove or heavily redact** | Owner-specific domains/tools in metadata; not redistributable research dump as-is |
-| `docs/2026-01-19_ai_resources_directory.md` | **review → likely keep** | Curated public links; confirm no private notes |
-| `docs/2026-01-25_ai_youtube_channels_list.md` | **review → keep or slim** | Public channel catalog; not a transcript; may duplicate personal taste |
-| `docs/2026-01-26_ai_knowledge_base_planning.md` | **keep** | Planning archaeology |
-| `docs/2026-01-30_architecture.md` | **keep (historical)** | Superseded by this file; do not execute |
-| `docs/2026-01-30_vision.md` | **keep** | Personal vision; mark non-public-demo if needed |
-| `docs/PORTFOLIO_VISION.md` | **keep** | Active portfolio vision (align hybrid+CE wording with KB5 when packaging) |
-| `data/raw/` transcripts / LanceDB / `sync_state.json` | **already gitignored** | Never publish; not part of tip inventory |
+| `docs/2026-01-19_01_ai_second_brain_video_transcript.md` | **Not present** | Curated out; still may exist on private archive |
+| `docs/2026-01-19_02_ai_second_brain_video_transcript.md` | **Not present** | Curated out; still may exist on private archive |
+| `docs/2026-01-19_this_is_why_youre_still_slow_even_with_ai_video_transcript.md` | **Not present** | Curated out; still may exist on private archive |
+| `docs/2026-01-19_ai_second_brain_research.md` | **Not present** | Curated out; still may exist on private archive |
+| `docs/2026-01-19_ai_resources_directory.md` | **Present** | Curated public links |
+| `docs/2026-01-25_ai_youtube_channels_list.md` | **Present** | Public channel catalog; not a transcript |
+| `docs/2026-01-26_ai_knowledge_base_planning.md` | **Present** | Planning archaeology |
+| `docs/2026-01-30_architecture.md` | **Present (historical)** | Superseded by this file; do not execute |
+| `docs/2026-01-30_vision.md` | **Present** | Personal vision; non-binding stack |
+| `docs/PORTFOLIO_VISION.md` | **Present** | Active portfolio vision |
+| `data/raw/` transcripts / LanceDB / `sync_state.json` | **gitignored** | Never publish; optional BYO local only |
 
-Also decide (human): tip deletion vs history rewrite for removed transcripts. Do not flip public first.
+Private scrub (tip-delete vs history rewrite) is documented on the superseded private Guide 03 runbook — not DoD for this sibling.
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Status:** Active for public packaging intent  
 **Created:** 2026-07-12  
-**Updated:** 2026-07-13 (Guide 02 packaging DoD)  
+**Updated:** 2026-07-14 (Guide 03 — public sibling honesty + optional BYO live path)  
 **Owner:** Tom  
 **Binding architecture:** [`docs/ARCHITECTURE.md`](./ARCHITECTURE.md) (KB1–KB5)  
 **Related personal vision:** `docs/2026-01-30_vision.md` (personal second-brain — private use; stack choices **non-binding**)  
@@ -23,7 +23,7 @@ It is **not** a cloud SaaS, not a chatbot product, and not a rewrite of second_b
 | Agent tooling | Read-only public MCP allowlist |
 | Local-first packaging | `uv`, synthetic fixtures, fixture-first smoke |
 
-**Guide 01 (retrieval spine) is implemented.** **Guide 02 packaging DoD is implemented** (LICENSE, empty committed channels + ignored overlay, portable MCP/plist paths). That is **not** “v1 public complete.” Public flip still needs **KB3-exec** tip scrub. **Packaging DoD ≠ visibility flip.**
+**Guide 01 (retrieval spine) is implemented.** **Guide 02 packaging DoD is implemented** (LICENSE, empty committed channels + ignored overlay, portable MCP/plist paths). **This public sibling repo is the portfolio public surface.** Private archive (`ai_knowledge_base`) remains private; scrubbing private tip history is optional hygiene, **not** a blocker for “having a public AI KB.”
 
 ---
 
@@ -34,12 +34,13 @@ It is **not** a cloud SaaS, not a chatbot product, and not a rewrite of second_b
 - **Committed fixtures** under `fixtures/` (≈6 synthetic markdown docs + provenance/manifest + golden eval cases).
 - Fixture ingest + temp/local LanceDB smoke — **no** personal `data/raw/` required.
 - Public MCP cites `source_id` / documented URL — never owner filepaths.
+- Tip-transcript paths inventoried on the private archive (§10) are **absent** on this sibling (curated out at sibling creation).
 
 ### Private / local only (not the public demo path)
 
-- Personal YouTube sync under ignored `data/raw/youtube_transcripts/`.
+- Optional BYO YouTube sync under ignored `data/raw/youtube_transcripts/` (user’s own channels via `channels.local.json`).
 - Personal channels load from ignored `channels.local.json` (committed default is empty — Guide 02 / KB1).
-- Tip docs with third-party transcripts remain in-repo until **KB3-exec** (inventory in ARCHITECTURE §10; **no scrub in this pass**).
+- Private archive may still hold tip transcripts; that is **not** this repo’s tip tree.
 
 ### Not first-class today
 
@@ -54,7 +55,7 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 | Binding architecture | `docs/ARCHITECTURE.md` (KB1–KB5) |
 | January rewrite / mxbai migration | **Rejected** — non-binding archaeology |
 | Code | Package existing spine (`ingest`, `search`, `rerank`, `mcp_server`, …) — seams only |
-| Public v1 gate | Scrub (KB3-exec) + fixtures (done) + LICENSE (done) + empty channel default + overlay (done) |
+| Public v1 gate | Fixtures (done) + LICENSE (done) + empty channel default + overlay (done) + **this public sibling repo** — not “scrub private first” |
 | Scratch / rewrite? | **No** |
 
 ---
@@ -65,13 +66,15 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 |------|--------|-------|
 | Fixture corpus committed (no private content) | **Done** | `fixtures/` + PROVENANCE/manifest |
 | `uv sync` + `nomic-embed-text` pull + smoke search documented | **Done** | README fixture-first path |
-| Shared hybrid → fusion → CE spine (Guide 01) | **Done** | Pass 8/9; not public-flip |
+| Shared hybrid → fusion → CE spine (Guide 01) | **Done** | Pass 8/9; portfolio surface = this sibling |
 | CE honesty: no false “CE improves relevance” | **Done** | `ce_keep_note`; seam kept without lift claim |
-| MCP example without owner absolute `cwd` | **Done** | Guide 02: `mcp-config.example.json` uses `/path/to/ai_knowledge_base` (README was already portable) |
+| MCP example without owner absolute `cwd` | **Done** | Guide 02: `mcp-config.example.json` uses portable placeholder |
 | Personal channels out of committed public default | **Done** | Guide 02: empty default + ignored `channels.local.json` |
-| KB3-exec tip-transcript scrub | **Open** | Human-gated; **no scrub this pass** — still blocks public flip |
-| LICENSE file present | **Done** | Root MIT `LICENSE` (Tom Chacko 2026); packaging DoD ≠ flip |
+| Public sibling as portfolio surface | **Done** | This repo (`ai-knowledge-base-public`) |
+| KB3-exec tip-transcript scrub | **N/A on public sibling / optional private hygiene** | Private remote flip would still need scrub — out of scope here |
+| LICENSE file present | **Done** | Root MIT `LICENSE` (Tom Chacko 2026) |
 | Launchd plist owner paths | **Done** | Guide 02: `REPLACE_WITH_REPO_ROOT` template |
+| Optional BYO live path (7-day backfill) | **Done** | Documented; not default / not CI |
 | No execution of January clean rewrite | **Held** | KB4 |
 
 ---
