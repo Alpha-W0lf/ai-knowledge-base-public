@@ -106,24 +106,31 @@ Make the **public portfolio surface** honest and stranger-complete for Guide 03:
     - edit handles (user’s own; never commit)  
     - note `BACKFILL_DAYS` default **7**  
     - `uv run python -m src.youtube_sync`  
-    - ingest from `data/raw/youtube_transcripts/` (or current in-repo ingest path)  
+    - ingest live downloads: `uv run python -m src.ingest data/raw/youtube_transcripts/` (path = `config.TRANSCRIPTS_DIR`; do not invent a second path)  
     - search smoke  
 2.4 Explicit negatives: no auto-sync on clone; live path not required for portfolio demo; do not commit transcripts or `channels.local.json`.  
 2.5 Remove or rewrite the README line that says packaging DoD closed but **public GitHub visibility flip still blocked on KB3-exec tip scrub** — that was private-repo flip language. Replace with: public surface is this repo; private archive remains private; optional private scrub is separate hygiene.
 
 ### Phase 3 — PORTFOLIO_VISION + ARCHITECTURE honesty (public repo)
 
-3.1 Update `docs/PORTFOLIO_VISION.md`: public sibling = portfolio public surface; KB3-exec scrub of **private** tip history is **not** a blocker for “public AI KB exists.” Mark private archive status honestly.  
-3.2 Update `docs/ARCHITECTURE.md` §9 gate 8 (and any parallel “blocks public flip” rows): distinguish **(a)** stranger-runnable public sibling (this repo) vs **(b)** flipping the private remote to public (still would need scrub — out of scope / not the portfolio path).  
+3.1 Update `docs/PORTFOLIO_VISION.md` with these **pinned honesty moves** (pass 37) — adapt surrounding sentences but keep meaning:  
+    - Replace “Public flip still needs KB3-exec tip scrub” framing with: **This public sibling repo is the portfolio public surface.** Private archive (`ai_knowledge_base`) remains private; scrubbing private tip history is optional hygiene, **not** a blocker for “having a public AI KB.”  
+    - Delete or rewrite the false claim that tip transcripts “remain in-repo until KB3-exec” — **live evidence:** tip transcript paths from private §10 are **absent** on this sibling (curated out).  
+    - Status table row `KB3-exec tip-transcript scrub`: change from “blocks public flip” to **N/A on public sibling / optional private hygiene** (private remote flip still would need scrub — out of scope).  
+    - Public v1 gate row: fixtures + LICENSE + empty channels + overlay + **this public repo** — not “scrub private first.”  
+3.2 Update `docs/ARCHITECTURE.md` §9 gate 8 (pass 37 pinned wording intent):  
+    - Gate 8 column “Still needed for public flip” → distinguish **(a) portfolio public surface = this sibling (met by existence + fixtures/packaging)** vs **(b) flipping the private remote public (would still need scrub; out of scope).**  
+    - §10 inventory: mark missing tip-transcript rows as **not present on public sibling** (do not invent files); keep §10 as historical/private-archive pointer or slim to files that actually exist here.  
 3.3 Do not invent CE freeze or “v1 complete” claims.  
 3.4 Keep KB1 fixtures + KB2 MCP public allowlist language intact unless wording conflicts with sibling story.
 
 ### Phase 4 — Supersede private scrub Guide 03 (honesty only)
 
 4.1 At top of `ai_knowledge_base/docs/dev_guides/2026-07-14_dev_guide_03_kb3_exec_scrub.md`, add a **Superseded for portfolio public story** banner pointing to this public guide path.  
-4.2 Same banner / status note on private context summary.  
+    **Pass 36 note:** Banner already present on private guide + context — Implement **re-verifies** and skips rewrite if still accurate.  
+4.2 Same banner / status note on private context summary. (**Already present** — re-verify.)  
 4.3 Do **not** delete the scrub guide; it remains optional private hygiene if Tom later authorizes A|B scrub.  
-4.4 Optional one-line pointer in private README/PORTFOLIO_VISION: public portfolio surface lives in sibling repo (path/URL).
+4.4 Optional one-line pointer in private README/PORTFOLIO_VISION: public portfolio surface lives in sibling repo (`https://github.com/Alpha-W0lf/ai-knowledge-base-public`).
 
 ### Phase 5 — Verification (fixture default)
 
@@ -197,3 +204,10 @@ Make the **public portfolio surface** honest and stranger-complete for Guide 03:
 - [x] Blast radius and edges listed  
 - [x] Steps + DoD executable without inventing material policy  
 - [x] No code implemented in Write stage  
+
+## Honest readiness (pass 37 VERIFY)
+
+- **Implement readiness score:** **9.3 / 10** — pass 37 pinned honesty replacement intent for VISION/ARCHITECTURE/README and called out live false claim (tip transcripts “remain in-repo” though absent on public). **Not 10:** Implement still crafts final paragraph wording; optional private README pointer soft.  
+- **Status:** **READY** — awaiting Implement authorize.  
+- **Live baselines:** `BACKFILL_DAYS=60`; ≥12 stale “KB3-exec blocks flip” mentions; tip §10 paths mostly **missing** on public (expected — curated sibling).  
+- **Material invent risk remaining:** low.  
