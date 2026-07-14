@@ -1,0 +1,6 @@
+{"id": "g1", "query": "Claude Code hooks hybrid retrieval stages", "expected_source_ids": ["fixture:rag-hooks-01"], "must_cite": true, "kind": "lexical"}
+{"id": "g2", "query": "MCP allowlist public tools add_channel absent", "expected_source_ids": ["fixture:mcp-allowlist-02"], "must_cite": true, "kind": "lexical"}
+{"id": "g3", "query": "why rebuild vector index when embedding model stamp changes", "expected_source_ids": ["fixture:embedding-version-03"], "must_cite": true, "kind": "semantic"}
+{"id": "g4", "query": "reciprocal rank fusion RRF combine FTS vector", "expected_source_ids": ["fixture:fusion-rrf-04"], "must_cite": true, "kind": "lexical"}
+{"id": "g5", "query": "score query and passage together then keep top K", "expected_source_ids": ["fixture:cross-encoder-05"], "must_cite": true, "kind": "semantic"}
+{"id": "g6", "query": "fixture provenance smoke without personal youtube corpus", "expected_source_ids": ["fixture:fixture-ingest-06"], "must_cite": true, "kind": "lexical"}

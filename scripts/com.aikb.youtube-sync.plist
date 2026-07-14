@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Private macOS launchd template — not required for fixture smoke.
+  Before launchctl load: replace every REPLACE_WITH_REPO_ROOT with your
+  absolute clone path (e.g. /Users/you/src/ai_knowledge_base).
+  $REPO_ROOT in docs means the same substitution target.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.aikb.youtube-sync</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>REPLACE_WITH_REPO_ROOT/scripts/sync_youtube.sh</string>
+        <string>300</string><!-- 5 minute delay -->
+    </array>
+    
+    <!-- Run every 6 hours (21600 seconds) -->
+    <key>StartInterval</key>
+    <integer>21600</integer>
+    
+    <!-- Don't run immediately on login/load -->
+    <key>RunAtLoad</key>
+    <false/>
+    
+    <!-- Low CPU priority (nice value 10) -->
+    <key>Nice</key>
+    <integer>10</integer>
+    
+    <!-- Low I/O priority -->
+    <key>LowPriorityIO</key>
+    <true/>
+    
+    <!-- Log stdout/stderr -->
+    <key>StandardOutPath</key>
+    <string>REPLACE_WITH_REPO_ROOT/data/launchd_stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>REPLACE_WITH_REPO_ROOT/data/launchd_stderr.log</string>
+    
+    <!-- Working directory -->
+    <key>WorkingDirectory</key>
+    <string>REPLACE_WITH_REPO_ROOT</string>
+    
+    <!-- Environment -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+</dict>
+</plist>

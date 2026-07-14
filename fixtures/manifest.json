@@ -1,0 +1,58 @@
+{
+  "fixtures": [
+    {
+      "source_id": "fixture:rag-hooks-01",
+      "title": "RAG hooks and retrieval stages",
+      "license": "synthetic",
+      "channel": "fixtures",
+      "url": null,
+      "file": "transcripts/rag-hooks-01.md",
+      "notes": "Lexical: hooks, hybrid, retrieval stages"
+    },
+    {
+      "source_id": "fixture:mcp-allowlist-02",
+      "title": "MCP read-only allowlist patterns",
+      "license": "synthetic",
+      "channel": "fixtures",
+      "url": null,
+      "file": "transcripts/mcp-allowlist-02.md",
+      "notes": "Lexical: MCP allowlist public tools"
+    },
+    {
+      "source_id": "fixture:embedding-version-03",
+      "title": "Embedding version and rebuild discipline",
+      "license": "synthetic",
+      "channel": "fixtures",
+      "url": null,
+      "file": "transcripts/embedding-version-03.md",
+      "notes": "Semantic: refuse query on version mismatch"
+    },
+    {
+      "source_id": "fixture:fusion-rrf-04",
+      "title": "Rank fusion with reciprocal rank fusion",
+      "license": "synthetic",
+      "channel": "fixtures",
+      "url": null,
+      "file": "transcripts/fusion-rrf-04.md",
+      "notes": "Lexical: RRF fusion shortlist"
+    },
+    {
+      "source_id": "fixture:cross-encoder-05",
+      "title": "Cross-encoder rerank shortlist",
+      "license": "synthetic",
+      "channel": "fixtures",
+      "url": null,
+      "file": "transcripts/cross-encoder-05.md",
+      "notes": "Semantic: pluggable CE after fusion"
+    },
+    {
+      "source_id": "fixture:fixture-ingest-06",
+      "title": "Fixture-first ingest without personal corpus",
+      "license": "synthetic",
+      "channel": "fixtures",
+      "url": null,
+      "file": "transcripts/fixture-ingest-06.md",
+      "notes": "Lexical: fixtures provenance smoke path"
+    }
+  ]
+}

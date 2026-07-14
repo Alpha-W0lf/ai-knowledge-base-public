@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data (large files, regeneratable)
+data/lancedb/
+data/raw/youtube_transcripts/
+
+# Keep the raw directory structure
+!data/raw/.gitkeep
+!data/raw/youtube_transcripts/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.key
+
+# Personal channel overlay (KB1) — never commit real handles
+channels.local.json
+config.local.py
+
+# Sync state (local)
+data/sync_state.json
