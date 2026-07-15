@@ -18,7 +18,7 @@ A local-first, vector-powered knowledge base for AI domain research. Ingests You
 **Personal vision (non-binding stack):** [`docs/2026-01-30_vision.md`](docs/2026-01-30_vision.md)  
 **January architecture:** [`docs/2026-01-30_architecture.md`](docs/2026-01-30_architecture.md) — **historical / NON-BINDING** (clean rewrite **rejected**).
 
-Guide 01 (shared retrieval spine) is **implemented**. Guide 02 packaging DoD (LICENSE, empty channels + ignored overlay, path hygiene) is **implemented**. Guide 03: this **public sibling** is the portfolio public surface; private archive remains private. Optional private tip scrub is separate hygiene — **not** a blocker for having a public AI KB.
+Guide 01 (shared retrieval spine) is **implemented**. Guide 02 packaging DoD (LICENSE, empty channels + ignored overlay, path hygiene) is **implemented**. Guide 03: this **public sibling** is the portfolio public surface; private archive remains private. Guide 04: root [`GETTING_STARTED.md`](GETTING_STARTED.md) + [`INTERVIEW.md`](INTERVIEW.md) — stranger-clone + FAQ shell; **not** v1 complete / eval-complete. Optional private tip scrub is separate hygiene — **not** a blocker for having a public AI KB.
 
 ## Features
 
@@ -31,44 +31,17 @@ Guide 01 (shared retrieval spine) is **implemented**. Guide 02 packaging DoD (LI
 
 ## Quick Start
 
+**Full clone path:** [`GETTING_STARTED.md`](GETTING_STARTED.md) · **Interview FAQ:** [`INTERVIEW.md`](INTERVIEW.md)
+
 ```bash
-# Install dependencies
 uv sync
-
-# Pull embedding model (nomic — not gemma, not mxbai)
 ollama pull nomic-embed-text
-
-# Fixture-first smoke (no personal corpus, no YouTube required)
 uv run python -m src.ingest --fixtures
 uv run python -m src.search "reciprocal rank fusion RRF" --hybrid --db data/lancedb
 uv run python -m src.eval
 ```
 
-Fixture smoke is the portfolio demo path. Live YouTube sync is optional (below) and **not** required for a green stranger clone.
-
-**Cross-encoder:** local `cross-encoder/ms-marco-MiniLM-L-6-v2` via `sentence-transformers` (pluggable). On the committed fixture golden set there is **no claimed hit@K lift** — keep the CE seam + degrade path for demos; do **not** read this as “CE improves relevance.” See [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
-
-### Optional: BYO YouTube live path
-
-Not required for portfolio demo. No auto-sync on clone. Do not commit `channels.local.json` or downloaded transcripts.
-
-```bash
-# 1. Copy example → ignored local overlay
-cp channels.local.example.json channels.local.json
-
-# 2. Edit handles to your own channels (placeholders only in the example)
-
-# 3. Default BACKFILL_DAYS is 7 (public demo window). Raise in src/config.py locally for deeper backfill.
-
-# 4. Sync (network + yt-dlp)
-uv run python -m src.youtube_sync
-
-# 5. Ingest live downloads (path = config.TRANSCRIPTS_DIR)
-uv run python -m src.ingest data/raw/youtube_transcripts/
-
-# 6. Search smoke
-uv run python -m src.search "your query" --hybrid --db data/lancedb
-```
+Fixture smoke is the portfolio demo path — see GETTING_STARTED for footguns, BYO optional path, and honesty banners. CE: pluggable seam + degrade; **no** claimed hit@K lift on fixture goldens ([`ce_keep_note`](docs/2026-07-12_ce_keep_note.md)).
 
 ## Architecture
 
