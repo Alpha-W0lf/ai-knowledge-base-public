@@ -23,7 +23,7 @@ It is **not** a cloud SaaS, not a chatbot product, and not a rewrite of second_b
 | Agent tooling | Read-only public MCP allowlist |
 | Local-first packaging | `uv`, synthetic fixtures, fixture-first smoke |
 
-**Guide 01 (retrieval spine) is implemented.** **Guide 02 packaging DoD is implemented** (LICENSE, empty committed channels + ignored overlay, portable MCP/plist paths). **Guide 03:** this public sibling is the portfolio public surface with optional BYO live path. **Guide 04:** root `GETTING_STARTED.md` + `INTERVIEW.md` landed — stranger-clone + FAQ shell; **still not** portfolio v1 complete, **not** private-flip ready, **not** eval-complete. Private archive (`ai_knowledge_base`) remains private; scrubbing private tip history is optional hygiene, **not** a blocker for “having a public AI KB.”
+**Guide 01 (retrieval spine) is implemented.** **Guide 02 packaging DoD is implemented** (LICENSE, empty committed channels + ignored overlay, portable MCP/plist paths). **Guide 03:** this public sibling is the portfolio public surface with optional BYO live path. **Guide 04:** root `GETTING_STARTED.md` + `INTERVIEW.md` landed — stranger-clone + FAQ shell. **Guide 05:** fixture golden growth to **N=18** + re-eval honesty — **still not** portfolio v1 complete, **not** private-flip ready, **not** eval-complete. Private archive (`ai_knowledge_base`) remains private; scrubbing private tip history is optional hygiene, **not** a blocker for “having a public AI KB.”
 
 ---
 
@@ -31,7 +31,7 @@ It is **not** a cloud SaaS, not a chatbot product, and not a rewrite of second_b
 
 ### Public / stranger-runnable (default story)
 
-- **Committed fixtures** under `fixtures/` (≈6 synthetic markdown docs + provenance/manifest + golden eval cases).
+- **Committed fixtures** under `fixtures/` (≈6 synthetic markdown docs + provenance/manifest + **N=18** golden eval cases).
 - Fixture ingest + temp/local LanceDB smoke — **no** personal `data/raw/` required.
 - Public MCP cites `source_id` / documented URL — never owner filepaths.
 - Tip-transcript paths inventoried on the private archive (§10) are **absent** on this sibling (curated out at sibling creation).
@@ -67,6 +67,7 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 | Fixture corpus committed (no private content) | **Done** | `fixtures/` + PROVENANCE/manifest |
 | `uv sync` + `nomic-embed-text` pull + smoke search documented | **Done** | README thin Quick Start + `GETTING_STARTED.md` |
 | Root GETTING_STARTED + INTERVIEW (Guide 04) | **Done** | Stranger-clone + FAQ; not v1 / eval-complete |
+| Fixture golden growth N≥18 (Guide 05) | **Done** | N=18; fusion/CE hit@K both 1.0; `ce_keep=false`; not eval-complete |
 | Shared hybrid → fusion → CE spine (Guide 01) | **Done** | Pass 8/9; portfolio surface = this sibling |
 | CE honesty: no false “CE improves relevance” | **Done** | `ce_keep_note`; seam kept without lift claim |
 | MCP example without owner absolute `cwd` | **Done** | Guide 02: `mcp-config.example.json` uses portable placeholder |
@@ -84,4 +85,4 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 
 Fills **local hybrid RAG + MCP** on LanceDB — same ranking *shape* as Mechanic (MR2/KB5), different store. Differentiates from Mechanic (product/web RAG + Postgres) and AlphaGuard (agents/streaming/ML gate). Eyeglass remains untouched for MLE/MLOps.
 
-**CE no-lift honesty:** On the tiny fixture golden set, hit@K lift was **not** shown; keep the pluggable CE seam + `ranking_stage` / degrade for demos; do not market CE as proven relevance lift until a larger eval says so.
+**CE no-lift honesty:** On the Guide 05 fixture golden set (**N=18**), fusion and CE both recorded hit@K **1.0** (`ce_keep=false`); keep the pluggable CE seam + `ranking_stage` / degrade for demos; do not market CE as proven relevance lift.

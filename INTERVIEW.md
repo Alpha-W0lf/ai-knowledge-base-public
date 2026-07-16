@@ -52,9 +52,9 @@ Do not conflate `fusion_degraded` with intentionally disabling CE (`--no-ce`). D
 
 ## 6. Does CE improve relevance here? Where is the keep note?
 
-**No — do not claim CE improves relevance** on the committed fixture golden set. `uv run python -m src.eval` recorded `ce_keep=false`: hit@K lift vs fusion-only was **not shown** on this tiny baseline.
+**No — do not claim CE improves relevance** on the committed fixture golden set. Guide 05 grew goldens to **N=18**; `uv run python -m src.eval` recorded `fusion.hit_at_k=1.0`, `ce.hit_at_k=1.0`, `ce_keep=false`. Equal hits are **not** lift.
 
-The **keep note** is [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md). Guide 01 DoD is the **pluggable CE seam** + `ranking_stage` provenance + degrade path — not proven relevance lift. Revisit keep/disable after a larger eval baseline.
+The **keep note** is [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md). Guide 01 DoD is the **pluggable CE seam** + `ranking_stage` provenance + degrade path — not proven relevance lift. Do not flip `CE_ENABLED` default without human authorize after metrics.
 
 ## 7. What do citations use instead of owner filepaths?
 
@@ -69,9 +69,10 @@ Identity fields (`source_id`, `content_hash`, `embedding_version`) are binding; 
 - portfolio v1 checklist complete
 - private archive remote flip ready
 - CE freeze or proven relevance lift
-- eval-complete (fixture stub only; no golden growth in Guide 04)
+- eval-complete (Guide 05: N=18 fixture goldens + honest CE metrics; still not “eval-complete”)
+- private-archive flip / tip scrub
 
-Packaging DoD (LICENSE, empty channels + overlay, fixture smoke, this sibling repo) is **implemented**. Larger eval baseline, private scrub, and January rewrite remain **out of scope** for Guide 04.
+Packaging DoD (LICENSE, empty channels + overlay, fixture smoke, this sibling repo) is **implemented**. Larger eval themes (hard negatives, private scrub, January rewrite) remain **out of scope** unless a new guide authorizes them.
 
 ---
 

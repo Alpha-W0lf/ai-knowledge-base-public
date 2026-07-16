@@ -4,3 +4,15 @@
 {"id": "g4", "query": "reciprocal rank fusion RRF combine FTS vector", "expected_source_ids": ["fixture:fusion-rrf-04"], "must_cite": true, "kind": "lexical"}
 {"id": "g5", "query": "score query and passage together then keep top K", "expected_source_ids": ["fixture:cross-encoder-05"], "must_cite": true, "kind": "semantic"}
 {"id": "g6", "query": "fixture provenance smoke without personal youtube corpus", "expected_source_ids": ["fixture:fixture-ingest-06"], "must_cite": true, "kind": "lexical"}
+{"id": "g7", "query": "validate hybrid search ran vector plus keyword before fusion", "expected_source_ids": ["fixture:rag-hooks-01"], "must_cite": true, "kind": "semantic"}
+{"id": "g8", "query": "identity content hash and optional cross-encoder rerank stages", "expected_source_ids": ["fixture:rag-hooks-01"], "must_cite": true, "kind": "lexical"}
+{"id": "g9", "query": "public MCP should expose search discover get_status only", "expected_source_ids": ["fixture:mcp-allowlist-02"], "must_cite": true, "kind": "semantic"}
+{"id": "g10", "query": "citations must use source_id not absolute owner filepaths", "expected_source_ids": ["fixture:mcp-allowlist-02"], "must_cite": true, "kind": "lexical"}
+{"id": "g11", "query": "embedding_version nomic-embed-text@768 as vector schema stamp", "expected_source_ids": ["fixture:embedding-version-03"], "must_cite": true, "kind": "lexical"}
+{"id": "g12", "query": "refuse search until LanceDB rebuilt after dimension change", "expected_source_ids": ["fixture:embedding-version-03"], "must_cite": true, "kind": "semantic"}
+{"id": "g13", "query": "RRF adds one over k plus rank from each retriever leg", "expected_source_ids": ["fixture:fusion-rrf-04"], "must_cite": true, "kind": "lexical"}
+{"id": "g14", "query": "fused shortlist of size N feeds the cross-encoder", "expected_source_ids": ["fixture:fusion-rrf-04"], "must_cite": true, "kind": "semantic"}
+{"id": "g15", "query": "cross-encoder too slow for whole corpus so retrieve then rerank", "expected_source_ids": ["fixture:cross-encoder-05"], "must_cite": true, "kind": "semantic"}
+{"id": "g16", "query": "if local cross-encoder fails degrade to fused ranks fusion_degraded", "expected_source_ids": ["fixture:cross-encoder-05"], "must_cite": true, "kind": "lexical"}
+{"id": "g17", "query": "ingest committed fixtures under fixtures/transcripts for portfolio smoke", "expected_source_ids": ["fixture:fixture-ingest-06"], "must_cite": true, "kind": "lexical"}
+{"id": "g18", "query": "provenance lists source_id title and license without personal YouTube", "expected_source_ids": ["fixture:fixture-ingest-06"], "must_cite": true, "kind": "semantic"}

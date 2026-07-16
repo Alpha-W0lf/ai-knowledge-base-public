@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 05 — grow fixture golden cases; re-run eval; refresh CE honesty; keep sophisticated hybrid → fusion → CE seam  
 **Stage that authored this:** Write-dev-guide (pass 61); Refine-dev-guide (pass 62–64)  
-**Status:** Refined (pass 64 VERIFY — no material edits; scores held) — ready for Ready-check; **not implemented**
+**Status:** **Implemented** 2026-07-16 (N=18 goldens + eval + honesty)
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-15_guide05_eval_growth_context_summary.md`  
 **Locks:** `second_brain/docs/2026-07-16_human_locks_pass60_fan_in.md`  
@@ -87,11 +87,11 @@
 
 ## Acceptance criteria
 
-- [ ] `golden_cases.jsonl` has **N ≥ 18** unique `id`s  
-- [ ] Each case’s `expected_source_ids` ⊆ committed fixture ids; query grounded in that doc’s text  
-- [ ] Eval re-run completed; `ce_keep_note` records N + fusion vs CE hit@K + `ce_keep` / justify text  
-- [ ] GETTING_STARTED / INTERVIEW / PORTFOLIO_VISION updated — not eval-complete; CE lift only if measured  
-- [ ] No tip scrub / embedding model change / MCP mutation default change / harness redesign  
+- [x] `golden_cases.jsonl` has **N ≥ 18** unique `id`s  
+- [x] Each case’s `expected_source_ids` ⊆ committed fixture ids; query grounded in that doc’s text  
+- [x] Eval re-run completed; `ce_keep_note` records N + fusion vs CE hit@K + `ce_keep` / justify text  
+- [x] GETTING_STARTED / INTERVIEW / PORTFOLIO_VISION updated — not eval-complete; CE lift only if measured  
+- [x] No tip scrub / embedding model change / MCP mutation default change / harness redesign  
 
 ---
 
@@ -101,21 +101,21 @@ All boxes start unchecked. **Do not check boxes in Write / Ready-check.**
 
 ### Phase A — Inventory
 
-- [ ] **A1.** Read all six fixture transcripts; list ≥2 candidate questions per doc.  
-- [ ] **A2.** Re-read `src/eval/__init__.py` field contract (`expected_source_ids`, `must_cite`) — do not break it.
+- [x] **A1.** Read all six fixture transcripts; list ≥2 candidate questions per doc.  
+- [x] **A2.** Re-read `src/eval/__init__.py` field contract (`expected_source_ids`, `must_cite`) — do not break it.
 
 ### Phase B — Author goldens
 
-- [ ] **B1.** Add cases to reach N ≥ 18 with unique ids (`g7`…).  
-- [ ] **B2.** Prefer paraphrase diversity (not copy-paste of g1–g6).  
-- [ ] **B3.** Spot-check: every expected source appears in manifest / transcripts; no empty `expected_source_ids`.
+- [x] **B1.** Add cases to reach N ≥ 18 with unique ids (`g7`…).  
+- [x] **B2.** Prefer paraphrase diversity (not copy-paste of g1–g6).  
+- [x] **B3.** Spot-check: every expected source appears in manifest / transcripts; no empty `expected_source_ids`.
 
 ### Phase C — Eval + honesty
 
-- [ ] **C1.** Run `uv run python -m src.eval` (needs Ollama + embeddings as today).  
-- [ ] **C2.** Update `docs/2026-07-12_ce_keep_note.md` with new N + fusion/CE metrics + justify string.  
-- [ ] **C3.** Align GETTING_STARTED / INTERVIEW Theme 6 / PORTFOLIO_VISION.  
-- [ ] **C4.** Stop. Do not claim eval-complete; do not flip CE default without human.
+- [x] **C1.** Run `uv run python -m src.eval` (needs Ollama + embeddings as today).  
+- [x] **C2.** Update `docs/2026-07-12_ce_keep_note.md` with new N + fusion/CE metrics + justify string.  
+- [x] **C3.** Align GETTING_STARTED / INTERVIEW Theme 6 / PORTFOLIO_VISION.  
+- [x] **C4.** Stop. Do not claim eval-complete; do not flip CE default without human.
 
 ---
 
