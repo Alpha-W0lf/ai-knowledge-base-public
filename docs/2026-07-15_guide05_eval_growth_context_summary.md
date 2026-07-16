@@ -2,11 +2,8 @@
 
 **Date:** 2026-07-15  
 **Repos:** `ai-knowledge-base-public`  
-**Status:** Refined (pass 59)  
-**Mode last used:** hub  
-**Prioritize SSOT:** `second_brain/docs/2026-07-15_prioritize_next_work_pass58_fan_in.md`  
-**Refine fan-in:** `second_brain/docs/2026-07-15_refine_context_pass59_fan_in.md`  
-**Role lens:** AI engineer (RAG evals)
+**Status:** Refined (pass 59); **authorized 2026-07-16** — eval growth next; keep sophisticated stack + honest eval  
+**Locks:** `second_brain/docs/2026-07-16_human_locks_pass60_fan_in.md`
 
 ## Problem
 
@@ -73,12 +70,13 @@ Guides 01–04 shipped retrieval spine + packaging (`GETTING_STARTED` / `INTERVI
 
 ## Open decisions (human)
 
-- **H-AIKB**
-  - Options: (A) authorize Write-dev-guide now; (B) park until AG U4/05a or Vehicle S9; (C) authorize but lower priority than AG after U4.
-  - Recommendation: **(A) or (C)** — authorize as **parallel quick win**; if serial capacity is one track, prefer AG 05a after U4 for interview ROI, then AI KB.
-  - Reasoning: Fewest blockers (no U4-class source lock); packaging already shipped; eval stub is the honesty gap interviewers will probe next on this repo.
-  - Tradeoffs: Dilutes focus if Tom only wants AG Option B; growing N without theme discipline still won’t justify CE lift ads.
-- Target N: soft-pin **≥15–20** distinct fixture-grounded cases unless Write-dev-guide inventory says otherwise.
+- **Plain title:** Should we grow the AI Knowledge Base eval question set next? (id: H-AIKB)
+  - In plain terms: Packaging docs are done. The eval set is still a small stub. Growing it means adding more real test questions grounded in the committed fixture docs, then re-running eval so we stay honest about whether the reranker helps.
+  - Options: (A) start the next eng guide for eval growth now; (B) park this while AlphaGuard / Vehicle take focus; (C) allow it as a lower-priority parallel track.
+  - Recommendation: **(A) or (C)** — allow as a small parallel win; if you can only do one eng track, prefer AlphaGuard’s training-dataset work after the news-source lock.
+  - Reasoning: This track has few blockers (no news-source license gate). Packaging is already shipped. The next honesty gap on this repo is “eval is still tiny.”
+  - Tradeoffs: Splits attention if you only want AlphaGuard Option B. A larger question count still does **not** let us advertise reranker “lift” unless the metrics show lift.
+- Soft target: about **15–20** distinct fixture-grounded cases unless the write-guide inventory says otherwise.
 
 ## Evidence opened this pass
 
@@ -87,5 +85,5 @@ Guides 01–04 shipped retrieval spine + packaging (`GETTING_STARTED` / `INTERVI
 
 ## Honest readiness
 
-- Ready for Write-dev-guide? **Yes** (no hard source lock) — unless human parks H-AIKB.  
-- Context quality: sufficient; soft-pin N in Write-dev-guide from fixture inventory.  
+- Ready for Write-dev-guide? **Yes.** Soft-pin ~15–20 fixture-grounded cases; keep hybrid + fusion + rerank seam; do not advertise lift without metrics.  
+- Context quality: sufficient.  
