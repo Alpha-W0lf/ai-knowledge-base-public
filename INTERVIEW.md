@@ -52,7 +52,7 @@ Do not conflate `fusion_degraded` with intentionally disabling CE (`--no-ce`). D
 
 ## 6. Does CE improve relevance here? Where is the keep note?
 
-**No — do not claim CE improves relevance** on the committed fixture golden set. Guide 05 grew goldens to **N=18**; `uv run python -m src.eval` recorded `fusion.hit_at_k=1.0`, `ce.hit_at_k=1.0`, `ce_keep=false`. Equal hits are **not** lift.
+**No — do not claim CE improves relevance.** Guide 05 grew goldens to **N=18**. Eval recorded fusion-only hit@K **1.0**, and the CE-attempt arm was **18/18 `fusion_degraded`** (CE effectiveness not measured). `ce_keep=false`. Do not shorthand this as “CE also scored 1.0.”
 
 The **keep note** is [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md). Guide 01 DoD is the **pluggable CE seam** + `ranking_stage` provenance + degrade path — not proven relevance lift. Do not flip `CE_ENABLED` default without human authorize after metrics.
 

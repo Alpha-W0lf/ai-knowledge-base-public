@@ -55,7 +55,7 @@ uv run python -m src.search "reciprocal rank fusion RRF" --hybrid --db data/lanc
 uv run python -m src.eval
 ```
 
-**Why:** Runs the committed fixture golden set (**N=18**, Guide 05). CE keep/disable honesty is recorded in [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md) — fusion and CE both hit@K **1.0** on this set; **no** claimed lift; **not** eval-complete.
+**Why:** Runs the committed fixture golden set (**N=18**, Guide 05). Honesty: fusion-only hit@K **1.0**; CE-attempt arm was **18/18 `fusion_degraded`** so CE effectiveness was not measured; `ce_keep=false`; **not** eval-complete. See [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
 
 ---
 
@@ -99,7 +99,7 @@ uv run python -m src.search "your query" --hybrid --db data/lancedb
 |-------|--------|
 | Packaging | Stranger-clone + FAQ shell — not portfolio v1 complete |
 | Private flip | Scrubbing the private archive is **optional hygiene** — not required to have this public AI KB |
-| CE | Pluggable seam + degrade path — **no** proven hit@K lift on fixture goldens (`ce_keep_note`; N=18 both 1.0) |
+| CE | Pluggable seam + degrade path — CE-attempt arm **degraded** on Guide 05 run; **no** measured CE lift (`ce_keep_note`) |
 | Corpus | **Fixtures only** on the public default path — no personal tip transcripts here |
 | Eval | Fixture goldens **N=18** (Guide 05) — **not** eval-complete; hard negatives deferred |
 

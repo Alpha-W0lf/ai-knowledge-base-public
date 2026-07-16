@@ -67,7 +67,7 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 | Fixture corpus committed (no private content) | **Done** | `fixtures/` + PROVENANCE/manifest |
 | `uv sync` + `nomic-embed-text` pull + smoke search documented | **Done** | README thin Quick Start + `GETTING_STARTED.md` |
 | Root GETTING_STARTED + INTERVIEW (Guide 04) | **Done** | Stranger-clone + FAQ; not v1 / eval-complete |
-| Fixture golden growth N≥18 (Guide 05) | **Done** | N=18; fusion/CE hit@K both 1.0; `ce_keep=false`; not eval-complete |
+| Fixture golden growth N≥18 (Guide 05) | **Done** | N=18; fusion 1.0; CE arm degraded 18/18; `ce_keep=false`; not eval-complete |
 | Shared hybrid → fusion → CE spine (Guide 01) | **Done** | Pass 8/9; portfolio surface = this sibling |
 | CE honesty: no false “CE improves relevance” | **Done** | `ce_keep_note`; seam kept without lift claim |
 | MCP example without owner absolute `cwd` | **Done** | Guide 02: `mcp-config.example.json` uses portable placeholder |
@@ -85,4 +85,4 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 
 Fills **local hybrid RAG + MCP** on LanceDB — same ranking *shape* as Mechanic (MR2/KB5), different store. Differentiates from Mechanic (product/web RAG + Postgres) and AlphaGuard (agents/streaming/ML gate). Eyeglass remains untouched for MLE/MLOps.
 
-**CE no-lift honesty:** On the Guide 05 fixture golden set (**N=18**), fusion and CE both recorded hit@K **1.0** (`ce_keep=false`); keep the pluggable CE seam + `ranking_stage` / degrade for demos; do not market CE as proven relevance lift.
+**CE no-lift honesty:** On Guide 05 (**N=18**), fusion-only hit@K was **1.0** and the CE-attempt arm was entirely `fusion_degraded` — CE effectiveness was **not measured**; `ce_keep=false`. Keep the pluggable CE seam + degrade path; do not market CE as proven relevance lift.
