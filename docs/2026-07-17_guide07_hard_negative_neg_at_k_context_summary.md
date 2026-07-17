@@ -1,8 +1,10 @@
 # Context: Guide 07 — Hard-negative goldens / `neg_at_k`
 
+> **Superseded (Align 2026-07-17):** Historical Gather artifact. Guide 07 **Implement** `ff9ad33` + **Review** shippable (`e7f59d2` / `docs/2026-07-17_guide07_hard_negative_review.md`). Current honesty SSOT: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md) — 18 easy + 6 hard-neg; fusion/CE `neg_at_k` **0.0**; `ce_keep=false`; **not** eval-complete. Do not treat unchecked boxes below as open work.
+
 **Date:** 2026-07-17  
 **Repos:** `ai-knowledge-base-public` (+ `ai_knowledge_base` read-only at most; not SSOT)  
-**Status:** Draft (Gather context)  
+**Status:** **Superseded** by Implement + Review (was: Draft Gather)  
 **Mode last used:** spoke  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_guide07_gather_pass101_handoff.md`  
 **Prior:** Guide 06 CE-effectiveness **closed** (Review shippable) — CE-success 18/18 `ce`; fusion + CE-success hit@K **1.0**; `ce_keep=false`

@@ -1,12 +1,15 @@
 # Ready-check — Guide 07 hard-negative / `neg_at_k`
 
+> **Superseded (Align 2026-07-17):** Pre-Implement Ready-check only. Guide 07 **shipped** — Implement `ff9ad33`, Review shippable as-is (`docs/2026-07-17_guide07_hard_negative_review.md`). “Ready for Implement?” / pre-change code-seam notes below are **historical**. Current metrics: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md).
+
 **Date:** 2026-07-17  
 **Repo:** `ai-knowledge-base-public`  
 **Stage:** Ready check before code  
 **Mode:** spoke  
 **Guide:** `docs/dev_guides/2026-07-17_dev_guide_07_hard_negative_neg_at_k.md`  
 **Context:** `docs/2026-07-17_guide07_hard_negative_neg_at_k_context_summary.md`  
-**Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_guide07_ready_check_pass105_handoff.md`
+**Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_guide07_ready_check_pass105_handoff.md`  
+**Align status:** **Superseded** by Implement + Review (was: Ready for Implement after authorize)
 
 ## Verdict
 

@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 07 — discriminative hard-negative cases + `neg_at_k` harness; report fusion vs CE without corrupting hit@K  
 **Stage that authored this:** Write-dev-guide (pass 102); **Refine-dev-guide** (pass 104)  
-**Status:** **Review shippable as-is** 2026-07-17 — Implement `ff9ad33`; no must-fix. **Await Tom authorize Align** — do not self-start Align.  
+**Status:** **Align-docs done** 2026-07-17 — Gather/Ready-check superseded; README Guide 07 note. Implement `ff9ad33`; Review shippable. Slice closed pending any new hub work.  
 **Review note:** `docs/2026-07-17_guide07_hard_negative_review.md`
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-17_guide07_hard_negative_neg_at_k_context_summary.md`  
@@ -268,3 +268,16 @@ Revert eval + golden + doc commits; or delete `hn*` lines and harness fields.
 | Review note | `docs/2026-07-17_guide07_hard_negative_review.md` |
 | Re-verify | pytest honesty + neg_at_k → **15 passed**; goldens **24** |
 | Next | **Await Tom authorize Align** — do not self-start |
+
+---
+
+## Align-docs result (2026-07-17)
+
+| Item | Outcome |
+|------|---------|
+| Gather context | Superseded banner → `ce_keep_note` SSOT |
+| Ready-check | Superseded banner; pre-change seams historical |
+| README | Guides 05–07 + flat `neg_at_k` honesty lines |
+| Verified current | `ce_keep_note`, PORTFOLIO_VISION — no edit needed |
+| Private flip | **Not** done (lock held) |
+| Review residuals | R4/R5 closed; R1–R3 optional polish remain |

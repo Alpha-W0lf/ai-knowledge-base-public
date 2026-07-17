@@ -15,7 +15,7 @@
 | Shippable as-is? | **Yes** |
 | Fix-first required? | **No** |
 | Must-fix patches this Review? | **None** |
-| Ready for Align docs? | Optional only — operator honesty already aligned; Gather/Ready-check meta notes can wait |
+| Ready for Align docs? | **Done** (pass 116) — Gather/Ready-check banners + README Guide 07 note |
 
 ## Guide DoD mapping
 
@@ -56,8 +56,8 @@ No DoD violations, no false CE-lift claims, no keep-policy regression from hard-
 | R1 | No monkeypatched `run_fixture_eval` test that asserts hard-neg excluded from `hits` / `hit_at_k` | Pure helpers + keep/`easy_cases` tests + live Implement eval cover the contract | Thin smoke with stubbed `retrieve` |
 | R2 | `validate_hard_negatives` does not enforce `must_cite: false` | All six shipped rows already set it; fail-closed on forbidden ids is the load-bearing check | Optional assert in validate |
 | R3 | Easy-case `RetrievalError` omits row from `easy_cases` count (pre-Guide-07 pattern) | Keep/partial logic still fail-closed via CE-success coverage; hard-neg errors counted as `neg_ok=false` | Optional `retrieval_error` stage key |
-| R4 | Gather / Ready-check notes still speak pre-Implement readiness language | Historical process artifacts; operator path (`ce_keep_note`, GETTING_STARTED, INTERVIEW, PORTFOLIO_VISION) is current | Align: superseded banners |
-| R5 | README still thin on Guide 07 `neg_at_k` (points at `ce_keep_note`) | Soft pins did not require README; stranger path is GETTING_STARTED | Optional one-line README |
+| R4 | Gather / Ready-check notes still speak pre-Implement readiness language | **Aligned 2026-07-17** — superseded banners on both artifacts | — |
+| R5 | README still thin on Guide 07 `neg_at_k` (points at `ce_keep_note`) | **Aligned 2026-07-17** — Guides 05–07 + flat `neg_at_k` lines in README | — |
 
 ### Architectural drift
 
@@ -83,4 +83,4 @@ Assumptions checked against `ff9ad33` + re-run pytest; spoke stayed in Guide 07 
 
 ## Stop
 
-Review complete. **Do not** self-start Align. Await Tom for Align or close slice.
+Review complete. Align-docs (pass 116) addressed R4/R5. Residual R1–R3 remain optional polish — **not** Align blockers.
