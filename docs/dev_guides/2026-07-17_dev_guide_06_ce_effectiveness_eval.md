@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 06 — make `ranking_stage=ce` measurable; surface CE degrade errors; stage-gated eval metrics; re-run N=18 ablation; refresh honesty docs  
 **Stage that authored this:** Write-dev-guide; **Refine-dev-guide** (pass 1, 2026-07-17)  
-**Status:** Refined — Ready-check next (do not Implement until Ready-check + Tom authorize)
+**Status:** Ready-check **PASSED** 2026-07-17 (Implement readiness **8.9/10**) — **do not Implement until Tom authorizes Implement Stage**
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-17_ce_effectiveness_eval_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_ce_eval_gather_handoff.md`  
@@ -217,12 +217,12 @@ Revert `search.py` / `eval` / tests / honesty doc commits; goldens untouched so 
 
 ---
 
-## Ready-check readiness
+## Ready-check result (2026-07-17)
 
-| Track | Ready-check next? | Score (0–10) | Why not 10 |
-|-------|-------------------|--------------|------------|
-| Guide 06 CE-effectiveness eval | **Yes** | **8.8** | Exact `ce_justify` sentence wording is still Implement craft; optional `logging.warning` vs silence; Phase D optional prose; live CE load / Ollama for Phase C is runtime proof (belongs to Implement, not a missing soft pin). Residual invent risk is low after helper + five keep rules. |
+| Track | Implement ready? | Score (0–10) | Why not 10 |
+|-------|------------------|--------------|------------|
+| Guide 06 CE-effectiveness eval | **Yes** (await Tom authorize Implement) | **8.9** | Justify sentence craft; optional logging/D1; Phase C needs Ollama+HF at runtime; A4 stub vs IdentityReranker choice. No pin conflicts found vs context/code seams. |
 
-**Ready-check next:** **Yes** (score **8.8 / 10**).  
-**Implement now:** **No** — wait for Ready-check pass + Tom authorize Implement.  
-**Further Refine-dev-guide:** Not required unless Ready-check finds a pin conflict.
+**Artifact:** `docs/2026-07-17_guide06_ce_effectiveness_ready_check.md`  
+**Implement now:** **No** until Tom authorizes Implement Stage.  
+**Further Refine-dev-guide:** **Not required.**
