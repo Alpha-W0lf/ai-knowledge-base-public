@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 06 — make `ranking_stage=ce` measurable; surface CE degrade errors; stage-gated eval metrics; re-run N=18 ablation; refresh honesty docs  
 **Stage that authored this:** Write-dev-guide; **Refine-dev-guide** (pass 1, 2026-07-17)  
-**Status:** Ready-check **PASSED** 2026-07-17 (Implement readiness **8.9/10**) — **do not Implement until Tom authorizes Implement Stage**
+**Status:** **Implemented** 2026-07-17 (Guide 06 DoD met — await Review when authorized)
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-17_ce_effectiveness_eval_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_ce_eval_gather_handoff.md`  
@@ -97,14 +97,14 @@ Cases with `kind: "hard_negative"` carry non-empty `forbidden_source_ids`. A cas
 
 ## Acceptance criteria
 
-- [ ] Degrade path sets `RetrievalResult.error` (type + message, ≤500 chars); fused order preserved; `ranking_stage=fusion_degraded`  
-- [ ] Eval CE-arm JSON includes `stage_counts`, `ce_success_cases`, `ce_success_hits`, `ce_success_hit_at_k` (`null` when 0 successes)  
-- [ ] Detail rows include `error` when envelope has one  
-- [ ] `ce_keep` decided only via `_decide_ce_keep` rules above; zero-success justify includes “not measured”  
-- [ ] Tests: forced-failure `error`; CE stage via stub/identity without Hub; `_decide_ce_keep` table cases  
-- [ ] `uv run python -m src.eval` re-run recorded; `ce_keep_note` matches printed metrics (including stage_counts / ce_success_* / sample error if degraded)  
-- [ ] GETTING_STARTED documents HF MiniLM warm footgun; INTERVIEW / PORTFOLIO_VISION honesty aligned if metrics changed  
-- [ ] Still not eval-complete / v1 Done; no fake lift; no CE default flip; no golden growth; no hard-negative cases shipped  
+- [x] Degrade path sets `RetrievalResult.error` (type + message, ≤500 chars); fused order preserved; `ranking_stage=fusion_degraded`  
+- [x] Eval CE-arm JSON includes `stage_counts`, `ce_success_cases`, `ce_success_hits`, `ce_success_hit_at_k` (`null` when 0 successes)  
+- [x] Detail rows include `error` when envelope has one  
+- [x] `ce_keep` decided only via `_decide_ce_keep` rules above; zero-success justify includes “not measured”  
+- [x] Tests: forced-failure `error`; CE stage via stub/identity without Hub; `_decide_ce_keep` table cases  
+- [x] `uv run python -m src.eval` re-run recorded; `ce_keep_note` matches printed metrics (including stage_counts / ce_success_* / sample error if degraded)  
+- [x] GETTING_STARTED documents HF MiniLM warm footgun; INTERVIEW / PORTFOLIO_VISION honesty aligned if metrics changed  
+- [x] Still not eval-complete / v1 Done; no fake lift; no CE default flip; no golden growth; no hard-negative cases shipped  
 
 ---
 
@@ -114,30 +114,30 @@ All boxes start unchecked. **Do not check boxes in Write / Refine-dev-guide / Re
 
 ### Phase A — Observability (CE load path)
 
-- [ ] **A1.** In `src/search.py` CE `try/except`: `except Exception as e:`; on degrade set `error` per soft pin; fail-open unchanged.  
-- [ ] **A2.** Pass `error=None` on CE success / fusion-only; pass `error=...` on degrade in `RetrievalResult(...)`.  
-- [ ] **A3.** Extend `test_ce_forced_failure_degrades_to_fusion` to assert `result.error` contains `"forced CE failure"`.  
-- [ ] **A4.** Add stub/identity CE-on test: `ranking_stage=ce`, `error is None` (no Hub).  
+- [x] **A1.** In `src/search.py` CE `try/except`: `except Exception as e:`; on degrade set `error` per soft pin; fail-open unchanged.  
+- [x] **A2.** Pass `error=None` on CE success / fusion-only; pass `error=...` on degrade in `RetrievalResult(...)`.  
+- [x] **A3.** Extend `test_ce_forced_failure_degrades_to_fusion` to assert `result.error` contains `"forced CE failure"`.  
+- [x] **A4.** Add stub/identity CE-on test: `ranking_stage=ce`, `error is None` (no Hub).  
 
 ### Phase B — Eval harness honesty
 
-- [ ] **B1.** In `_run` details: include `"error": result.error` when set.  
-- [ ] **B2.** After details: compute `stage_counts`; `ce_success_cases` / `ce_success_hits` / `ce_success_hit_at_k` (`null` if 0). Attach to returned arm dict (CE path always; fusion arm may skip success fields).  
-- [ ] **B3.** Extract `_decide_ce_keep(fusion, ce) -> tuple[bool, str]` implementing the five rules; call it from `run_fixture_eval` instead of inline attempt-`hit_at_k` compare.  
-- [ ] **B4.** Keep backward-compatible keys (`hit_at_k`, `hits`, `details`, …); add new fields alongside.  
-- [ ] **B5.** Add `tests/test_eval_ce_honesty.py` (or equivalent) covering `_decide_ce_keep` for: all-degraded; partial; flat; lift; worse.  
+- [x] **B1.** In `_run` details: include `"error": result.error` when set.  
+- [x] **B2.** After details: compute `stage_counts`; `ce_success_cases` / `ce_success_hits` / `ce_success_hit_at_k` (`null` if 0). Attach to returned arm dict (CE path always; fusion arm may skip success fields).  
+- [x] **B3.** Extract `_decide_ce_keep(fusion, ce) -> tuple[bool, str]` implementing the five rules; call it from `run_fixture_eval` instead of inline attempt-`hit_at_k` compare.  
+- [x] **B4.** Keep backward-compatible keys (`hit_at_k`, `hits`, `details`, …); add new fields alongside.  
+- [x] **B5.** Add `tests/test_eval_ce_honesty.py` (or equivalent) covering `_decide_ce_keep` for: all-degraded; partial; flat; lift; worse.  
 
 ### Phase C — Re-run + honesty docs
 
-- [ ] **C1.** Warm HF MiniLM if needed; ensure Ollama; run `uv run python -m src.eval`.  
-- [ ] **C2.** If `ce_success_cases == 0`: quote `error` from a detail row into `ce_keep_note`; no lift; prefer env fix + re-run until `ce_success_cases > 0` when feasible on this machine.  
-- [ ] **C3.** Update `docs/2026-07-12_ce_keep_note.md` with N, fusion hit@K, `stage_counts`, `ce_success_*`, `ce_keep`, justify verbatim.  
-- [ ] **C4.** Update GETTING_STARTED (HF footgun + eval honesty); INTERVIEW / PORTFOLIO_VISION if wording would contradict the new run.  
-- [ ] **C5.** Stop. No golden growth. No hard-negative cases. No `CE_ENABLED` flip.
+- [x] **C1.** Warm HF MiniLM if needed; ensure Ollama; run `uv run python -m src.eval`.  
+- [x] **C2.** If `ce_success_cases == 0`: quote `error` from a detail row into `ce_keep_note`; no lift; prefer env fix + re-run until `ce_success_cases > 0` when feasible on this machine.  
+- [x] **C3.** Update `docs/2026-07-12_ce_keep_note.md` with N, fusion hit@K, `stage_counts`, `ce_success_*`, `ce_keep`, justify verbatim.  
+- [x] **C4.** Update GETTING_STARTED (HF footgun + eval honesty); INTERVIEW / PORTFOLIO_VISION if wording would contradict the new run.  
+- [x] **C5.** Stop. No golden growth. No hard-negative cases. No `CE_ENABLED` flip.
 
 ### Phase D — Hard-negative (docs only, optional)
 
-- [ ] **D1.** Optional one sentence in INTERVIEW or `ce_keep_note` pointing at Guide 06 `neg_at_k` soft-pin — **no** `golden_cases.jsonl` edits. Skipping D1 does **not** fail DoD.
+- [x] **D1.** Optional one sentence in INTERVIEW or `ce_keep_note` pointing at Guide 06 `neg_at_k` soft-pin — **no** `golden_cases.jsonl` edits. Skipping D1 does **not** fail DoD.
 
 ---
 
@@ -224,5 +224,5 @@ Revert `search.py` / `eval` / tests / honesty doc commits; goldens untouched so 
 | Guide 06 CE-effectiveness eval | **Yes** (await Tom authorize Implement) | **8.9** | Justify sentence craft; optional logging/D1; Phase C needs Ollama+HF at runtime; A4 stub vs IdentityReranker choice. No pin conflicts found vs context/code seams. |
 
 **Artifact:** `docs/2026-07-17_guide06_ce_effectiveness_ready_check.md`  
-**Implement now:** **No** until Tom authorizes Implement Stage.  
-**Further Refine-dev-guide:** **Not required.**
+**Implement:** **Done** 2026-07-17 — CE-success 18/18; flat hit@K; `ce_keep=false`; tests 20 passed.  
+**Review implementation:** Await Tom authorize (do not self-start).

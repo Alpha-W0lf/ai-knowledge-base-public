@@ -175,6 +175,7 @@ def retrieve(
 
     stage: RankingStage = "fusion"
     final_hits = fused_hits[:k_val]
+    error: str | None = None
 
     if use_ce:
         adapter = ce_adapter if ce_adapter is not None else get_default_ce_adapter()
@@ -187,17 +188,21 @@ def retrieve(
             for h in final_hits:
                 h.ranking_stage = "ce"
             stage = "ce"
-        except Exception:
+            error = None
+        except Exception as e:
             final_hits = fused_hits[:k_val]
             for h in final_hits:
                 h.ranking_stage = "fusion_degraded"
                 h.rerank_score = None
             stage = "fusion_degraded"
+            msg = f"{type(e).__name__}: {e}"
+            error = msg if len(msg) <= 500 else msg[:497] + "..."
         timings["ce_ms"] = (time.perf_counter() - t_ce) * 1000
     else:
         for h in final_hits:
             h.ranking_stage = "fusion"
         stage = "fusion"
+        error = None
 
     timings["total_ms"] = (time.perf_counter() - t0) * 1000
     return RetrievalResult(
@@ -206,6 +211,7 @@ def retrieve(
         ranking_stage=stage,
         hits=final_hits,
         timings_ms=timings,
+        error=error,
     )
 
 

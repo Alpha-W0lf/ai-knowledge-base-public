@@ -52,9 +52,9 @@ Do not conflate `fusion_degraded` with intentionally disabling CE (`--no-ce`). D
 
 ## 6. Does CE improve relevance here? Where is the keep note?
 
-**No — do not claim CE improves relevance.** Guide 05 grew goldens to **N=18**. Eval recorded fusion-only hit@K **1.0**, and the CE-attempt arm was **18/18 `fusion_degraded`** (CE effectiveness not measured). `ce_keep=false`. Do not shorthand this as “CE also scored 1.0.”
+**No — do not claim CE improves relevance.** Guide 06 measured CE-success on **N=18**: fusion-only hit@K **1.0**, CE-success **18/18** `ranking_stage=ce` with `ce_success_hit_at_k` **1.0** (flat vs fusion ceiling). `ce_keep=false`. Do not confuse attempt/fallback hit@K with CE-success metrics. On CE load failure, expect `fusion_degraded` plus an `error` string — that is fail-open, not a CE win.
 
-The **keep note** is [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md). Guide 01 DoD is the **pluggable CE seam** + `ranking_stage` provenance + degrade path — not proven relevance lift. Do not flip `CE_ENABLED` default without human authorize after metrics.
+The **keep note** is [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md). Guide 01 DoD is the **pluggable CE seam** + `ranking_stage` provenance + degrade path — not proven relevance lift. Discriminative hard negatives (`neg_at_k` / `forbidden_source_ids`) are soft-pinned for a later guide. Do not flip `CE_ENABLED` default without human authorize after metrics.
 
 ## 7. What do citations use instead of owner filepaths?
 

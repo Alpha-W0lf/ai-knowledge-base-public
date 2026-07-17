@@ -180,6 +180,24 @@ def test_ce_forced_failure_degrades_to_fusion(fixture_db: Path):
     )
     assert result.ranking_stage == "fusion_degraded"
     assert all(h.ranking_stage == "fusion_degraded" for h in result.hits)
+    assert result.error is not None
+    assert "forced CE failure" in result.error
+
+
+def test_ce_identity_adapter_sets_ce_stage_without_hub(fixture_db: Path):
+    from src.rerank import IdentityReranker
+
+    result = retrieve(
+        "reciprocal rank fusion RRF",
+        mode="hybrid",
+        limit=5,
+        db_path=fixture_db,
+        ce_enabled=True,
+        ce_adapter=IdentityReranker(),
+    )
+    assert result.ranking_stage == "ce"
+    assert result.error is None
+    assert all(h.ranking_stage == "ce" for h in result.hits)
 
 
 def test_ce_disabled_uses_fusion_stage(fixture_db: Path):
@@ -191,6 +209,7 @@ def test_ce_disabled_uses_fusion_stage(fixture_db: Path):
         ce_enabled=False,
     )
     assert result.ranking_stage == "fusion"
+    assert result.error is None
 
 
 # --- E4 MCP public allowlist ---

@@ -55,7 +55,7 @@ uv run python -m src.search "reciprocal rank fusion RRF" --hybrid --db data/lanc
 uv run python -m src.eval
 ```
 
-**Why:** Runs the committed fixture golden set (**N=18**, Guide 05). Honesty: fusion-only hit@K **1.0**; CE-attempt arm was **18/18 `fusion_degraded`** so CE effectiveness was not measured; `ce_keep=false`; **not** eval-complete. See [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
+**Why:** Runs the committed fixture golden set (**N=18**). Guide 06 honesty: fusion-only hit@K **1.0**; CE-success **18/18** `ranking_stage=ce` with `ce_success_hit_at_k` **1.0** (no lift vs fusion ceiling); `ce_keep=false`; **not** eval-complete. See [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
 
 ---
 
@@ -65,6 +65,7 @@ uv run python -m src.eval
 |---------|----------------|
 | Ollama not running | Embed calls fail; pull `nomic-embed-text` and start Ollama before ingest/search |
 | Wrong embedding model | KB4 is `nomic-embed-text` @ 768 — changing models requires full rebuild + re-eval |
+| HF MiniLM CE cold / Hub blocked | First CE load needs `cross-encoder/ms-marco-MiniLM-L-6-v2` in HF cache (or Hub download). If load fails → `ranking_stage=fusion_degraded` + `error` string; warm via a successful `--hybrid` search or Hub download before claiming CE metrics |
 | BYO without `channels.local.json` | Live YouTube sync needs ignored overlay copied from `channels.local.example.json` |
 | Committing `channels.local.json` | Personal channel list must stay gitignored — never commit the overlay |
 | Expecting personal tip corpus | Tip-transcript docs from the private archive are **absent** on this sibling by design |
@@ -99,9 +100,9 @@ uv run python -m src.search "your query" --hybrid --db data/lancedb
 |-------|--------|
 | Packaging | Stranger-clone + FAQ shell — not portfolio v1 complete |
 | Private flip | Scrubbing the private archive is **optional hygiene** — not required to have this public AI KB |
-| CE | Pluggable seam + degrade path — CE-attempt arm **degraded** on Guide 05 run; **no** measured CE lift (`ce_keep_note`) |
+| CE | Pluggable seam + degrade path — Guide 06: CE-success **18/18** `ce` but **no** hit@K lift vs fusion ceiling (`ce_keep=false`) |
 | Corpus | **Fixtures only** on the public default path — no personal tip transcripts here |
-| Eval | Fixture goldens **N=18** (Guide 05) — **not** eval-complete; hard negatives deferred |
+| Eval | Fixture goldens **N=18** — **not** eval-complete; hard negatives deferred (`neg_at_k` soft-pin in Guide 06) |
 
 ---
 

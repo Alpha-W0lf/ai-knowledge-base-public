@@ -5,6 +5,7 @@ Minimal fixture ranking eval: hit@K, stage latency, groundedness stub.
 from __future__ import annotations
 
 import json
+from collections import Counter
 from pathlib import Path
 
 from .. import config
@@ -30,6 +31,53 @@ def groundedness_ok(cited_ids: list[str], retrieved_ids: list[str]) -> bool:
     return all(cid in retrieved for cid in cited_ids)
 
 
+def _decide_ce_keep(fusion: dict, ce: dict) -> tuple[bool, str]:
+    """
+    CE keep gate from fusion arm + CE-success fields only.
+
+    Never uses CE-attempt/fallback hit_at_k for the decision.
+    """
+    cases = int(ce.get("cases") or fusion.get("cases") or 0)
+    success = int(ce.get("ce_success_cases") or 0)
+    success_hit = ce.get("ce_success_hit_at_k")
+    fusion_hit = float(fusion.get("hit_at_k") or 0.0)
+
+    if success == 0:
+        return (
+            False,
+            "CE effectiveness not measured: 0 ranking_stage=ce "
+            "(CE-attempt arm degraded or failed to load/score).",
+        )
+    if 0 < success < cases:
+        return (
+            False,
+            f"Partial CE degrade: {success}/{cases} ranking_stage=ce; "
+            "not a clean ablation — ce_keep=false.",
+        )
+    # success == cases (full CE-success coverage)
+    if success_hit is None:
+        return (
+            False,
+            "CE effectiveness not measured: ce_success_hit_at_k is null.",
+        )
+    if success_hit > fusion_hit:
+        return (
+            True,
+            "CE improved CE-success hit@K vs fusion-only on fixture golden set.",
+        )
+    if success_hit == fusion_hit:
+        return (
+            False,
+            "No CE-success hit@K lift vs fusion-only on this fixture set; "
+            "keep CE seam + default-on with honesty "
+            "(easy goldens / ceiling may apply; not eval-complete).",
+        )
+    return (
+        False,
+        "CE-success hit@K reduced vs fusion; prefer fusion until lift shown.",
+    )
+
+
 def run_fixture_eval(
     db_path: Path,
     *,
@@ -39,7 +87,7 @@ def run_fixture_eval(
     """
     Ingest fixtures into db_path, run golden cases, report hit@K + latencies.
 
-    CE keep gate: compare fusion-only vs CE when use_ce True for second pass.
+    CE keep gate: compare fusion-only vs CE-success metrics when use_ce True.
     """
     ingest_fixtures(db_path=db_path, ensure_fts=True)
     cases = load_golden_cases()
@@ -76,17 +124,18 @@ def run_fixture_eval(
             if not groundedness_ok(returned_chunks, returned_chunks):
                 grounded_fail += 1
             latencies.append(result.timings_ms)
-            details.append(
-                {
-                    "id": case["id"],
-                    "hit": hit,
-                    "ranking_stage": result.ranking_stage,
-                    "returned_source_ids": returned_sources,
-                    "timings_ms": result.timings_ms,
-                }
-            )
+            row = {
+                "id": case["id"],
+                "hit": hit,
+                "ranking_stage": result.ranking_stage,
+                "returned_source_ids": returned_sources,
+                "timings_ms": result.timings_ms,
+            }
+            if result.error:
+                row["error"] = result.error
+            details.append(row)
         n = max(len(cases), 1)
-        return {
+        arm: dict = {
             "cases": len(cases),
             "hit_at_k": hits / n,
             "hits": hits,
@@ -94,6 +143,18 @@ def run_fixture_eval(
             "latencies": latencies,
             "details": details,
         }
+        if ce:
+            stage_counts = dict(Counter(d.get("ranking_stage") for d in details if "ranking_stage" in d))
+            success_rows = [d for d in details if d.get("ranking_stage") == "ce"]
+            ce_success_cases = len(success_rows)
+            ce_success_hits = sum(1 for d in success_rows if d.get("hit"))
+            arm["stage_counts"] = stage_counts
+            arm["ce_success_cases"] = ce_success_cases
+            arm["ce_success_hits"] = ce_success_hits
+            arm["ce_success_hit_at_k"] = (
+                ce_success_hits / ce_success_cases if ce_success_cases > 0 else None
+            )
+        return arm
 
     fusion = _run(False)
     ce_result = _run(True) if use_ce else None
@@ -101,20 +162,7 @@ def run_fixture_eval(
     keep_ce = False
     justify = ""
     if ce_result is not None:
-        if ce_result["hit_at_k"] > fusion["hit_at_k"]:
-            keep_ce = True
-            justify = "CE improved hit@K vs fusion-only on fixture golden set."
-        elif ce_result["hit_at_k"] == fusion["hit_at_k"]:
-            # No lift — require explicit justify-keep; default: do not claim CE lift
-            keep_ce = False
-            justify = (
-                "No hit@K lift vs fusion-only on this tiny fixture set; "
-                "keep CE seam + default-on for portfolio demos only with this note "
-                "(identity/adapter path validated; lift TBD on larger eval)."
-            )
-        else:
-            keep_ce = False
-            justify = "CE reduced hit@K vs fusion; prefer fusion default until lift shown."
+        keep_ce, justify = _decide_ce_keep(fusion, ce_result)
 
     return {
         "fusion": fusion,
