@@ -4,7 +4,8 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 07 — discriminative hard-negative cases + `neg_at_k` harness; report fusion vs CE without corrupting hit@K  
 **Stage that authored this:** Write-dev-guide (pass 102); **Refine-dev-guide** (pass 104)  
-**Status:** **Implemented** 2026-07-17 — 6 hard-neg; fusion/CE `neg_at_k` 0.0/0.0; easy hit@K 1.0; `ce_keep=false`; tests 15 passed. **Await Tom authorize Review** — do not self-start Review.
+**Status:** **Review shippable as-is** 2026-07-17 — Implement `ff9ad33`; no must-fix. **Await Tom authorize Align** — do not self-start Align.  
+**Review note:** `docs/2026-07-17_guide07_hard_negative_review.md`
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-17_guide07_hard_negative_neg_at_k_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_guide07_refine_pass104_handoff.md`  
@@ -255,3 +256,15 @@ Revert eval + golden + doc commits; or delete `hn*` lines and harness fields.
 | Live eval | easy hit@K fusion/CE **1.0**; CE-success **18/18**; `fusion.neg_at_k` **0.0**; `ce.neg_at_k` **0.0**; `ce_keep=false` |
 | Honesty | Docs updated; no fake lift; no `CE_ENABLED` / private / embedding flip |
 | Next | **Await Tom authorize Review** — do not self-start |
+
+---
+
+## Review result (2026-07-17)
+
+| Call | Value |
+|------|--------|
+| Shippable as-is? | **Yes** |
+| Must-fix? | **None** |
+| Review note | `docs/2026-07-17_guide07_hard_negative_review.md` |
+| Re-verify | pytest honesty + neg_at_k → **15 passed**; goldens **24** |
+| Next | **Await Tom authorize Align** — do not self-start |
