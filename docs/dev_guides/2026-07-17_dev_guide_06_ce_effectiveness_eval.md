@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 06 — make `ranking_stage=ce` measurable; surface CE degrade errors; stage-gated eval metrics; re-run N=18 ablation; refresh honesty docs  
 **Stage that authored this:** Write-dev-guide; **Refine-dev-guide** (pass 1, 2026-07-17)  
-**Status:** **Implemented** 2026-07-17 (Guide 06 DoD met — await Review when authorized)
+**Status:** **Review shippable** 2026-07-17 — see `docs/2026-07-17_guide06_ce_effectiveness_review.md` (no must-fix; Align optional)
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-17_ce_effectiveness_eval_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_ce_eval_gather_handoff.md`  
@@ -225,4 +225,5 @@ Revert `search.py` / `eval` / tests / honesty doc commits; goldens untouched so 
 
 **Artifact:** `docs/2026-07-17_guide06_ce_effectiveness_ready_check.md`  
 **Implement:** **Done** 2026-07-17 — CE-success 18/18; flat hit@K; `ce_keep=false`; tests 20 passed.  
-**Review implementation:** Await Tom authorize (do not self-start).
+**Review:** **Shippable as-is** 2026-07-17 — `docs/2026-07-17_guide06_ce_effectiveness_review.md` (soft residuals R1–R5 only).  
+**Align docs:** Optional (stale Gather context banner) — do not self-start.
