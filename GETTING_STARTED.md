@@ -55,7 +55,7 @@ uv run python -m src.search "reciprocal rank fusion RRF" --hybrid --db data/lanc
 uv run python -m src.eval
 ```
 
-**Why:** Runs the committed fixture golden set (**N=18**). Guide 06 honesty: fusion-only hit@K **1.0**; CE-success **18/18** `ranking_stage=ce` with `ce_success_hit_at_k` **1.0** (no lift vs fusion ceiling); `ce_keep=false`; **not** eval-complete. See [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
+**Why:** Runs the committed fixture golden set (**24** lines = **18 easy** + **6 hard-negative**). Guide 07 honesty: easy fusion-only hit@K **1.0**; CE-success **18/18** `ranking_stage=ce` with `ce_success_hit_at_k` **1.0** (no lift vs fusion ceiling); `fusion.neg_at_k` / `ce.neg_at_k` both **0.0** (no hard-neg rejection lift); `ce_keep=false` (still hit@K-gated, **not** from `neg_at_k`); **not** eval-complete. See [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
 
 ---
 
@@ -100,9 +100,9 @@ uv run python -m src.search "your query" --hybrid --db data/lancedb
 |-------|--------|
 | Packaging | Stranger-clone + FAQ shell — not portfolio v1 complete |
 | Private flip | Scrubbing the private archive is **optional hygiene** — not required to have this public AI KB |
-| CE | Pluggable seam + degrade path — Guide 06: CE-success **18/18** `ce` but **no** hit@K lift vs fusion ceiling (`ce_keep=false`) |
+| CE | Pluggable seam + degrade path — Guide 06/07: CE-success **18/18** `ce` but **no** hit@K lift vs fusion ceiling; hard-neg `neg_at_k` also flat (`ce_keep=false`) |
 | Corpus | **Fixtures only** on the public default path — no personal tip transcripts here |
-| Eval | Fixture goldens **N=18** — **not** eval-complete; hard negatives deferred (`neg_at_k` soft-pin in Guide 06) |
+| Eval | Fixture goldens **24** (18 easy + 6 hard-neg) — **not** eval-complete; per-arm `neg_at_k` reported; `ce_keep` still hit@K-gated |
 
 ---
 

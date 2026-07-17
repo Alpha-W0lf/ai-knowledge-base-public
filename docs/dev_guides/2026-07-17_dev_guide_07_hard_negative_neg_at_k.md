@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 07 — discriminative hard-negative cases + `neg_at_k` harness; report fusion vs CE without corrupting hit@K  
 **Stage that authored this:** Write-dev-guide (pass 102); **Refine-dev-guide** (pass 104)  
-**Status:** Ready-check **PASSED** 2026-07-17 (Implement readiness **8.8/10**) — **do not Implement until Tom authorizes Implement Stage**
+**Status:** **Implemented** 2026-07-17 — 6 hard-neg; fusion/CE `neg_at_k` 0.0/0.0; easy hit@K 1.0; `ce_keep=false`; tests 15 passed. **Await Tom authorize Review** — do not self-start Review.
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-17_guide07_hard_negative_neg_at_k_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_guide07_refine_pass104_handoff.md`  
@@ -115,15 +115,15 @@ Cases with `kind: "hard_negative"` carry non-empty `forbidden_source_ids`. A cas
 
 ## Acceptance criteria
 
-- [ ] Harness: `hard_negative` + `forbidden_source_ids` → per-arm `neg_ok_count` / `neg_at_k`  
-- [ ] Hard-neg excluded from hit@K and CE-success hit@K / keep coverage (`easy_cases`)  
-- [ ] Load raises on invalid hard-neg schema  
-- [ ] **4–6** fixture-grounded `hn*` cases; easy `g1`–`g18` preserved  
-- [ ] B2 spot-check documented (prefer fusion currently fails forbidden)  
-- [ ] Unit tests in `tests/test_eval_neg_at_k.py`  
-- [ ] Eval re-run; `ce_keep_note` includes fusion/CE `neg_at_k` + `ce_keep` still hit@K-gated  
-- [ ] GETTING_STARTED / INTERVIEW / PORTFOLIO_VISION updated — not eval-complete; no fake lift  
-- [ ] No `CE_ENABLED` flip; no private/embedding scope  
+- [x] Harness: `hard_negative` + `forbidden_source_ids` → per-arm `neg_ok_count` / `neg_at_k`  
+- [x] Hard-neg excluded from hit@K and CE-success hit@K / keep coverage (`easy_cases`)  
+- [x] Load raises on invalid hard-neg schema  
+- [x] **4–6** fixture-grounded `hn*` cases; easy `g1`–`g18` preserved  
+- [x] B2 spot-check documented (prefer fusion currently fails forbidden)  
+- [x] Unit tests in `tests/test_eval_neg_at_k.py`  
+- [x] Eval re-run; `ce_keep_note` includes fusion/CE `neg_at_k` + `ce_keep` still hit@K-gated  
+- [x] GETTING_STARTED / INTERVIEW / PORTFOLIO_VISION updated — not eval-complete; no fake lift  
+- [x] No `CE_ENABLED` flip; no private/embedding scope  
 
 ---
 
@@ -133,27 +133,27 @@ All boxes start unchecked. **Do not check boxes in Write / Refine-dev-guide / Re
 
 ### Phase A — Harness
 
-- [ ] **A1.** Helpers: `is_hard_negative`, `neg_ok`, `validate_hard_negatives(cases, manifest_ids)` → raise `ValueError` on bad rows.  
-- [ ] **A2.** Call validate after `load_golden_cases` in `run_fixture_eval`.  
-- [ ] **A3.** Split easy vs hard-neg; `hit_at_k` / `hits` over easy only; set `cases`, `easy_cases`, `hard_negative_cases`.  
-- [ ] **A4.** Per arm: `neg_ok_count`, `neg_at_k` (`null` if zero hard-neg).  
-- [ ] **A5.** CE-success_* only on easy rows with `ranking_stage=="ce"`; `_decide_ce_keep` coverage via `easy_cases`.  
-- [ ] **A6.** Detail: hard-neg get `neg_ok`; never increment easy hits.  
-- [ ] **A7.** `tests/test_eval_neg_at_k.py`: neg_ok; exclusion; keep+`easy_cases`; reject empty/unknown forbidden.
+- [x] **A1.** Helpers: `is_hard_negative`, `neg_ok`, `validate_hard_negatives(cases, manifest_ids)` → raise `ValueError` on bad rows.  
+- [x] **A2.** Call validate after `load_golden_cases` in `run_fixture_eval`.  
+- [x] **A3.** Split easy vs hard-neg; `hit_at_k` / `hits` over easy only; set `cases`, `easy_cases`, `hard_negative_cases`.  
+- [x] **A4.** Per arm: `neg_ok_count`, `neg_at_k` (`null` if zero hard-neg).  
+- [x] **A5.** CE-success_* only on easy rows with `ranking_stage=="ce"`; `_decide_ce_keep` coverage via `easy_cases`.  
+- [x] **A6.** Detail: hard-neg get `neg_ok`; never increment easy hits.  
+- [x] **A7.** `tests/test_eval_neg_at_k.py`: neg_ok; exclusion; keep+`easy_cases`; reject empty/unknown forbidden.
 
 ### Phase B — Author goldens
 
-- [ ] **B1.** Read six fixture transcripts; draft **4–6** trap queries.  
-- [ ] **B2.** **Mandatory:** hybrid retrieve spot-check each; prefer fusion currently returns forbidden id; note outcomes for `ce_keep_note` if some do not.  
-- [ ] **B3.** Append `hn1`…; keep `g1`–`g18`.  
-- [ ] **B4.** Every forbidden id ∈ manifest.
+- [x] **B1.** Read six fixture transcripts; draft **4–6** trap queries.  
+- [x] **B2.** **Mandatory:** hybrid retrieve spot-check each; prefer fusion currently returns forbidden id; note outcomes for `ce_keep_note` if some do not.  
+- [x] **B3.** Append `hn1`…; keep `g1`–`g18`.  
+- [x] **B4.** Every forbidden id ∈ manifest.
 
 ### Phase C — Eval + honesty
 
-- [ ] **C1.** `uv run python -m src.eval` (Ollama + HF MiniLM).  
-- [ ] **C2.** Update `ce_keep_note`: easy metrics; hard-neg N; `fusion.neg_at_k` / `ce.neg_at_k`; `ce_keep` not from neg.  
-- [ ] **C3.** Update GETTING_STARTED / INTERVIEW / PORTFOLIO_VISION.  
-- [ ] **C4.** Stop. No CE flip. No easy-golden growth. No fake lift.
+- [x] **C1.** `uv run python -m src.eval` (Ollama + HF MiniLM).  
+- [x] **C2.** Update `ce_keep_note`: easy metrics; hard-neg N; `fusion.neg_at_k` / `ce.neg_at_k`; `ce_keep` not from neg.  
+- [x] **C3.** Update GETTING_STARTED / INTERVIEW / PORTFOLIO_VISION.  
+- [x] **C4.** Stop. No CE flip. No easy-golden growth. No fake lift.
 
 ---
 
@@ -242,3 +242,16 @@ Revert eval + golden + doc commits; or delete `hn*` lines and harness fields.
 **Artifact:** `docs/2026-07-17_guide07_hard_negative_ready_check.md`  
 **Implement now:** **No** until Tom authorizes Implement Stage.  
 **Further Refine-dev-guide:** **Not required.**
+
+---
+
+## Implement result (2026-07-17)
+
+| Item | Outcome |
+|------|---------|
+| Hard-neg cases | `hn1`–`hn6` (6); `g1`–`g18` preserved; total **24** JSONL lines |
+| B2 spot-check | **6/6** fusion returned forbidden id before ship |
+| Unit tests | `tests/test_eval_neg_at_k.py` + `test_eval_ce_honesty.py` → **15 passed** |
+| Live eval | easy hit@K fusion/CE **1.0**; CE-success **18/18**; `fusion.neg_at_k` **0.0**; `ce.neg_at_k` **0.0**; `ce_keep=false` |
+| Honesty | Docs updated; no fake lift; no `CE_ENABLED` / private / embedding flip |
+| Next | **Await Tom authorize Review** — do not self-start |
