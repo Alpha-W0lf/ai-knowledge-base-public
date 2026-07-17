@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 07 — discriminative hard-negative cases + `neg_at_k` harness; report fusion vs CE without corrupting hit@K  
 **Stage that authored this:** Write-dev-guide (pass 102); **Refine-dev-guide** (pass 104)  
-**Status:** Refined — Ready-check next (do not Implement until Ready-check + Tom authorize)
+**Status:** Ready-check **PASSED** 2026-07-17 (Implement readiness **8.8/10**) — **do not Implement until Tom authorizes Implement Stage**
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-17_guide07_hard_negative_neg_at_k_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_guide07_refine_pass104_handoff.md`  
@@ -233,12 +233,12 @@ Revert eval + golden + doc commits; or delete `hn*` lines and harness fields.
 
 ---
 
-## Ready-check readiness
+## Ready-check result (2026-07-17)
 
-| Track | Ready-check next? | Score (0–10) | Why not 10 |
-|-------|-------------------|--------------|------------|
-| Guide 07 hard-negative / `neg_at_k` | **Yes** | **8.7** | Exact `hn*` query wording is Implement craft; B2 may find <4 fusion-failing traps (guide allows ship-with-note); tiny residual invent on whether `cases` total is echoed in docs tables. Soft pins otherwise complete. |
+| Track | Implement ready? | Score (0–10) | Why not 10 |
+|-------|------------------|--------------|------------|
+| Guide 07 hard-negative / `neg_at_k` | **Yes** (await Tom authorize Implement) | **8.8** | `hn*` query craft; B2 may find <4 fusion-failing traps (ship-with-note OK); Phase C Ollama/HF runtime; minor docs labeling craft. No pin conflicts. |
 
-**Ready-check next:** **Yes** (score **8.7 / 10**).  
-**Implement now:** **No** — wait for Ready-check + Tom authorize.  
-**Further Refine-dev-guide:** Not required unless Ready-check finds a pin conflict.
+**Artifact:** `docs/2026-07-17_guide07_hard_negative_ready_check.md`  
+**Implement now:** **No** until Tom authorizes Implement Stage.  
+**Further Refine-dev-guide:** **Not required.**
