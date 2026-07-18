@@ -16,7 +16,7 @@
 | Shippable as-is? | **Yes** |
 | Fix-first required? | **No** |
 | Must-fix patches this Review? | **None** |
-| Ready for Align docs? | **Yes** (await Tom authorize) |
+| Ready for Align docs? | **Done** (pass 153 Align) |
 
 ## Guide DoD mapping
 
@@ -61,9 +61,9 @@ No DoD violations. Build MV Met language is present and preferred over ambiguous
 
 | ID | Finding | Why not blocking | Smallest later fix |
 |----|---------|------------------|--------------------|
-| G09-R1 | Ready-check (+ Gather closeout) still speak pre-Implement drift (“await authorize”; “VISION still says not v1”) | Historical stage artifacts; delivery surfaces already Met | Align: superseded banners pointing at Implement `68238cb` + this Review |
-| G09-R2 | Guide soft pin allows thin `docs/2026-07-18_guide09_build_mv_packaging_align.md` | Explicitly Align-stage optional | Add when Tom authorizes Align |
-| G09-R3 | INTERVIEW §8 labels a lane “Private archive **flip** ready \| **No**” | Honest denial; forbid was affirmative flip-ready theater | Leave; optional rephrase to “Private flip (out of scope)” at Align if desired |
+| G09-R1 | Ready-check (+ Gather closeout) still speak pre-Implement drift (“await authorize”; “VISION still says not v1”) | **Aligned 2026-07-18** — superseded banners | — |
+| G09-R2 | Guide soft pin allows thin `docs/2026-07-18_guide09_build_mv_packaging_align.md` | **Aligned 2026-07-18** — align note landed | — |
+| G09-R3 | INTERVIEW §8 labels a lane “Private archive **flip** ready \| **No**” | **Aligned 2026-07-18** — rephrased to “Private flip \| Out of scope” | — |
 
 ### Architectural drift
 
@@ -89,4 +89,4 @@ Assumptions checked against `68238cb` + DoD `rg` + empty code paths; spoke staye
 
 ## Stop
 
-Review complete. **Await Tom authorize Align** — do not self-start. Residuals G09-R1–R3 are Align polish only — **not** Review blockers.
+Review complete. Align-docs (pass 153) addressed G09-R1–R3. Guide 09 slice **closed**. Eval-complete remains **Parked (E3)** — not invented.

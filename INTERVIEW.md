@@ -70,7 +70,7 @@ Identity fields (`source_id`, `content_hash`, `embedding_version`) are binding; 
 |------|--------|
 | Portfolio public success / **build MV Met** | **Yes** — Guides 01–08 delivery + §4 / §9(a); Guide 09 packages the honesty |
 | **Eval-complete** claim | **Parked (E3)** — flat Guide 08 metrics; do **not** tick without Tom unlock |
-| Private archive **flip** ready | **No** — out of scope for this repo’s build % |
+| Private flip | **Out of scope** for this repo’s build % (optional private-archive hygiene only) |
 | CE proven relevance lift | **No** — `ce_keep=false`; see `ce_keep_note` |
 
 Root `GETTING_STARTED` + `INTERVIEW` remain the stranger-clone + FAQ shell. Packaging DoD (LICENSE, empty channels + overlay, fixture smoke, this sibling repo) is **implemented**. Guide 08 re-baselined harder hard-neg traps without claiming CE lift. Guide 09 marks build MV Met without inventing an eval-complete tick. Private scrub / January rewrite remain **out of scope** unless a new guide authorizes them.

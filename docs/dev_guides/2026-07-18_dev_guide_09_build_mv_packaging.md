@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 09 — mark portfolio **build MV Met**; keep **eval-complete unchecked (E3)**; no CE lift; no private flip  
 **Stage that authored this:** Write-dev-guide (pass 153)  
-**Status:** Review Met — shippable as-is; ready for Align  
+**Status:** Align Met — Guide 09 slice **closed**  
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-18_post_guide08_build_doneness_closeout_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_ready_guide09_pass153_handoff.md`  
@@ -226,3 +226,16 @@ Revert Guide 09 doc commits only.
 | Re-verify | HEAD `68238cb`; docs-only; DoD `rg` Met; eval-complete Parked (E3); no CE lift / private-flip-ready / code |
 | Soft residuals | G09-R1 Ready/Gather banners · G09-R2 optional align note · G09-R3 INTERVIEW flip-lane phrasing — Align polish only |
 | Next | **Await Tom authorize Align** — do not self-start |
+
+---
+
+## Align-docs result (2026-07-18)
+
+| Item | Outcome |
+|------|---------|
+| Slice | **Closed** — Guide 09 Met; build MV Met; eval-complete Parked (E3) |
+| G09-R1 | Superseded banners on Ready-check + Gather closeout |
+| G09-R2 | Align artifact `docs/2026-07-18_guide09_build_mv_packaging_align.md` |
+| G09-R3 | INTERVIEW §8 “Private flip \| Out of scope” |
+| Private flip / CE lift / eval-complete tick / code | **Not** done (locks held) |
+| Next | None for Guide 09 — hub may fan-in closeout |

@@ -1,8 +1,10 @@
 # Context: Post–Guide 08 build-doneness closeout
 
+> **Superseded (Align 2026-07-18):** Guide 09 packaging **Met / closed**. Implement `68238cb`; Review shippable `0acf3c1`. **Portfolio public success / build MV Met**; **eval-complete Parked (E3)** — no invent tick. Delivery-surface drift described below was the Gather target and is **resolved**. See `docs/2026-07-18_guide09_build_mv_packaging_align.md`.
+
 **Date:** 2026-07-18  
 **Repos:** `ai-knowledge-base-public`  
-**Status:** Draft Gather + Guide 09 written + **Ready-check Met** (9.2/10) — awaiting Tom authorize Implement  
+**Status:** **Aligned / closed** (Guide 09)  
 **Mode last used:** spoke  
 **Handoff (Gather):** `second_brain/docs/2026-07-18_spoke_aikb_gather_build_closeout_pass153_handoff.md`  
 **Handoff (Write):** `second_brain/docs/2026-07-18_spoke_aikb_write_build_closeout_pass153_handoff.md`  
@@ -193,9 +195,21 @@ There is **no** unchecked §4 row labeled “eval-complete.” E3 parked a *clai
 
 - Ready for **Write-dev-guide**? **Done** (pass 153).  
 - Ready for **Ready-check**? **Done** — **9.2 / 10**; artifact `docs/2026-07-18_guide09_build_mv_packaging_ready_check.md`.  
-- Ready for **Implement**? **Yes after Tom authorize** — docs-only; no self-start.  
+- Ready for **Implement**? **Done** — `68238cb`.  
+- Ready for **Review**? **Done** — shippable `0acf3c1`.  
+- Ready for **Align**? **Done** — slice closed; `docs/2026-07-18_guide09_build_mv_packaging_align.md`.  
 - Further Refine-dev-guide? **No**.  
-- Next human stage name (recommended): `Stage: Implement` · Repo: `ai-knowledge-base-public` · Work item: Guide 09 build-MV packaging — **after authorize**.
+- Next human stage name (recommended): none for Guide 09 — **slice closed** (eval-complete remains Parked E3 until a later unlock).
+
+## Outcome (Align 2026-07-18)
+
+| Lane | Status |
+|------|--------|
+| Guide 09 build-MV packaging | **Met / closed** |
+| Portfolio public success / build MV | **Met** |
+| Eval-complete claim | **Parked (E3)** — unchecked |
+| Soft residuals G09-R1–R3 | **Closed** this Align |
+| Private flip / CE lift / code | **None** |
 
 ## Learning notes (interview-portable)
 
