@@ -52,7 +52,7 @@ Do not conflate `fusion_degraded` with intentionally disabling CE (`--no-ce`). D
 
 ## 6. Does CE improve relevance here? Where is the keep note?
 
-**No — do not claim CE improves relevance.** Guide 06/07: easy fusion-only hit@K **1.0**, CE-success **18/18** `ranking_stage=ce` with `ce_success_hit_at_k` **1.0** (flat vs fusion ceiling). Guide 07 also ships **6** hard-negative goldens: both `fusion.neg_at_k` and `ce.neg_at_k` are **0.0** on this set — still **no** CE win. `ce_keep=false` stays **hit@K-gated**; never flip keep from `neg_at_k` alone. Do not confuse attempt/fallback hit@K with CE-success metrics. On CE load failure, expect `fusion_degraded` plus an `error` string — that is fail-open, not a CE win.
+**No — do not claim CE improves relevance.** Guide 06–08: easy fusion-only hit@K **1.0**, CE-success **18/18** `ranking_stage=ce` with `ce_success_hit_at_k` **1.0** (flat vs fusion ceiling). Guide 08 grew to **8** fixtures + **10** hard-negative goldens (`hn1`–`hn10`, including CombSUM/bi-encoder confusable twins): both `fusion.neg_at_k` and `ce.neg_at_k` are **0.0** — still **no** CE win. `ce_keep=false` stays **hit@K-gated**; never flip keep from `neg_at_k` alone. Do not confuse attempt/fallback hit@K with CE-success metrics. On CE load failure, expect `fusion_degraded` plus an `error` string — that is fail-open, not a CE win.
 
 The **keep note** is [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md). Guide 01 DoD is the **pluggable CE seam** + `ranking_stage` provenance + degrade path — not proven relevance lift. Hard negatives use `kind: hard_negative` + `forbidden_source_ids` and are **excluded** from hit@K / CE-success denominators. Do not flip `CE_ENABLED` default without human authorize after metrics.
 
@@ -69,10 +69,10 @@ Identity fields (`source_id`, `content_hash`, `embedding_version`) are binding; 
 - portfolio v1 checklist complete
 - private archive remote flip ready
 - CE freeze or proven relevance lift
-- eval-complete (Guide 05–07: 18 easy + 6 hard-neg + honest CE / `neg_at_k` metrics; still not “eval-complete”)
+- eval-complete (Guide 05–08: 18 easy + 10 hard-neg + honest CE / `neg_at_k` metrics — including Guide 08 confusable corpus; still not “eval-complete”)
 - private-archive flip / tip scrub
 
-Packaging DoD (LICENSE, empty channels + overlay, fixture smoke, this sibling repo) is **implemented**. Guide 07 shipped hard-negative / `neg_at_k` reporting without claiming CE lift. Private scrub / January rewrite remain **out of scope** unless a new guide authorizes them.
+Packaging DoD (LICENSE, empty channels + overlay, fixture smoke, this sibling repo) is **implemented**. Guide 08 re-baselined harder hard-neg traps without claiming CE lift or checking eval-complete. Private scrub / January rewrite remain **out of scope** unless a new guide authorizes them.
 
 ---
 

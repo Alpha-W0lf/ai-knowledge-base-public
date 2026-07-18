@@ -4,10 +4,10 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 08 — harder CE-discriminative traps via B1 confusable corpus growth + `neg_at_k` re-baseline  
 **Stage that authored this:** Write-dev-guide (pass 152)  
-**Status:** Draft — Ready-check Met (8.7/10); awaiting Tom authorize Implement  
+**Status:** **Implement done** 2026-07-18 — Ready-check 8.7/10; awaiting Review  
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-18_harder_ce_discriminative_eval_context_summary.md`  
-**Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_write_ce_eval_pass152_handoff.md`  
+**Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_implement_ce_eval_pass152_handoff.md`  
 **Prerequisite:** Guide 07 Align done — harness + `hn1`–`hn6`; fusion/CE `neg_at_k` **0.0**; `ce_keep=false`; not eval-complete.
 
 **Tom / hub locks (do not reopen — pass 152):**
@@ -119,13 +119,13 @@ Exact slug names and body prose are **Implement invent** within these pins — k
 
 ## Acceptance criteria
 
-- [ ] R1: Hub-free test proves hard-neg excluded from easy `hits` / `hit_at_k` (monkeypatched retrieve smoke)  
-- [ ] +1 or +2 confusable fixtures landed; total fixtures ≤8; manifest + PROVENANCE updated  
-- [ ] +4–6 new `hn*` (total hard-neg ≤10); `hn1`–`hn6` + `g1`–`g18` preserved  
-- [ ] B2 spot-check documented for new traps (prefer fusion-failing)  
-- [ ] Live eval re-run; `ce_keep_note` records fusion/CE `neg_at_k`, easy metrics, B2 notes  
-- [ ] Honesty docs updated; **eval-complete remains unchecked** (E3); no fake lift; `ce_keep` not from `neg_at_k`  
-- [ ] No `CE_ENABLED` / private / embedding flip  
+- [x] R1: Hub-free test proves hard-neg excluded from easy `hits` / `hit_at_k` (monkeypatched retrieve smoke)  
+- [x] +1 or +2 confusable fixtures landed; total fixtures ≤8; manifest + PROVENANCE updated  
+- [x] +4–6 new `hn*` (total hard-neg ≤10); `hn1`–`hn6` + `g1`–`g18` preserved  
+- [x] B2 spot-check documented for new traps (prefer fusion-failing)  
+- [x] Live eval re-run; `ce_keep_note` records fusion/CE `neg_at_k`, easy metrics, B2 notes  
+- [x] Honesty docs updated; **eval-complete remains unchecked** (E3); no fake lift; `ce_keep` not from `neg_at_k`  
+- [x] No `CE_ENABLED` / private / embedding flip  
 
 ---
 
@@ -135,32 +135,32 @@ All boxes start unchecked. **Do not check boxes in Write / Refine-dev-guide / Re
 
 ### Phase A — R1 exclusion smoke (thin)
 
-- [ ] **A1.** In `tests/test_eval_neg_at_k.py`, add a Hub-free test that runs `run_fixture_eval` (or a thin helper) with `retrieve` monkeypatched to return deterministic hits for one easy + one hard-neg case.  
-- [ ] **A2.** Assert easy `hits` / `hit_at_k` ignore the hard-neg row (hard-neg must not increment `hits`; `easy_cases` counts only easy). Prefer temp golden file or monkeypatch `load_golden_cases` to avoid depending on live Ollama.  
-- [ ] **A3.** Keep existing neg_ok / validate / keep tests green. **Do not** change production metric formula.
+- [x] **A1.** In `tests/test_eval_neg_at_k.py`, add a Hub-free test that runs `run_fixture_eval` (or a thin helper) with `retrieve` monkeypatched to return deterministic hits for one easy + one hard-neg case.  
+- [x] **A2.** Assert easy `hits` / `hit_at_k` ignore the hard-neg row (hard-neg must not increment `hits`; `easy_cases` counts only easy). Prefer temp golden file or monkeypatch `load_golden_cases` to avoid depending on live Ollama.  
+- [x] **A3.** Keep existing neg_ok / validate / keep tests green. **Do not** change production metric formula.
 
 ### Phase B — Confusable fixtures (B1)
 
-- [ ] **B1.** Author **1–2** new synthetic markdown transcripts under `fixtures/transcripts/` per soft pins (fusion twin required if only one; add CE twin when shipping two).  
-- [ ] **B2.** Register each in `fixtures/manifest.json` (`source_id`, title, license `synthetic`, file path, notes).  
-- [ ] **B3.** Update `fixtures/PROVENANCE.md` table.  
-- [ ] **B4.** Confirm total fixture count ∈ {7, 8}. Re-ingest path is existing `ingest_fixtures` — no new ingest code unless broken.
+- [x] **B1.** Author **1–2** new synthetic markdown transcripts under `fixtures/transcripts/` per soft pins (fusion twin required if only one; add CE twin when shipping two).  
+- [x] **B2.** Register each in `fixtures/manifest.json` (`source_id`, title, license `synthetic`, file path, notes).  
+- [x] **B3.** Update `fixtures/PROVENANCE.md` table.  
+- [x] **B4.** Confirm total fixture count ∈ {7, 8}. Re-ingest path is existing `ingest_fixtures` — no new ingest code unless broken.
 
 ### Phase C — New hard-neg goldens
 
-- [ ] **C1.** Draft **+4–6** trap queries targeting confusable pairs (anti-paraphrase vs `hn1`–`hn6`).  
-- [ ] **C2.** **Mandatory B2:** for each new `hn*`, hybrid retrieve `ce_enabled=False`; prefer forbidden currently in top-K; record outcomes for `ce_keep_note`.  
-- [ ] **C3.** Append `hn7`… to `golden_cases.jsonl`; preserve existing 24 lines; `must_cite: false`; forbidden ids ∈ updated manifest.  
-- [ ] **C4.** Do **not** CE-probe to cherry-pick wins (anti-probe pin).
+- [x] **C1.** Draft **+4–6** trap queries targeting confusable pairs (anti-paraphrase vs `hn1`–`hn6`).  
+- [x] **C2.** **Mandatory B2:** for each new `hn*`, hybrid retrieve `ce_enabled=False`; prefer forbidden currently in top-K; record outcomes for `ce_keep_note`.  
+- [x] **C3.** Append `hn7`… to `golden_cases.jsonl`; preserve existing 24 lines; `must_cite: false`; forbidden ids ∈ updated manifest.  
+- [x] **C4.** Do **not** CE-probe to cherry-pick wins (anti-probe pin).
 
 ### Phase D — Eval + honesty
 
-- [ ] **D1.** `uv run pytest tests/test_eval_ce_honesty.py tests/test_eval_neg_at_k.py -q`  
-- [ ] **D2.** `uv run python -m src.eval` (Ollama + HF MiniLM).  
-- [ ] **D3.** Confirm easy fusion hit@K still **1.0** (regression). If broken, fix fixtures/queries before honesty claims.  
-- [ ] **D4.** Update `docs/2026-07-12_ce_keep_note.md`: fixture N; hard-neg N; `fusion.neg_at_k` / `ce.neg_at_k`; B2 notes; `ce_keep` still hit@K-gated; state flat or lift honestly.  
-- [ ] **D5.** Update GETTING_STARTED / INTERVIEW / PORTFOLIO_VISION — Guide 08 landed; **do not** check eval-complete (E3); no CE relevance ads unless CE `neg_at_k` > fusion.  
-- [ ] **D6.** Stop. No CE flip. No private flip. No easy `g*` growth.
+- [x] **D1.** `uv run pytest tests/test_eval_ce_honesty.py tests/test_eval_neg_at_k.py -q`  
+- [x] **D2.** `uv run python -m src.eval` (Ollama + HF MiniLM).  
+- [x] **D3.** Confirm easy fusion hit@K still **1.0** (regression). If broken, fix fixtures/queries before honesty claims.  
+- [x] **D4.** Update `docs/2026-07-12_ce_keep_note.md`: fixture N; hard-neg N; `fusion.neg_at_k` / `ce.neg_at_k`; B2 notes; `ce_keep` still hit@K-gated; state flat or lift honestly.  
+- [x] **D5.** Update GETTING_STARTED / INTERVIEW / PORTFOLIO_VISION — Guide 08 landed; **do not** check eval-complete (E3); no CE relevance ads unless CE `neg_at_k` > fusion.  
+- [x] **D6.** Stop. No CE flip. No private flip. No easy `g*` growth.
 
 ---
 
@@ -261,4 +261,19 @@ Exact markdown bodies, slug strings, and final `hn7+` query wording are Implemen
 
 **Artifact:** `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md`  
 **Further Refine-dev-guide:** **Not required.**  
-**Implement now:** **No** until Tom authorizes Implement Stage.
+**Implement now:** **Authorized** (pass 152) — Implement done below.
+
+---
+
+## Implement result (2026-07-18)
+
+| Item | Outcome |
+|------|---------|
+| Confusable fixtures | `fixture:combsum-fusion-07` + `fixture:bi-encoder-rerank-08` (total **8**) |
+| Hard-neg cases | `hn1`–`hn10` (10); `g1`–`g18` preserved; total **28** JSONL lines |
+| B2 spot-check (new) | **4/4** `hn7`–`hn10` fusion returned forbidden |
+| R1 | `test_run_fixture_eval_excludes_hard_neg_from_hit_at_k` Hub-free |
+| Unit tests | honesty + neg_at_k → **16 passed** |
+| Live eval | easy hit@K fusion/CE **1.0**; CE-success **18/18**; `fusion.neg_at_k` **0.0**; `ce.neg_at_k` **0.0**; `ce_keep=false` |
+| Honesty | Docs updated; **E3** eval-complete **unchecked**; no fake lift; no `CE_ENABLED` / private / embedding flip |
+| Next | **Await Tom authorize Review** — do not self-start |

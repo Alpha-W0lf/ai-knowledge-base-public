@@ -53,6 +53,24 @@
       "url": null,
       "file": "transcripts/fixture-ingest-06.md",
       "notes": "Lexical: fixtures provenance smoke path"
+    },
+    {
+      "source_id": "fixture:combsum-fusion-07",
+      "title": "Rank fusion with CombSUM score summing",
+      "license": "synthetic",
+      "channel": "fixtures",
+      "url": null,
+      "file": "transcripts/combsum-fusion-07.md",
+      "notes": "Confusable twin of RRF: CombSUM score-sum fusion"
+    },
+    {
+      "source_id": "fixture:bi-encoder-rerank-08",
+      "title": "Bi-encoder late scoring on a shortlist",
+      "license": "synthetic",
+      "channel": "fixtures",
+      "url": null,
+      "file": "transcripts/bi-encoder-rerank-08.md",
+      "notes": "Confusable twin of CE: bi-encoder late score N→K"
     }
   ]
 }

@@ -18,7 +18,7 @@ A local-first, vector-powered knowledge base for AI domain research. Ingests You
 **Personal vision (non-binding stack):** [`docs/2026-01-30_vision.md`](docs/2026-01-30_vision.md)  
 **January architecture:** [`docs/2026-01-30_architecture.md`](docs/2026-01-30_architecture.md) — **historical / NON-BINDING** (clean rewrite **rejected**).
 
-Guide 01 (shared retrieval spine) is **implemented**. Guide 02 packaging DoD (LICENSE, empty channels + ignored overlay, path hygiene) is **implemented**. Guide 03: this **public sibling** is the portfolio public surface; private archive remains private. Guide 04: root [`GETTING_STARTED.md`](GETTING_STARTED.md) + [`INTERVIEW.md`](INTERVIEW.md) — stranger-clone + FAQ shell. Guides 05–07: fixture eval grew to **18 easy + 6 hard-negative** goldens with per-arm `neg_at_k` — **still not** v1 complete / eval-complete; CE shows **no** claimed hit@K or hard-neg lift on fixtures ([`ce_keep_note`](docs/2026-07-12_ce_keep_note.md)). Optional private tip scrub is separate hygiene — **not** a blocker for having a public AI KB.
+Guide 01 (shared retrieval spine) is **implemented**. Guide 02 packaging DoD (LICENSE, empty channels + ignored overlay, path hygiene) is **implemented**. Guide 03: this **public sibling** is the portfolio public surface; private archive remains private. Guide 04: root [`GETTING_STARTED.md`](GETTING_STARTED.md) + [`INTERVIEW.md`](INTERVIEW.md) — stranger-clone + FAQ shell. Guides 05–08: fixture eval is **18 easy + 10 hard-negative** on **8** docs (Guide 08 confusable twins) with per-arm `neg_at_k` — **still not** v1 complete / eval-complete; CE shows **no** claimed hit@K or hard-neg lift on fixtures ([`ce_keep_note`](docs/2026-07-12_ce_keep_note.md)). Optional private tip scrub is separate hygiene — **not** a blocker for having a public AI KB.
 
 ## Features
 
@@ -41,7 +41,7 @@ uv run python -m src.search "reciprocal rank fusion RRF" --hybrid --db data/lanc
 uv run python -m src.eval
 ```
 
-Fixture smoke is the portfolio demo path — see GETTING_STARTED for footguns, BYO optional path, and honesty banners. CE: pluggable seam + degrade; **no** claimed hit@K lift; Guide 07 hard-neg `neg_at_k` also flat on both arms ([`ce_keep_note`](docs/2026-07-12_ce_keep_note.md)).
+Fixture smoke is the portfolio demo path — see GETTING_STARTED for footguns, BYO optional path, and honesty banners. CE: pluggable seam + degrade; **no** claimed hit@K lift; Guide 08 hard-neg `neg_at_k` also flat on both arms ([`ce_keep_note`](docs/2026-07-12_ce_keep_note.md)).
 
 ## Architecture
 

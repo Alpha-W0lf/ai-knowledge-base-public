@@ -1,6 +1,8 @@
-"""Hub-free unit tests for hard-negative / neg_at_k (Guide 07)."""
+"""Hub-free unit tests for hard-negative / neg_at_k (Guide 07 + Guide 08 R1)."""
 
 from __future__ import annotations
+
+from pathlib import Path
 
 import pytest
 
@@ -8,8 +10,10 @@ from src.eval import (
     _decide_ce_keep,
     is_hard_negative,
     neg_ok,
+    run_fixture_eval,
     validate_hard_negatives,
 )
+from src.models import RetrievalHit, RetrievalResult
 
 
 def test_is_hard_negative():
@@ -117,3 +121,65 @@ def test_decide_ce_keep_ignores_neg_at_k_for_lift():
     }
     keep, _ = _decide_ce_keep(fusion, ce)
     assert keep is False
+
+
+def test_run_fixture_eval_excludes_hard_neg_from_hit_at_k(monkeypatch, tmp_path: Path):
+    """Guide 08 R1: hard-neg must not inflate easy hits / hit_at_k (Hub-free)."""
+    import src.eval as eval_mod
+
+    cases = [
+        {
+            "id": "g_easy",
+            "query": "easy gold query",
+            "expected_source_ids": ["fixture:gold"],
+            "must_cite": False,
+            "kind": "lexical",
+        },
+        {
+            "id": "hn_trap",
+            "query": "hard neg trap",
+            "forbidden_source_ids": ["fixture:bad"],
+            "must_cite": False,
+            "kind": "hard_negative",
+        },
+    ]
+
+    monkeypatch.setattr(eval_mod, "ingest_fixtures", lambda **_kwargs: {"files": 0})
+    monkeypatch.setattr(eval_mod, "load_golden_cases", lambda path=None: cases)
+    monkeypatch.setattr(
+        eval_mod,
+        "load_manifest_source_ids",
+        lambda path=None: {"fixture:gold", "fixture:bad"},
+    )
+
+    def fake_retrieve(query: str, **_kwargs):
+        # Easy: gold hit. Hard-neg: returns forbidden (would corrupt hit@K if counted).
+        sid = "fixture:gold" if query.startswith("easy") else "fixture:bad"
+        hit = RetrievalHit(
+            chunk_id="c1",
+            source_id=sid,
+            title="t",
+            channel="fixtures",
+            date="",
+            text="x",
+            source_url=sid,
+        )
+        return RetrievalResult(
+            query=query,
+            mode="hybrid",
+            ranking_stage="fusion",
+            hits=[hit],
+            timings_ms={"total": 1.0},
+        )
+
+    monkeypatch.setattr(eval_mod, "retrieve", fake_retrieve)
+
+    report = run_fixture_eval(tmp_path / "db", use_ce=False)
+    fusion = report["fusion"]
+    assert fusion["easy_cases"] == 1
+    assert fusion["hard_negative_cases"] == 1
+    assert fusion["hits"] == 1
+    assert fusion["hit_at_k"] == 1.0
+    assert fusion["neg_ok_count"] == 0
+    assert fusion["neg_at_k"] == 0.0
+    assert report["ce"] is None
