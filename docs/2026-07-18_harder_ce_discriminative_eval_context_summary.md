@@ -2,12 +2,14 @@
 
 **Date:** 2026-07-18  
 **Repos:** `ai-knowledge-base-public`  
-**Status:** Draft Gather + **Guide 08 written** (Write pass 152) — awaiting Ready-check / Implement authorize  
+**Status:** Draft Gather + Guide 08 written + **Ready-check Met** (8.7/10) — awaiting Tom authorize Implement  
 **Mode last used:** spoke  
 **Handoff (Gather):** `second_brain/docs/2026-07-18_spoke_aikb_gather_ce_eval_pass151_handoff.md`  
 **Handoff (Write):** `second_brain/docs/2026-07-18_spoke_aikb_write_ce_eval_pass152_handoff.md`  
+**Handoff (Ready):** `second_brain/docs/2026-07-18_spoke_aikb_ready_ce_eval_pass152_handoff.md`  
 **Guide:** `docs/dev_guides/2026-07-18_dev_guide_08_harder_ce_discriminative_eval.md`  
-**Hub:** `second_brain/docs/2026-07-18_prioritize_hub_pass151.md` / pass 152 Write fan-out  
+**Ready-check:** `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md`  
+**Hub:** `second_brain/docs/2026-07-18_prioritize_hub_pass151.md` / pass 152  
 **Tom locks (pass 152):** **B1** confusable +1–2 fixtures · **E3** no eval-complete on flat · **fold R1**  
 **Prior inventory:** `docs/2026-07-17_post_guide07_next_slice_inventory_context_summary.md` (recommended **C park**; Tom later authorized **B**)  
 **Role lens:** AI engineer (RAG eval honesty / discriminative goldens)
@@ -213,10 +215,11 @@ Hub pass 151 treats harder CE-discriminative eval as the **only remaining public
 
 ## Honest readiness
 
-- Ready for **Write dev guide**? **Done** (pass 152) — Guide 08 drafted with B1/E3/R1 locks.  
-- Ready for **Ready-check / Implement**? **Almost** — Write DoD Met; await Ready-check + Tom authorize Implement. Exact fixture bodies + `hn7+` queries remain Implement invent within soft pins.  
-- Trivial change? **No** — fixtures + goldens + R1 test + honesty re-run.  
-- Next human stage name (recommended): `Stage: Ready check before code` · Repo: `ai-knowledge-base-public` · Work item: Guide 08 harder CE-discriminative eval.
+- Ready for **Write dev guide**? **Done** (pass 152).  
+- Ready for **Ready-check**? **Done** — **8.7 / 10**; artifact `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md`.  
+- Ready for **Implement**? **Yes after Tom authorize** — no self-start. Prefer +4 new `hn*` (total hard-neg 10); fixture prose + queries remain Implement invent.  
+- Further Refine-dev-guide? **No**.  
+- Next human stage name (recommended): `Stage: Implement` · Repo: `ai-knowledge-base-public` · Work item: Guide 08 harder CE-discriminative eval — **after authorize**.
 
 ## Learning notes (interview-portable)
 

@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 08 — harder CE-discriminative traps via B1 confusable corpus growth + `neg_at_k` re-baseline  
 **Stage that authored this:** Write-dev-guide (pass 152)  
-**Status:** Draft — awaiting Ready-check / Tom authorize Implement  
+**Status:** Draft — Ready-check Met (8.7/10); awaiting Tom authorize Implement  
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-18_harder_ce_discriminative_eval_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_write_ce_eval_pass152_handoff.md`  
@@ -253,4 +253,12 @@ Exact markdown bodies, slug strings, and final `hn7+` query wording are Implemen
 
 ## Ready-check / Implement / Review / Align
 
-*Filled by later stages — leave blank this Write.*
+### Ready-check result (2026-07-18)
+
+| Track | Implement ready? | Score (0–10) | Why not 10 |
+|-------|------------------|--------------|------------|
+| Guide 08 harder CE-discriminative eval | **Yes** (await Tom authorize Implement) | **8.7** | Fixture slug/body invent; `hn7+` + B2 yield; easy hit@K regression runtime; Ollama/HF live eval; prefer +4 new hn to keep total hard-neg ≤10 |
+
+**Artifact:** `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md`  
+**Further Refine-dev-guide:** **Not required.**  
+**Implement now:** **No** until Tom authorizes Implement Stage.
