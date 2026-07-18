@@ -2,7 +2,7 @@
 
 **Status:** Active for public packaging intent  
 **Created:** 2026-07-12  
-**Updated:** 2026-07-18 (Guide 08 — confusable hard-neg / flat `neg_at_k` honesty)  
+**Updated:** 2026-07-18 (Guide 09 — build MV Met packaging; eval-complete Parked E3)  
 **Owner:** Tom  
 **Binding architecture:** [`docs/ARCHITECTURE.md`](./ARCHITECTURE.md) (KB1–KB5)  
 **Related personal vision:** `docs/2026-01-30_vision.md` (personal second-brain — private use; stack choices **non-binding**)  
@@ -23,7 +23,15 @@ It is **not** a cloud SaaS, not a chatbot product, and not a rewrite of second_b
 | Agent tooling | Read-only public MCP allowlist |
 | Local-first packaging | `uv`, synthetic fixtures, fixture-first smoke |
 
-**Guide 01 (retrieval spine) is implemented.** **Guide 02 packaging DoD is implemented** (LICENSE, empty committed channels + ignored overlay, portable MCP/plist paths). **Guide 03:** this public sibling is the portfolio public surface with optional BYO live path. **Guide 04:** root `GETTING_STARTED.md` + `INTERVIEW.md` landed — stranger-clone + FAQ shell. **Guide 05:** fixture golden growth to **18 easy** cases. **Guide 06:** CE load observability + CE-success-gated eval — CE ran **18/18** `ce` but **no** hit@K lift vs fusion ceiling. **Guide 07:** hard-negative harness + first 6 traps. **Guide 08:** +2 confusable fixtures (KB1 = **8**) + **10** hard-neg goldens; fusion and CE `neg_at_k` both **0.0**; `ce_keep` still hit@K-gated; **still not** portfolio v1 complete, **not** private-flip ready, **not** eval-complete (E3 — flat Guide 08 does not auto-check). Private archive (`ai_knowledge_base`) remains private; scrubbing private tip history is optional hygiene, **not** a blocker for “having a public AI KB.”
+**Guides 01–08 are implemented and Aligned** on this public sibling (retrieval spine, packaging, public surface, GETTING_STARTED/INTERVIEW, golden growth, CE-effectiveness measure, hard-neg harness, confusable harder traps). **Portfolio public success / build MV = Met** (§4 Done rows + ARCHITECTURE §9 gates 1–7 + 8(a) + Guides 01–08 evidence).
+
+**Three-lane honesty (do not conflate):**
+
+1. **Build MV Met** — public stranger-runnable delivery checklist closed.  
+2. **Eval-complete claim = Parked (E3)** — Guide 08 flat `neg_at_k`; do **not** tick eval-complete without a later Tom unlock.  
+3. **Private flip** — out of scope for this repo’s build %; optional hygiene on the private archive only.
+
+Private archive (`ai_knowledge_base`) remains private; scrubbing private tip history is **not** a blocker for having a public AI KB. CE shows **no** claimed relevance lift (`ce_keep=false`; see `ce_keep_note`).
 
 ---
 
@@ -60,17 +68,20 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 
 ---
 
-## 4. v1 public success
+## 4. Portfolio public success / build MV
+
+**Status: Met** (Guides 01–08 Align evidence). Prefer this phrase over ambiguous “v1 complete.”
 
 | Item | Status | Notes |
 |------|--------|-------|
 | Fixture corpus committed (no private content) | **Done** | `fixtures/` + PROVENANCE/manifest |
 | `uv sync` + `nomic-embed-text` pull + smoke search documented | **Done** | README thin Quick Start + `GETTING_STARTED.md` |
-| Root GETTING_STARTED + INTERVIEW (Guide 04) | **Done** | Stranger-clone + FAQ; not v1 / eval-complete |
-| Fixture golden growth N≥18 (Guide 05) | **Done** | 18 easy; not eval-complete |
+| Root GETTING_STARTED + INTERVIEW (Guide 04) | **Done** | Stranger-clone + FAQ |
+| Fixture golden growth N≥18 (Guide 05) | **Done** | 18 easy |
 | CE-effectiveness measure (Guide 06) | **Done** | CE-success 18/18 `ce`; fusion+CE-success hit@K 1.0; `ce_keep=false`; degrade `error` + stage-gated metrics |
 | Hard-negative / `neg_at_k` (Guide 07) | **Done** | First 6 `hn*` + harness; per-arm `neg_at_k`; excluded from hit@K + keep math |
-| Harder CE-discriminative / confusable (Guide 08) | **Done** | +2 confusable fixtures (8 total); 10 hard-neg; fusion/CE `neg_at_k` 0.0/0.0; E3: not eval-complete |
+| Harder CE-discriminative / confusable (Guide 08) | **Done** | +2 confusable fixtures (8 total); 10 hard-neg; fusion/CE `neg_at_k` 0.0/0.0 |
+| Build-MV packaging honesty (Guide 09) | **Done** | Three-lane prose; eval-complete Parked (E3) |
 | Shared hybrid → fusion → CE spine (Guide 01) | **Done** | Pass 8/9; portfolio surface = this sibling |
 | CE honesty: no false “CE improves relevance” | **Done** | `ce_keep_note`; seam kept without lift claim |
 | MCP example without owner absolute `cwd` | **Done** | Guide 02: `mcp-config.example.json` uses portable placeholder |
@@ -81,6 +92,7 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 | Launchd plist owner paths | **Done** | Guide 02: `REPLACE_WITH_REPO_ROOT` template |
 | Optional BYO live path (7-day backfill) | **Done** | Documented; not default / not CI |
 | No execution of January clean rewrite | **Held** | KB4 |
+| Eval-complete claim | **Parked (E3)** | Flat Guide 08; **not** a build MV blocker; do **not** tick without Tom unlock |
 
 ---
 
@@ -88,4 +100,4 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 
 Fills **local hybrid RAG + MCP** on LanceDB — same ranking *shape* as Mechanic (MR2/KB5), different store. Differentiates from Mechanic (product/web RAG + Postgres) and AlphaGuard (agents/streaming/ML gate). Eyeglass remains untouched for MLE/MLOps.
 
-**CE no-lift honesty:** On Guide 06–08, easy fusion-only hit@K was **1.0** and CE-success hit@K was **1.0** (18/18 `ranking_stage=ce`) — flat at the easy-golden ceiling; `ce_keep=false`. Guide 08 confusable corpus + 10 hard-negatives: both arms report `neg_at_k` **0.0** (0/10) — still no CE rejection lift, and **`ce_keep` is not flipped by `neg_at_k`**. Keep the pluggable CE seam + degrade path (`fusion_degraded` + `error`); do not market CE as proven relevance lift; do not check eval-complete from a flat Guide 08 (E3).
+**CE no-lift honesty:** On Guide 06–08, easy fusion-only hit@K was **1.0** and CE-success hit@K was **1.0** (18/18 `ranking_stage=ce`) — flat at the easy-golden ceiling; `ce_keep=false`. Guide 08 confusable corpus + 10 hard-negatives: both arms report `neg_at_k` **0.0** (0/10) — still no CE rejection lift, and **`ce_keep` is not flipped by `neg_at_k`**. Keep the pluggable CE seam + degrade path (`fusion_degraded` + `error`); do not market CE as proven relevance lift. **Guide 09** packages build MV Met separately from the parked eval-complete claim (E3) — packaging ≠ CE lift and ≠ eval-complete tick.

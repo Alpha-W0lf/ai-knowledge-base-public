@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 09 — mark portfolio **build MV Met**; keep **eval-complete unchecked (E3)**; no CE lift; no private flip  
 **Stage that authored this:** Write-dev-guide (pass 153)  
-**Status:** Draft — Ready-check Met (9.2/10); awaiting Tom authorize Implement  
+**Status:** Implement Met — ready for Review  
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-18_post_guide08_build_doneness_closeout_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_ready_guide09_pass153_handoff.md`  
@@ -88,12 +88,12 @@
 
 ## Acceptance criteria
 
-- [ ] PORTFOLIO_VISION states build MV / portfolio public success **Met** with Guides 01–08 evidence  
-- [ ] Explicit **eval-complete = Parked (E3)** — unchecked; no invent tick  
-- [ ] README / GETTING_STARTED / INTERVIEW / ARCHITECTURE prose no longer imply unfinished **public delivery** while listing open “not v1” without disambiguation  
-- [ ] No CE lift ads; no private-flip readiness claim  
-- [ ] No code / fixture / eval harness changes  
-- [ ] G08-R2/R3 not expanded unless free one-liner (default: skip)  
+- [x] PORTFOLIO_VISION states build MV / portfolio public success **Met** with Guides 01–08 evidence  
+- [x] Explicit **eval-complete = Parked (E3)** — unchecked; no invent tick  
+- [x] README / GETTING_STARTED / INTERVIEW / ARCHITECTURE prose no longer imply unfinished **public delivery** while listing open “not v1” without disambiguation  
+- [x] No CE lift ads; no private-flip readiness claim  
+- [x] No code / fixture / eval harness changes  
+- [x] G08-R2/R3 not expanded unless free one-liner (default: skip)  
 
 ---
 
@@ -103,22 +103,22 @@ All boxes start unchecked. **Do not check boxes in Write / Refine-dev-guide / Re
 
 ### Phase A — Vision + architecture packaging
 
-- [ ] **A1.** Update `docs/PORTFOLIO_VISION.md` §1 narrative: build MV Met; eval-complete parked (E3); private flip not a public build gate.  
-- [ ] **A2.** Update §4 table: add Parked (E3) eval-complete residual row/footnote; keep Guide 08 Done; do **not** check eval-complete.  
-- [ ] **A3.** Refresh §5 CE honesty to mention Guide 09 packaging closeout without lift claims.  
-- [ ] **A4.** Update `docs/ARCHITECTURE.md` status/header + §9 gate-5 “Still needed” note per soft pins.
+- [x] **A1.** Update `docs/PORTFOLIO_VISION.md` §1 narrative: build MV Met; eval-complete parked (E3); private flip not a public build gate.  
+- [x] **A2.** Update §4 table: add Parked (E3) eval-complete residual row/footnote; keep Guide 08 Done; do **not** check eval-complete.  
+- [x] **A3.** Refresh §5 CE honesty to mention Guide 09 packaging closeout without lift claims.  
+- [x] **A4.** Update `docs/ARCHITECTURE.md` status/header + §9 gate-5 “Still needed” note per soft pins.
 
 ### Phase B — Operator / interview surfaces
 
-- [ ] **B1.** `README.md` — three-lane honesty (build MV Met / eval-complete parked / private flip out of scope).  
-- [ ] **B2.** `GETTING_STARTED.md` — same; eval section still points at `ce_keep_note`.  
-- [ ] **B3.** `INTERVIEW.md` — FAQ “v1 / flip / eval-complete” answers match three lanes; no CE lift.
+- [x] **B1.** `README.md` — three-lane honesty (build MV Met / eval-complete parked / private flip out of scope).  
+- [x] **B2.** `GETTING_STARTED.md` — same; eval section still points at `ce_keep_note`.  
+- [x] **B3.** `INTERVIEW.md` — FAQ “v1 / flip / eval-complete” answers match three lanes; no CE lift.
 
 ### Phase C — Optional keep-note pointer + stop
 
-- [ ] **C1.** Optional one sentence in `ce_keep_note`: build MV packaging (Guide 09) ≠ eval-complete claim.  
-- [ ] **C2.** Stop. No code. No CE/`CE_ENABLED` flip. No private flip. No eval-complete tick.  
-- [ ] **C3.** Await Review / Align as hub directs (Align may add thin Guide 09 align note).
+- [x] **C1.** Optional one sentence in `ce_keep_note`: build MV packaging (Guide 09) ≠ eval-complete claim.  
+- [x] **C2.** Stop. No code. No CE/`CE_ENABLED` flip. No private flip. No eval-complete tick.  
+- [x] **C3.** Await Review / Align as hub directs (Align may add thin Guide 09 align note).
 
 ---
 
@@ -194,8 +194,22 @@ Revert Guide 09 doc commits only.
 
 | Track | Implement ready? | Score (0–10) | Why not 10 |
 |-------|------------------|--------------|------------|
-| Guide 09 build-MV packaging | **Yes** (await Tom authorize Implement) | **9.2** | Three-lane prose invent; v1-phrasing craft risk; optional C1; multi-file banner consistency |
+| Guide 09 build-MV packaging | **Yes** (authorized → Implement Met) | **9.2** | Three-lane prose invent; v1-phrasing craft risk; optional C1; multi-file banner consistency |
 
 **Artifact:** `docs/2026-07-18_guide09_build_mv_packaging_ready_check.md`  
 **Further Refine-dev-guide:** **Not required.**  
-**Implement now:** **No** until Tom authorizes Implement Stage.
+**Implement now:** **Authorized** (pass 153) — Implement done below.
+
+---
+
+## Implement result (2026-07-18)
+
+| Item | Outcome |
+|------|---------|
+| PORTFOLIO_VISION | §1 three-lane; §4 **Status: Met** + Guide 09 Done + **Eval-complete claim \| Parked (E3)**; §5 Guide 09 packaging ≠ lift / ≠ eval tick |
+| ARCHITECTURE | Header Guides 01–09 / build MV Met; §9 gate 5 Still needed → Guide 08 flat / E3 parked (not open build gate) |
+| README / GETTING_STARTED / INTERVIEW | Three-lane honesty; INTERVIEW §8 table lanes |
+| `ce_keep_note` | C1 pointer: Guide 09 packaging ≠ eval-complete claim |
+| Code / fixtures / tests | **Empty** `git diff --stat -- src/ fixtures/ tests/` |
+| E3 / CE / private | Eval-complete **unchecked**; no CE lift ads; no private flip |
+| Next | **Await Tom authorize Review** — do not self-start |

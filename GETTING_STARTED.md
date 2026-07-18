@@ -2,7 +2,7 @@
 
 Clone-depth operator path for the **fixture-first hybrid → fusion → optional CE** vertical slice. Contracts: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Interview gotchas: [`INTERVIEW.md`](INTERVIEW.md). Skim + thin Quick Start: [`README.md`](README.md). Portfolio why: [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md).
 
-This is **not** portfolio v1 complete, **not** private-archive flip ready, **not** eval-complete. Public corpus = committed `fixtures/` only.
+**Three-lane honesty:** (1) **portfolio public success / build MV Met** — Guides 01–08 delivery closed; (2) **eval-complete claim Parked (E3)** — flat Guide 08; do not tick without Tom unlock; (3) **private flip** — out of scope for this repo’s build %. Public corpus = committed `fixtures/` only.
 
 ---
 
@@ -98,11 +98,12 @@ uv run python -m src.search "your query" --hybrid --db data/lancedb
 
 | Topic | Truth |
 |-------|--------|
-| Packaging | Stranger-clone + FAQ shell — not portfolio v1 complete |
-| Private flip | Scrubbing the private archive is **optional hygiene** — not required to have this public AI KB |
+| Build MV | **Portfolio public success / build MV Met** (Guides 01–08 + §4 / §9(a)) |
+| Eval-complete claim | **Parked (E3)** — flat Guide 08; not a build MV blocker |
+| Private flip | Out of scope for this repo’s build % — optional private-archive hygiene only |
 | CE | Pluggable seam + degrade path — Guide 06–08: CE-success **18/18** `ce` but **no** hit@K lift vs fusion ceiling; hard-neg `neg_at_k` also flat on 10 traps (`ce_keep=false`) |
 | Corpus | **Fixtures only** on the public default path — **8** synthetic docs; no personal tip transcripts here |
-| Eval | Fixture goldens **28** (18 easy + 10 hard-neg) — **not** eval-complete; per-arm `neg_at_k` reported; `ce_keep` still hit@K-gated |
+| Eval metrics | Fixture goldens **28** (18 easy + 10 hard-neg); per-arm `neg_at_k` reported; `ce_keep` still hit@K-gated |
 
 ---
 

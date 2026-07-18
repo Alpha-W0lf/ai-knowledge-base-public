@@ -2,7 +2,7 @@
 
 Staff-interview gotchas for the **fixture-first hybrid → fusion → optional CE** vertical slice on the public sibling. Contracts SSOT: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Portfolio intent: [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md). CE keep honesty: [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
 
-This is packaging around a shippable Guide 01–03 path — **not** portfolio v1 Done, **not** private-archive flip ready, **not** eval-complete.
+**Three-lane honesty:** (1) **portfolio public success / build MV Met**; (2) **eval-complete claim Parked (E3)** — do not tick from flat Guide 08; (3) **private flip** — not this repo’s build gate.
 
 ---
 
@@ -62,17 +62,18 @@ Public MCP and shared retrieval cite **`source_id`** and **`source_url`** (or fi
 
 Identity fields (`source_id`, `content_hash`, `embedding_version`) are binding; path moves must not change `source_id`. This keeps stranger clones and MCP configs portable.
 
-## 8. Does packaging mean v1 complete / private flip / eval-complete?
+## 8. Does packaging mean build MV Met / private flip / eval-complete?
 
-**No.** Root `GETTING_STARTED` + `INTERVIEW` are the stranger-clone + FAQ shell around Guides 01–03. They do **not** mean:
+**Separate the lanes:**
 
-- portfolio v1 checklist complete
-- private archive remote flip ready
-- CE freeze or proven relevance lift
-- eval-complete (Guide 05–08: 18 easy + 10 hard-neg + honest CE / `neg_at_k` metrics — including Guide 08 confusable corpus; still not “eval-complete”)
-- private-archive flip / tip scrub
+| Lane | Status |
+|------|--------|
+| Portfolio public success / **build MV Met** | **Yes** — Guides 01–08 delivery + §4 / §9(a); Guide 09 packages the honesty |
+| **Eval-complete** claim | **Parked (E3)** — flat Guide 08 metrics; do **not** tick without Tom unlock |
+| Private archive **flip** ready | **No** — out of scope for this repo’s build % |
+| CE proven relevance lift | **No** — `ce_keep=false`; see `ce_keep_note` |
 
-Packaging DoD (LICENSE, empty channels + overlay, fixture smoke, this sibling repo) is **implemented**. Guide 08 re-baselined harder hard-neg traps without claiming CE lift or checking eval-complete. Private scrub / January rewrite remain **out of scope** unless a new guide authorizes them.
+Root `GETTING_STARTED` + `INTERVIEW` remain the stranger-clone + FAQ shell. Packaging DoD (LICENSE, empty channels + overlay, fixture smoke, this sibling repo) is **implemented**. Guide 08 re-baselined harder hard-neg traps without claiming CE lift. Guide 09 marks build MV Met without inventing an eval-complete tick. Private scrub / January rewrite remain **out of scope** unless a new guide authorizes them.
 
 ---
 

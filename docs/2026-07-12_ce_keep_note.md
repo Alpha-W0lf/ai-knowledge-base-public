@@ -6,7 +6,7 @@
 
 ## Decision
 
-On the committed fixture golden set (**18 easy** `g1`–`g18` + **10 hard-negative** `hn1`–`hn10`), **CE ran successfully** on easy cases (`ranking_stage=ce` on all 18) but **hit@K lift vs fusion-only was not shown** (`ce_keep=false`). Easy goldens already ceiling fusion at 1.0. Guide 08 added **2** confusable twin fixtures + **4** new hard-neg traps; hard-neg `neg_at_k` remains **flat on both arms** — **no** CE rejection lift. `neg_at_k` is reported **per arm** and does **not** drive `ce_keep`. **Still not eval-complete** (E3 — flat Guide 08 does not auto-check that box).
+On the committed fixture golden set (**18 easy** `g1`–`g18` + **10 hard-negative** `hn1`–`hn10`), **CE ran successfully** on easy cases (`ranking_stage=ce` on all 18) but **hit@K lift vs fusion-only was not shown** (`ce_keep=false`). Easy goldens already ceiling fusion at 1.0. Guide 08 added **2** confusable twin fixtures + **4** new hard-neg traps; hard-neg `neg_at_k` remains **flat on both arms** — **no** CE rejection lift. `neg_at_k` is reported **per arm** and does **not** drive `ce_keep`. **Still not eval-complete** (E3 — flat Guide 08 does not auto-check that box). **Guide 09** may mark portfolio public success / build MV Met without changing these metrics or inventing an eval-complete tick — packaging ≠ eval-complete claim.
 
 | Metric | Value (2026-07-18 Guide 08) |
 |--------|------------------------------|
