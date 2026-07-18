@@ -2,10 +2,13 @@
 
 **Date:** 2026-07-18  
 **Repos:** `ai-knowledge-base-public`  
-**Status:** Draft (Gather context)  
+**Status:** Draft Gather + **Guide 09 written** (Write pass 153) — awaiting Ready-check / Implement authorize  
 **Mode last used:** spoke  
-**Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_gather_build_closeout_pass153_handoff.md`  
-**Hub:** `second_brain/docs/2026-07-18_hub_fanin_aikb_align_guide08_pass153.md`  
+**Handoff (Gather):** `second_brain/docs/2026-07-18_spoke_aikb_gather_build_closeout_pass153_handoff.md`  
+**Handoff (Write):** `second_brain/docs/2026-07-18_spoke_aikb_write_build_closeout_pass153_handoff.md`  
+**Guide:** `docs/dev_guides/2026-07-18_dev_guide_09_build_mv_packaging.md`  
+**Hub:** `second_brain/docs/2026-07-18_hub_fanin_aikb_align_guide08_pass153.md` / gather closeout fan-in  
+**Tom lock (pass 153):** **A** — docs-only build MV Met; E3 eval-complete unchecked  
 **Prior:** Guide 08 Align Met (`63310b5`); doneness ~94% (pass 153)  
 **Role lens:** AI engineer (portfolio honesty / Definition of Done packaging)
 
@@ -175,30 +178,21 @@ There is **no** unchecked §4 row labeled “eval-complete.” E3 parked a *clai
 
 ## Open decisions (human)
 
-### Decision: How to close AI KB build doneness after Guide 08?
+> **Pass 153 lock:** Decision → **A** (Tom). Historical A/B/C comparison retained above for audit.
+
+### Decision: How to close AI KB build doneness after Guide 08? — **LOCKED A**
 
 - **Plain title:** After Guides 01–08, how should we mark build 100% without inventing eval-complete?
-- **In plain terms:** Fix packaging docs so checklists and prose agree (A), declare complete by override with E3 parked (B), or leave the spoke parked (C).
-- **Options:** **A** thin Guide 09 packaging · **B** Tom override build-complete / eval-complete parked · **C** park spoke
-- **Recommendation:** **A**
-- **Reasoning:** §4/§9 delivery gates are Done; only prose + E3 claim residual remain. Hub lean prefers packaging when “not v1” prose lacks a code slice. A makes 100% honest without ticking eval-complete.
-- **Tradeoffs:** One docs guide cycle vs leaving drift (C) or override without narrative fix (B).
-- **Needs from you:** `lock A` / `lock B` / `lock C`
-
-## Evidence opened this pass
-
-- PORTFOLIO_VISION §1/§4/§5; `ce_keep_note`; ARCHITECTURE §9  
-- Guide 08 Align note; hub pass 151 build-100% definition; doneness pass 153  
-- README / GETTING_STARTED / INTERVIEW honesty banners  
-- Handoff closeout + hub fan-in Align Guide 08  
+- **Lock:** **A** — thin Guide 09 build-MV packaging (docs-only)
+- **Recommendation (historical):** **A**
+- **Needs from you:** Satisfied (`lock A`)
 
 ## Honest readiness
 
-- Ready for **Write-dev-guide**? **Yes if Tom locks A** — thin docs-only Guide 09; soft pins above suffice.  
-- Ready for Write if **B**? **Thin** — prefer hub/doneness lock + short Align-style prose patch, not a full guide (justify trivial).  
-- Ready for Write if **C**? **No** — park.  
-- Ready for Implement? **No** — Gather only; A would be docs Implement later.  
-- Trivial now? **No** for A (needs executable packaging guide); **possibly trivial** for B if Tom locks override + one prose paragraph.
+- Ready for **Write-dev-guide**? **Done** (pass 153) — Guide 09 drafted.  
+- Ready for **Ready-check / Implement**? **Almost** — Write DoD Met; await Ready-check + Tom authorize Implement (docs-only).  
+- Ready for Implement? **No** until Ready-check + authorize.  
+- Next human stage name (recommended): `Stage: Ready check before code` · Repo: `ai-knowledge-base-public` · Work item: Guide 09 build-MV packaging.
 
 ## Learning notes (interview-portable)
 
