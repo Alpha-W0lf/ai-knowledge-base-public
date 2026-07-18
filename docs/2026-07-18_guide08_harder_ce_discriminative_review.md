@@ -16,7 +16,7 @@
 | Shippable as-is? | **Yes** |
 | Fix-first required? | **No** |
 | Must-fix patches this Review? | **None** |
-| Ready for Align docs? | **Yes** (optional — Gather/Ready-check superseded banners; not a ship blocker) |
+| Ready for Align docs? | **Done** (pass 153) — Gather/Ready-check superseded banners + slice closed |
 
 ## Guide DoD mapping
 
@@ -55,7 +55,7 @@ No DoD violations. No false CE-lift claims. No eval-complete auto-check. No priv
 
 | ID | Finding | Why not blocking | Smallest later fix |
 |----|---------|------------------|--------------------|
-| G08-R1 | Gather / Ready-check artifacts still speak pre-Implement readiness in places | Implement + Review + `ce_keep_note` are SSOT for metrics | Align: superseded banners on Gather/Ready-check |
+| G08-R1 | Gather / Ready-check artifacts still speak pre-Implement readiness in places | **Aligned 2026-07-18** — superseded banners on both artifacts | — |
 | G08-R2 | Guide 07 residuals R2 (`must_cite` validate) / R3 (easy RetrievalError counting) still parked | Explicitly out of Guide 08; not regressions | Leave parked unless Tom unlocks |
 | G08-R3 | Live eval not re-run in Review | Same Guide 07 Review pattern; metrics already in `ce_keep_note` | Optional re-run at Align if Tom wants |
 
@@ -83,4 +83,4 @@ Assumptions checked against `ec6d8fe` + re-run pytest + fixture/golden counts + 
 
 ## Stop
 
-Review complete. **Await Tom authorize Align** (optional polish) or close slice — do not self-start Align/Implement.
+Review complete. Align-docs (pass 153) addressed G08-R1. Residuals G08-R2/R3 remain optional polish — **not** Align blockers. Slice **closed**.

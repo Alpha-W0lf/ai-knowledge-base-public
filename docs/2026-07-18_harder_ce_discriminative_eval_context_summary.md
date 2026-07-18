@@ -1,18 +1,35 @@
 # Context: Harder CE-discriminative eval (unpark Park C / Option B)
 
+> **Superseded (Align 2026-07-18):** Historical Gather artifact. Guide 08 **Implement** `ec6d8fe` + **Review** shippable (`316bd93` / `docs/2026-07-18_guide08_harder_ce_discriminative_review.md`). Current honesty SSOT: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md) — **8** fixtures; 18 easy + 10 hard-neg; fusion/CE `neg_at_k` **0.0**; `ce_keep=false`; **not** eval-complete (E3). Do not treat open decision boxes or pre-Implement readiness below as open work.
+
 **Date:** 2026-07-18  
 **Repos:** `ai-knowledge-base-public`  
-**Status:** Draft Gather + Guide 08 written + **Ready-check Met** (8.7/10) — awaiting Tom authorize Implement  
+**Status:** **Aligned / slice closed** (Guide 08 Met)  
 **Mode last used:** spoke  
 **Handoff (Gather):** `second_brain/docs/2026-07-18_spoke_aikb_gather_ce_eval_pass151_handoff.md`  
 **Handoff (Write):** `second_brain/docs/2026-07-18_spoke_aikb_write_ce_eval_pass152_handoff.md`  
 **Handoff (Ready):** `second_brain/docs/2026-07-18_spoke_aikb_ready_ce_eval_pass152_handoff.md`  
+**Handoff (Align):** `second_brain/docs/2026-07-18_spoke_aikb_align_ce_eval_pass153_handoff.md`  
 **Guide:** `docs/dev_guides/2026-07-18_dev_guide_08_harder_ce_discriminative_eval.md`  
-**Ready-check:** `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md`  
-**Hub:** `second_brain/docs/2026-07-18_prioritize_hub_pass151.md` / pass 152  
-**Tom locks (pass 152):** **B1** confusable +1–2 fixtures · **E3** no eval-complete on flat · **fold R1**  
+**Ready-check:** `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md` (superseded)  
+**Review:** `docs/2026-07-18_guide08_harder_ce_discriminative_review.md`  
+**Align:** `docs/2026-07-18_guide08_harder_ce_discriminative_align.md`  
+**Hub:** `second_brain/docs/2026-07-18_prioritize_hub_pass151.md` / pass 152–153  
+**Tom locks (pass 152):** **B1** confusable +1–2 fixtures · **E3** no eval-complete on flat · **fold R1** — **held through Align**  
 **Prior inventory:** `docs/2026-07-17_post_guide07_next_slice_inventory_context_summary.md` (recommended **C park**; Tom later authorized **B**)  
 **Role lens:** AI engineer (RAG eval honesty / discriminative goldens)
+
+### Outcome (Guide 08 — current truth)
+
+| Field | Value |
+|-------|-------|
+| Fixtures | **8** (`combsum-fusion-07`, `bi-encoder-rerank-08` twins) |
+| Goldens | **28** (18 easy + 10 hard-neg `hn1`–`hn10`) |
+| `fusion.neg_at_k` / `ce.neg_at_k` | **0.0 / 0.0** |
+| Easy hit@K | **1.0** both arms |
+| `ce_keep` | **false** (hit@K-gated) |
+| Eval-complete | **Unchecked** (E3) |
+| Implement / Review | `ec6d8fe` / shippable as-is |
 
 ## Problem
 
@@ -215,11 +232,10 @@ Hub pass 151 treats harder CE-discriminative eval as the **only remaining public
 
 ## Honest readiness
 
-- Ready for **Write dev guide**? **Done** (pass 152).  
-- Ready for **Ready-check**? **Done** — **8.7 / 10**; artifact `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md`.  
-- Ready for **Implement**? **Yes after Tom authorize** — no self-start. Prefer +4 new `hn*` (total hard-neg 10); fixture prose + queries remain Implement invent.  
-- Further Refine-dev-guide? **No**.  
-- Next human stage name (recommended): `Stage: Implement` · Repo: `ai-knowledge-base-public` · Work item: Guide 08 harder CE-discriminative eval — **after authorize**.
+- Guide 08 **closed** (Implement + Review + Align).  
+- Ready for further AI KB agent work? Only on a **new** hub-authorized slice — Park C Option B for harder CE eval is Met.  
+- Eval-complete remains **unchecked** (E3) until a later explicit Tom lock.  
+- Current metrics SSOT: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md).
 
 ## Learning notes (interview-portable)
 

@@ -1,5 +1,7 @@
 # Ready-check — Guide 08 harder CE-discriminative eval
 
+> **Superseded (Align 2026-07-18):** Pre-Implement Ready-check only. Guide 08 **shipped** — Implement `ec6d8fe`, Review shippable as-is (`docs/2026-07-18_guide08_harder_ce_discriminative_review.md`). “Ready for Implement?” / pre-change invent notes below are **historical**. Current metrics: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md).
+
 **Date:** 2026-07-18  
 **Repo:** `ai-knowledge-base-public`  
 **Stage:** Ready check before code  
@@ -8,6 +10,7 @@
 **Context:** `docs/2026-07-18_harder_ce_discriminative_eval_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_ready_ce_eval_pass152_handoff.md`  
 **Locks:** B1 (+1–2 confusable fixtures) · E3 (no eval-complete on flat) · fold R1  
+**Align status:** **Superseded** by Implement + Review + Align (was: Ready for Implement after authorize)
 
 ## Verdict
 
@@ -67,4 +70,4 @@ Assumptions checked against guide + context + ingest/eval seams + fixture counts
 
 ## Stop
 
-Ready-check complete. **Await Tom authorize Implement** — do not self-start coding.
+Ready-check complete. **Historical** — Implement authorized and shipped; see Align / `ce_keep_note`.

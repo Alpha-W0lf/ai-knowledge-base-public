@@ -1,8 +1,10 @@
 # Context: Post–Guide 07 next-slice inventory (private hygiene vs harder CE vs park)
 
+> **Outcome (Align 2026-07-18):** Option **B** was later unparked (pass 151–152) and **Guide 08 closed** — Implement `ec6d8fe`, Review shippable, Align Met. Current public honesty: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md) (8 fixtures; 10 hard-neg; flat `neg_at_k`; E3 eval-complete unchecked). A/B/C comparison and park recommendation below are **historical** Gather inventory — not open work.
+
 **Date:** 2026-07-17  
 **Repos:** `ai-knowledge-base-public` (+ `ai_knowledge_base` read-only for tip inventory evidence; **not** SSOT for public story)  
-**Status:** Draft (Gather context)  
+**Status:** **Superseded** by Guide 08 close (was: Draft Gather; lean park)  
 **Mode last used:** spoke  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_next_gather_pass121_handoff.md`  
 **Prior:** Guide 07 hard-negative / `neg_at_k` **Align Met** (pass 117 fan-in); Implement `ff9ad33`; Review shippable; Align `b243f2d`  
