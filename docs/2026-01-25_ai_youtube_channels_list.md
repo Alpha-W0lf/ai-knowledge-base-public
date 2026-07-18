@@ -317,3 +317,34 @@ https://www.youtube.com/@OpenAI/videos
 https://www.youtube.com/@TheAiGrid/videos
 
 https://www.youtube.com/@aiexplained-official/videos
+
+---
+
+## Operator note (2026-07-18) — runtime registry vs this doc
+
+This markdown file is a **research / wishlist** list. Live transcript sync reads **only** ignored `channels.local.json` (empty committed default — Guide 02).
+
+**2026-07-18 overlay update (operator machine, not committed):** union of prior private handles + Tom’s list + agreed extras → **41** channels in local overlay on both private and public clones. See program note: `second_brain/docs/2026-07-18_ai_kb_youtube_channels_overlay_update.md`.
+
+### Added / confirmed handles (wishlist + overlay intent)
+
+| Handle | Notes |
+|--------|-------|
+| `@cursor_ai` | Cursor product |
+| `@AmanManazir` | AI eng / career |
+| `@ALifeEngineered` | AI systems |
+| `@Fireship` | Dense engineering explainers |
+| `@JillesDev` | AI coding tooling |
+| `@TechWithTim` | Python / AI tutorials |
+| `@ColeMedin` | Agents / local LLMs |
+| `@nicksaraev` | Automation / agents |
+| `@nateherk` | AI engineering |
+| `@BenAI92` | AI engineering |
+| `@NicholasPuru` | AI coding |
+| `@Tristen_OBrien` | AI engineering |
+| `@LangChain` | Framework (agreed extra) |
+| `@huggingface` | Open ML (agreed extra) |
+| `@DeepLearningAI` | Courses (agreed extra) |
+| `@karpathy` | LLM education (agreed extra) |
+| `@YannicKilcher` | Papers (agreed extra) |
+| `@TwoMinutePapers` | Research shorts (agreed extra) |
