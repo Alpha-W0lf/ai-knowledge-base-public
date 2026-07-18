@@ -4,10 +4,10 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 09 — mark portfolio **build MV Met**; keep **eval-complete unchecked (E3)**; no CE lift; no private flip  
 **Stage that authored this:** Write-dev-guide (pass 153)  
-**Status:** Draft — awaiting Ready-check / Tom authorize Implement  
+**Status:** Draft — Ready-check Met (9.2/10); awaiting Tom authorize Implement  
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-18_post_guide08_build_doneness_closeout_context_summary.md`  
-**Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_write_build_closeout_pass153_handoff.md`  
+**Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_ready_guide09_pass153_handoff.md`  
 **Prerequisite:** Guide 08 Align Met — 8 fixtures; 18 easy + 10 hard-neg; flat `neg_at_k`; E3 held.
 
 **Tom / hub locks (do not reopen — pass 153):**
@@ -190,4 +190,12 @@ Revert Guide 09 doc commits only.
 
 ## Ready-check / Implement / Review / Align
 
-*Filled by later stages — leave blank this Write.*
+### Ready-check result (2026-07-18)
+
+| Track | Implement ready? | Score (0–10) | Why not 10 |
+|-------|------------------|--------------|------------|
+| Guide 09 build-MV packaging | **Yes** (await Tom authorize Implement) | **9.2** | Three-lane prose invent; v1-phrasing craft risk; optional C1; multi-file banner consistency |
+
+**Artifact:** `docs/2026-07-18_guide09_build_mv_packaging_ready_check.md`  
+**Further Refine-dev-guide:** **Not required.**  
+**Implement now:** **No** until Tom authorizes Implement Stage.

@@ -2,11 +2,13 @@
 
 **Date:** 2026-07-18  
 **Repos:** `ai-knowledge-base-public`  
-**Status:** Draft Gather + **Guide 09 written** (Write pass 153) — awaiting Ready-check / Implement authorize  
+**Status:** Draft Gather + Guide 09 written + **Ready-check Met** (9.2/10) — awaiting Tom authorize Implement  
 **Mode last used:** spoke  
 **Handoff (Gather):** `second_brain/docs/2026-07-18_spoke_aikb_gather_build_closeout_pass153_handoff.md`  
 **Handoff (Write):** `second_brain/docs/2026-07-18_spoke_aikb_write_build_closeout_pass153_handoff.md`  
+**Handoff (Ready):** `second_brain/docs/2026-07-18_spoke_aikb_ready_guide09_pass153_handoff.md`  
 **Guide:** `docs/dev_guides/2026-07-18_dev_guide_09_build_mv_packaging.md`  
+**Ready-check:** `docs/2026-07-18_guide09_build_mv_packaging_ready_check.md`  
 **Hub:** `second_brain/docs/2026-07-18_hub_fanin_aikb_align_guide08_pass153.md` / gather closeout fan-in  
 **Tom lock (pass 153):** **A** — docs-only build MV Met; E3 eval-complete unchecked  
 **Prior:** Guide 08 Align Met (`63310b5`); doneness ~94% (pass 153)  
@@ -189,10 +191,11 @@ There is **no** unchecked §4 row labeled “eval-complete.” E3 parked a *clai
 
 ## Honest readiness
 
-- Ready for **Write-dev-guide**? **Done** (pass 153) — Guide 09 drafted.  
-- Ready for **Ready-check / Implement**? **Almost** — Write DoD Met; await Ready-check + Tom authorize Implement (docs-only).  
-- Ready for Implement? **No** until Ready-check + authorize.  
-- Next human stage name (recommended): `Stage: Ready check before code` · Repo: `ai-knowledge-base-public` · Work item: Guide 09 build-MV packaging.
+- Ready for **Write-dev-guide**? **Done** (pass 153).  
+- Ready for **Ready-check**? **Done** — **9.2 / 10**; artifact `docs/2026-07-18_guide09_build_mv_packaging_ready_check.md`.  
+- Ready for **Implement**? **Yes after Tom authorize** — docs-only; no self-start.  
+- Further Refine-dev-guide? **No**.  
+- Next human stage name (recommended): `Stage: Implement` · Repo: `ai-knowledge-base-public` · Work item: Guide 09 build-MV packaging — **after authorize**.
 
 ## Learning notes (interview-portable)
 
