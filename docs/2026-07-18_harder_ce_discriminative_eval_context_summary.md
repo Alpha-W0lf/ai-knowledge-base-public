@@ -2,10 +2,13 @@
 
 **Date:** 2026-07-18  
 **Repos:** `ai-knowledge-base-public`  
-**Status:** Draft (Gather context)  
+**Status:** Draft Gather + **Guide 08 written** (Write pass 152) — awaiting Ready-check / Implement authorize  
 **Mode last used:** spoke  
-**Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_gather_ce_eval_pass151_handoff.md`  
-**Hub:** `second_brain/docs/2026-07-18_prioritize_hub_pass151.md` (#3 — unpark Park C Option B)  
+**Handoff (Gather):** `second_brain/docs/2026-07-18_spoke_aikb_gather_ce_eval_pass151_handoff.md`  
+**Handoff (Write):** `second_brain/docs/2026-07-18_spoke_aikb_write_ce_eval_pass152_handoff.md`  
+**Guide:** `docs/dev_guides/2026-07-18_dev_guide_08_harder_ce_discriminative_eval.md`  
+**Hub:** `second_brain/docs/2026-07-18_prioritize_hub_pass151.md` / pass 152 Write fan-out  
+**Tom locks (pass 152):** **B1** confusable +1–2 fixtures · **E3** no eval-complete on flat · **fold R1**  
 **Prior inventory:** `docs/2026-07-17_post_guide07_next_slice_inventory_context_summary.md` (recommended **C park**; Tom later authorized **B**)  
 **Role lens:** AI engineer (RAG eval honesty / discriminative goldens)
 
@@ -167,35 +170,37 @@ Hub pass 151 treats harder CE-discriminative eval as the **only remaining public
 
 ## Open decisions (human)
 
-### 1. Trap strategy: confusable corpus growth vs query-only
+> **Pass 152 locks:** Decision 1 → **B1**; Decision 2 → **E3**; Decision 3 → **fold R1**. Historical recommendations below retained for audit.
+
+### 1. Trap strategy: confusable corpus growth vs query-only — **LOCKED B1**
 
 - **Plain title:** How should Guide 08 try to make CE look different from fusion on hard negatives?
 - **In plain terms:** Add 1–2 new synthetic fixture docs that are easy to confuse, or only rewrite queries against the existing six docs.
 - **Options:** **B1** confusable corpus growth (+1–2 docs) · **B2** query-only · **B5** re-park
 - **Recommendation:** **B1**
+- **Lock:** **B1** (Tom pass 152)
 - **Reasoning:** Guide 07 already exhausted sibling-temptation queries on 6 docs with CE `neg_at_k=0.0`. Mechanic proved paraphrase-only growth stays flat; their only plausible path was confusable sections. KB1 still allows up to ~8 fixtures.
 - **Tradeoffs:** Slightly larger stranger corpus and authoring risk of eval gaming; gives up the “zero corpus change” path that is likely to re-prove flat without new information.
-- **Needs from you:** `lock B1` / `lock B2` / `lock B5` (re-park).
 
-### 2. When may we say “eval-complete”?
+### 2. When may we say “eval-complete”? — **LOCKED E3**
 
 - **Plain title:** After Guide 08, what evidence is enough to check eval-complete on the portfolio vision?
 - **In plain terms:** Does a careful flat report count, or only a real CE hard-neg win (or a separate Tom override)?
 - **Options:** **E1** CE `neg_at_k` > fusion required · **E2** honest discriminative harness + documented flat counts · **E3** leave unchecked until a later gate
-- **Recommendation:** **E3** for this Gather’s default posture; if Tom wants a finish line now, prefer **E1** over **E2** (E2 is easy to misread as “we’re done measuring”).
+- **Recommendation:** **E3**
+- **Lock:** **E3** (Tom pass 152) — do not auto-check eval-complete on flat
 - **Reasoning:** Pass 151 calls this the gate *before* eval-complete claims — not automatic completion. Mechanic kept freeze unchecked after flat Guide 08; same honesty pattern fits AI KB.
 - **Tradeoffs:** E1 may leave the box open after another flat run; E2 closes the story faster but weakens the word “complete”; E3 keeps ~84% narrative until an explicit later lock.
-- **Needs from you:** `lock E1` / `lock E2` / `lock E3`.
 
-### 3. Optional R1 exclusion smoke in Guide 08?
+### 3. Optional R1 exclusion smoke in Guide 08? — **LOCKED fold R1**
 
 - **Plain title:** Should Guide 08 include the thin hard-neg hit@K exclusion unit smoke (Review residual R1)?
 - **In plain terms:** Add a small Hub-free test that hard-neg rows do not inflate easy hit@K.
 - **Options:** **Yes fold R1** · **No — park R1**
-- **Recommendation:** **Yes fold R1** if Write keeps it to one thin test file change.
+- **Recommendation:** **Yes fold R1**
+- **Lock:** **fold R1** (Tom pass 152)
 - **Reasoning:** Strengthens regression without expanding product scope; R2/R3 stay parked.
 - **Tradeoffs:** Slightly longer DoD; residual polish could wait forever otherwise.
-- **Needs from you:** `fold R1` / `park R1` (or defer to Write default = fold).
 
 ## Evidence opened this pass
 
@@ -208,10 +213,10 @@ Hub pass 151 treats harder CE-discriminative eval as the **only remaining public
 
 ## Honest readiness
 
-- Ready for **Write dev guide**? **Almost — Yes after Tom locks Decision 1 (B1 vs B2) and Decision 2 (eval-complete bar).** Soft pins above are enough to draft Guide 08 once B1/B2 is locked; Decision 3 can default to fold R1.  
-- Ready for **Implement**? **No** — Gather only; no code.  
-- Trivial change? **No** — needs an executable Guide 08 (fixtures + goldens + honesty), not a one-line patch.  
-- Next human stage name (recommended): `Stage: Write dev guide` · Repo: `ai-knowledge-base-public` · Work item: Guide 08 harder CE-discriminative eval — **after** `lock B1` (or B2) + eval-complete bar lock.
+- Ready for **Write dev guide**? **Done** (pass 152) — Guide 08 drafted with B1/E3/R1 locks.  
+- Ready for **Ready-check / Implement**? **Almost** — Write DoD Met; await Ready-check + Tom authorize Implement. Exact fixture bodies + `hn7+` queries remain Implement invent within soft pins.  
+- Trivial change? **No** — fixtures + goldens + R1 test + honesty re-run.  
+- Next human stage name (recommended): `Stage: Ready check before code` · Repo: `ai-knowledge-base-public` · Work item: Guide 08 harder CE-discriminative eval.
 
 ## Learning notes (interview-portable)
 
