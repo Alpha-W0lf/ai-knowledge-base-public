@@ -4,10 +4,11 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 08 — harder CE-discriminative traps via B1 confusable corpus growth + `neg_at_k` re-baseline  
 **Stage that authored this:** Write-dev-guide (pass 152)  
-**Status:** **Implement done** 2026-07-18 — Ready-check 8.7/10; awaiting Review  
+**Status:** **Review shippable as-is** 2026-07-18 — Implement `ec6d8fe`; awaiting Align authorize (optional)  
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-18_harder_ce_discriminative_eval_context_summary.md`  
-**Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_implement_ce_eval_pass152_handoff.md`  
+**Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_review_ce_eval_pass152_handoff.md`  
+**Review note:** `docs/2026-07-18_guide08_harder_ce_discriminative_review.md`  
 **Prerequisite:** Guide 07 Align done — harness + `hn1`–`hn6`; fusion/CE `neg_at_k` **0.0**; `ce_keep=false`; not eval-complete.
 
 **Tom / hub locks (do not reopen — pass 152):**
@@ -277,3 +278,16 @@ Exact markdown bodies, slug strings, and final `hn7+` query wording are Implemen
 | Live eval | easy hit@K fusion/CE **1.0**; CE-success **18/18**; `fusion.neg_at_k` **0.0**; `ce.neg_at_k` **0.0**; `ce_keep=false` |
 | Honesty | Docs updated; **E3** eval-complete **unchecked**; no fake lift; no `CE_ENABLED` / private / embedding flip |
 | Next | **Await Tom authorize Review** — do not self-start |
+
+---
+
+## Review result (2026-07-18)
+
+| Call | Value |
+|------|--------|
+| Shippable as-is? | **Yes** |
+| Must-fix? | **None** |
+| Review note | `docs/2026-07-18_guide08_harder_ce_discriminative_review.md` |
+| Re-verify | pytest honesty + neg_at_k → **16 passed**; fixtures **8**; goldens **28**; hard-neg **10** |
+| E3 / flat | Confirmed shippable — fusion/CE `neg_at_k` 0.0; eval-complete unchecked |
+| Next | **Await Tom authorize Align** (optional banners) — do not self-start |
