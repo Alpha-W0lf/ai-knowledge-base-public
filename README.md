@@ -1,37 +1,34 @@
-# AI Knowledge Base (public portfolio)
-
-**This repository** is the **public, stranger-runnable** portfolio surface for the local hybrid RAG + MCP knowledge base.
-
-- **Private archive / personal corpus:** stays in a separate private repo (`ai_knowledge_base`). Do not expect personal YouTube downloads or tip transcripts here.
-- **Public demo corpus:** committed synthetic `fixtures/` only. Tip-transcript docs from the private archive are **absent** on this sibling (curated out).
-- **Optional advanced path:** copy `channels.local.example.json` → `channels.local.json`, add your own channels, sync with a short backfill (`BACKFILL_DAYS = 7`), then ingest — not the default smoke path. **No auto-sync on clone.**
-- **MCP:** read-only public tool allowlist (`search`, `discover`, `get_status`, …). Mutation tools require an explicit private profile env flag and are not the default story here.
-
----
-
 # AI Knowledge Base
 
-A local-first, vector-powered knowledge base for AI domain research. Ingests YouTube transcripts (optional local path) and committed fixtures (public smoke), with hybrid retrieval + optional cross-encoder rerank.
+Local-first **hybrid RAG** for AI-engineering notes: embed → vector + keyword search → fuse ranks → optional cross-encoder → **CLI** and **MCP** tools for coding agents.
 
-**Binding architecture (KB1–KB5):** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)  
-**Public packaging intent:** [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md)  
-**Personal vision (non-binding stack):** [`docs/2026-01-30_vision.md`](docs/2026-01-30_vision.md)  
-**January architecture:** [`docs/2026-01-30_architecture.md`](docs/2026-01-30_architecture.md) — **historical / NON-BINDING** (clean rewrite **rejected**).
+**This repo is the public portfolio surface.** Demo data is synthetic `fixtures/` only. A private sibling may hold personal YouTube transcripts — that corpus is **not** here.
 
-Guide 01 (shared retrieval spine) is **implemented**. Guide 02 packaging DoD (LICENSE, empty channels + ignored overlay, path hygiene) is **implemented**. Guide 03: this **public sibling** is the portfolio public surface; private archive remains private. Guide 04: root [`GETTING_STARTED.md`](GETTING_STARTED.md) + [`INTERVIEW.md`](INTERVIEW.md) — stranger-clone + FAQ shell. Guides 05–08: fixture eval is **18 easy + 10 hard-negative** on **8** docs with per-arm `neg_at_k` (flat; no CE lift — [`ce_keep_note`](docs/2026-07-12_ce_keep_note.md)). **Guide 09:** **portfolio public success / build MV Met**; **eval-complete claim Parked (E3)**; private flip out of scope for this repo’s build %. Optional private tip scrub is separate hygiene — **not** a blocker for having a public AI KB.
+| Start here | Link |
+|------------|------|
+| Clone + smoke | [`GETTING_STARTED.md`](GETTING_STARTED.md) |
+| Interview FAQ | [`INTERVIEW.md`](INTERVIEW.md) |
+| Docs map | [`docs/README.md`](docs/README.md) |
+| Contracts | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
+| Packaging intent | [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md) |
 
-## Features
+### Honesty (first minute)
 
-- **Vector search:** Semantic search via local Ollama embeddings (`nomic-embed-text` @ 768 — **not** Gemma)
-- **Hybrid search:** Vector + FTS → RRF fusion → optional pluggable CE (KB5)
-- **Fixture-first smoke:** Committed synthetic fixtures; no personal corpus required
-- **Optional BYO sync:** Local YouTube channel sync via ignored overlay (not required for demo)
-- **Discovery:** Honest browse / digest / concepts / channel grouping (not a clustering product)
-- **100% local:** Ollama + LanceDB on your machine
+- **Public demo = fixtures.** No personal tips, no OEM manuals, no auto-sync on clone.
+- **Cross-encoder stays in the stack** for completeness + degrade path — **no claimed hit@K lift** on the fixture eval ([`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md)).
+- **Eval-complete marketing claim is parked** until stronger discriminative evidence exists. Build packaging is done; do not invent lift.
+- **MCP default is read-only.** Mutations need an explicit private profile flag.
+
+**License:** MIT — [`LICENSE`](LICENSE).
+
+## What you get
+
+- **Hybrid retrieval:** LanceDB vector + FTS → RRF-style fusion → optional MiniLM cross-encoder  
+- **Local embeddings:** Ollama `nomic-embed-text` @ 768 (not Gemma, not mxbai)  
+- **Agent tools:** MCP `search`, `discover`, `get_context`, `get_status`  
+- **Optional BYO path:** ignored `channels.local.json` + short YouTube backfill — not required for smoke  
 
 ## Quick Start
-
-**Full clone path:** [`GETTING_STARTED.md`](GETTING_STARTED.md) · **Interview FAQ:** [`INTERVIEW.md`](INTERVIEW.md)
 
 ```bash
 uv sync
@@ -41,7 +38,29 @@ uv run python -m src.search "reciprocal rank fusion RRF" --hybrid --db data/lanc
 uv run python -m src.eval
 ```
 
-Fixture smoke is the portfolio demo path — see GETTING_STARTED for footguns, BYO optional path, and honesty banners. CE: pluggable seam + degrade; **no** claimed hit@K lift; Guide 08 hard-neg `neg_at_k` also flat on both arms ([`ce_keep_note`](docs/2026-07-12_ce_keep_note.md)).
+Full footguns and MCP wiring: [`GETTING_STARTED.md`](GETTING_STARTED.md).
+
+## How it fits together
+
+```mermaid
+flowchart LR
+  fixtures[fixtures/] --> ingest[ingest]
+  ingest --> lancedb[(LanceDB)]
+  q[query] --> search[search CLI / MCP]
+  lancedb --> search
+  search --> fusion[vector + FTS fuse]
+  fusion --> ce[optional CE]
+  ce --> hits[ranked hits + source_id]
+```
+
+## Features
+
+- **Vector search:** Semantic search via local Ollama embeddings (`nomic-embed-text` @ 768 — **not** Gemma)
+- **Hybrid search:** Vector + FTS → fusion → optional pluggable CE
+- **Fixture-first smoke:** Committed synthetic fixtures; no personal corpus required
+- **Optional BYO sync:** Local YouTube channel sync via ignored overlay (not required for demo)
+- **Discovery:** Honest browse / digest / concepts / channel grouping (not a clustering product)
+- **100% local:** Ollama + LanceDB on your machine
 
 ## Architecture
 
@@ -59,9 +78,9 @@ ai-knowledge-base-public/
 │   ├── mcp_server.py         # RO public MCP (mutations behind private flag)
 │   ├── discover.py           # Browse / digest / concepts / channel groups
 │   ├── youtube_sync.py       # Optional BYO YouTube sync
-│   └── eval/                 # Fixture golden eval stub
+│   └── eval/                 # Fixture golden eval
 └── docs/
-    └── ARCHITECTURE.md       # Binding KB1–KB5
+    └── README.md             # Docs map (SSOT vs working notes)
 ```
 
 ## Stack
@@ -70,7 +89,7 @@ ai-knowledge-base-public/
 |-----------|------|-------|
 | Vector DB | LanceDB | File-based; hybrid FTS + vector |
 | Embeddings | Ollama + **nomic-embed-text** | 768 dims; **≠ gemma**; ≠ mxbai |
-| Rerank (optional) | MiniLM CE via sentence-transformers | Degrade to fusion if CE fails; no lift claim yet |
+| Rerank (optional) | MiniLM CE via sentence-transformers | Degrade to fusion if CE fails; no lift claim |
 | Transcripts | yt-dlp | Optional BYO sync path only |
 
 ## Usage
@@ -173,4 +192,4 @@ Edit `src/config.py` for embedding model (keep `nomic-embed-text` unless you acc
 
 ## License
 
-MIT — see root [`LICENSE`](LICENSE). Packaging DoD closed. **This public sibling** is the portfolio public surface; private archive remains private. Optional private tip scrub is separate hygiene, not required to have a public AI KB.
+MIT — see root [`LICENSE`](LICENSE). This public sibling is the portfolio surface; the private archive remains private.
