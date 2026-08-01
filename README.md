@@ -1,6 +1,6 @@
 # AI Knowledge Base
 
-Local-first **hybrid RAG** for AI-engineering notes: embed → vector + keyword search → fuse ranks → optional cross-encoder → **CLI** and **MCP** tools for coding agents.
+Keep coding agents current. Local-first **hybrid RAG**: embed → vector + keyword search → fuse ranks → optional cross-encoder → **CLI** and **MCP** tools.
 
 **This repo is the public portfolio surface.** Demo data is synthetic `fixtures/` only. A private sibling may hold personal YouTube transcripts — that corpus is **not** here.
 
