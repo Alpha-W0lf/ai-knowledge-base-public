@@ -1,10 +1,11 @@
 # Packaging assets — AI Knowledge Base (public)
 
-Fixture / MCP demo screenshots land here (max 2–3 PNGs). **Fixture-only** content — no private corpus, no owner home paths.
+Fixture / portfolio visuals only — **no private corpus**, no owner home paths.
 
-| Planned | Purpose |
-|---------|---------|
-| `search_cli.png` | Fixture hybrid search output |
-| `mcp_tools.png` | Read-only MCP tool list / call (optional) |
+| File | Purpose |
+|------|---------|
+| [`pipeline_overview.png`](./pipeline_overview.png) | Storefront proof card — Sources → Transcripts → RAG + MCP → Agents (fixtures-labeled) |
+| `search_cli.png` | Optional later: fixture hybrid search CLI output |
+| `mcp_tools.png` | Optional later: read-only MCP tool list |
 
-Until captured, the README mermaid diagram is the primary visual.
+`pipeline_overview.png` is the README proof strip (2026-07-31 sales-first pass). Capture CLI/MCP screenshots later if useful; do not invent lift metrics.
