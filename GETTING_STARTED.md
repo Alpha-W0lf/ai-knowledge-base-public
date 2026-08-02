@@ -1,15 +1,20 @@
 # Getting started — AI Knowledge Base (public sibling)
 
-Clone-depth operator path for the **fixture-first hybrid → fusion → optional CE** vertical slice. Contracts: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Interview gotchas: [`INTERVIEW.md`](INTERVIEW.md). Skim + thin Quick Start: [`README.md`](README.md). Portfolio why: [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md).
+Clone-depth path for the **fixture-first hybrid → fusion → optional CE** vertical slice.
 
-**Three-lane honesty:** (1) **portfolio public success / build MV Met** — Guides 01–08 delivery closed; (2) **eval-complete claim Parked (E3)** — flat Guide 08; do not tick without Tom unlock; (3) **private flip** — out of scope for this repo’s build %. Public corpus = committed `fixtures/` only.
+- Skim: [`README.md`](README.md)
+- Contracts: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- Portfolio why: [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md)
+- Technical FAQ: [`INTERVIEW.md`](INTERVIEW.md)
+
+Public demo = committed synthetic `fixtures/` only. Eval-complete claims are separate diligence notes (see Honesty) — not required to complete this clone path.
 
 ---
 
 ## Prerequisites
 
 - **Python 3.11+** with [`uv`](https://docs.astral.sh/uv/)
-- Host **Ollama** running locally (embeddings only — no chat LLM in Guide 01)
+- Host **Ollama** running locally (embeddings for ingest/search — no chat LLM required for this path)
 
 ---
 
@@ -55,7 +60,20 @@ uv run python -m src.search "reciprocal rank fusion RRF" --hybrid --db data/lanc
 uv run python -m src.eval
 ```
 
-**Why:** Runs the committed fixture golden set (**28** lines = **18 easy** + **10 hard-negative**). Guide 08 honesty: **8** confusable fixtures; easy fusion-only hit@K **1.0**; CE-success **18/18** `ranking_stage=ce` with `ce_success_hit_at_k` **1.0** (no lift vs fusion ceiling); `fusion.neg_at_k` / `ce.neg_at_k` both **0.0** on 10 hard-negs (no rejection lift); `ce_keep=false` (still hit@K-gated, **not** from `neg_at_k`); **not** eval-complete. See [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
+**Why:** Runs the committed fixture golden set (**28** lines = **18 easy** + **10 hard-negative**). Current honesty: **8** confusable fixtures; easy fusion-only hit@K **1.0**; CE-success **18/18** `ranking_stage=ce` with `ce_success_hit_at_k` **1.0** (no lift vs fusion ceiling); `fusion.neg_at_k` / `ce.neg_at_k` both **0.0** on 10 hard-negs (no rejection lift); `ce_keep=false` (still hit@K-gated, **not** from `neg_at_k`); **not** eval-complete. See [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
+
+---
+
+## MCP (read-only) — optional agent wiring
+
+After fixture ingest works, you can attach this repo as a local MCP server (Cursor / Claude Desktop style).
+
+1. Copy [`mcp-config.example.json`](mcp-config.example.json) into your client config.
+2. Set `cwd` to **this** clone path (`ai-knowledge-base-public`).
+3. Public tools (read-only): `search`, `discover`, `get_context`, `get_status`.
+4. Mutation tools stay off unless `AI_KB_MCP_PRIVATE=1` (not part of the stranger demo).
+
+Discovery details and gotchas: [`INTERVIEW.md`](INTERVIEW.md) §3 (Technical FAQ).
 
 ---
 
@@ -98,13 +116,14 @@ uv run python -m src.search "your query" --hybrid --db data/lancedb
 
 | Topic | Truth |
 |-------|--------|
-| Build MV | **Portfolio public success / build MV Met** (Guides 01–08 + §4 / §9(a)) |
-| Eval-complete claim | **Parked (E3)** — flat Guide 08; not a build MV blocker |
-| Private flip | Out of scope for this repo’s build % — optional private-archive hygiene only |
-| CE | Pluggable seam + degrade path — Guide 06–08: CE-success **18/18** `ce` but **no** hit@K lift vs fusion ceiling; hard-neg `neg_at_k` also flat on 10 traps (`ce_keep=false`) |
+| Public demo | Fixture-first clone path above is the stranger ceiling |
+| Eval-complete claim | **Parked** — flat CE vs fusion on current goldens; not a clone-path blocker |
+| Private flip | Out of scope for this public sibling — optional private-archive hygiene only |
+| CE | Pluggable seam + degrade path — CE-success **18/18** `ce` but **no** hit@K lift vs fusion ceiling; hard-neg `neg_at_k` also flat on 10 traps (`ce_keep=false`) |
 | Corpus | **Fixtures only** on the public default path — **8** synthetic docs; no personal tip transcripts here |
 | Eval metrics | Fixture goldens **28** (18 easy + 10 hard-neg); per-arm `neg_at_k` reported; `ce_keep` still hit@K-gated |
+| MCP | Read-only tools on the public profile; mutations require explicit private flag |
 
 ---
 
-**Interview FAQ:** [`INTERVIEW.md`](INTERVIEW.md) · **Skim:** [`README.md`](README.md)
+**Technical FAQ:** [`INTERVIEW.md`](INTERVIEW.md) · **Skim:** [`README.md`](README.md)

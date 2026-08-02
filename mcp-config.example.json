@@ -3,7 +3,7 @@
     "ai-knowledge-base": {
       "command": "uv",
       "args": ["run", "python", "-m", "src.mcp_server"],
-      "cwd": "/path/to/ai_knowledge_base"
+      "cwd": "/path/to/ai-knowledge-base-public"
     }
   }
 }
