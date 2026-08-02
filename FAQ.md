@@ -1,6 +1,6 @@
-# AI Knowledge Base — Interview FAQ
+# AI Knowledge Base — Technical FAQ
 
-Staff-interview gotchas for the **fixture-first hybrid → fusion → optional CE** vertical slice on the public sibling. Contracts SSOT: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Portfolio intent: [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md). CE keep honesty: [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
+Staff-facing Q&A for the **fixture-first hybrid → fusion → optional CE** vertical slice on the public sibling. Contracts SSOT: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Portfolio intent: [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md). CE keep honesty: [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
 
 **Three-lane honesty:** (1) **portfolio public success / build MV Met**; (2) **eval-complete claim Parked (E3)** — do not tick from flat Guide 08; (3) **private flip** — not this repo’s build gate.
 
@@ -10,7 +10,7 @@ Staff-interview gotchas for the **fixture-first hybrid → fusion → optional C
 
 **Fixtures** (`fixtures/` + `uv run python -m src.ingest --fixtures`) are the stranger-runnable demo: no network, no personal corpus, no `channels.local.json`. The portfolio smoke path is `uv sync` → `nomic-embed-text` pull → fixture ingest → hybrid search → `src.eval`.
 
-**BYO YouTube sync** is optional advanced only: copy `channels.local.example.json` → ignored `channels.local.json`, edit your handles, run `src.youtube_sync` (default `BACKFILL_DAYS = 7`), then ingest `data/raw/youtube_transcripts/`. No auto-sync on clone. See [`GETTING_STARTED.md`](GETTING_STARTED.md) optional section and README “Optional: BYO YouTube live path.”
+**BYO YouTube sync** is optional advanced only: copy `channels.local.example.json` → ignored `channels.local.json`, edit your handles, run `src.youtube_sync` (default `BACKFILL_DAYS = 7`), then ingest `data/raw/youtube_transcripts/`. No auto-sync on clone. See [`GETTING_STARTED.md`](GETTING_STARTED.md) — section **Optional: BYO YouTube live path (advanced)**.
 
 ## 2. Why is private tip-history scrub not required to “have a public AI KB”?
 
@@ -73,7 +73,7 @@ Identity fields (`source_id`, `content_hash`, `embedding_version`) are binding; 
 | Private flip | **Out of scope** for this repo’s build % (optional private-archive hygiene only) |
 | CE proven relevance lift | **No** — `ce_keep=false`; see `ce_keep_note` |
 
-Root `GETTING_STARTED` + `INTERVIEW` remain the stranger-clone + FAQ shell. Packaging DoD (LICENSE, empty channels + overlay, fixture smoke, this sibling repo) is **implemented**. Guide 08 re-baselined harder hard-neg traps without claiming CE lift. Guide 09 marks build MV Met without inventing an eval-complete tick. Private scrub / January rewrite remain **out of scope** unless a new guide authorizes them.
+Root `GETTING_STARTED` + `FAQ` remain the stranger-clone + FAQ shell. Packaging DoD (LICENSE, empty channels + overlay, fixture smoke, this sibling repo) is **implemented**. Guide 08 re-baselined harder hard-neg traps without claiming CE lift. Guide 09 marks build MV Met without inventing an eval-complete tick. Private scrub / January rewrite remain **out of scope** unless a new guide authorizes them.
 
 ---
 

@@ -23,7 +23,7 @@ It is **not** a cloud SaaS, not a chatbot product, and not a rewrite of second_b
 | Agent tooling | Read-only public MCP allowlist |
 | Local-first packaging | `uv`, synthetic fixtures, fixture-first smoke |
 
-**Guides 01–08 are implemented and Aligned** on this public sibling (retrieval spine, packaging, public surface, GETTING_STARTED/INTERVIEW, golden growth, CE-effectiveness measure, hard-neg harness, confusable harder traps). **Portfolio public success / build MV = Met** (§4 Done rows + ARCHITECTURE §9 gates 1–7 + 8(a) + Guides 01–08 evidence).
+**Guides 01–08 are implemented and Aligned** on this public sibling (retrieval spine, packaging, public surface, GETTING_STARTED/FAQ, golden growth, CE-effectiveness measure, hard-neg harness, confusable harder traps). **Portfolio public success / build MV = Met** (§4 Done rows + ARCHITECTURE §9 gates 1–7 + 8(a) + Guides 01–08 evidence).
 
 **Three-lane honesty (do not conflate):**
 
@@ -76,7 +76,7 @@ PDFs of books, private Slack, email, Lowd Capital data, OEM manuals, article inb
 |------|--------|-------|
 | Fixture corpus committed (no private content) | **Done** | `fixtures/` + PROVENANCE/manifest |
 | `uv sync` + `nomic-embed-text` pull + smoke search documented | **Done** | README thin Quick Start + `GETTING_STARTED.md` |
-| Root GETTING_STARTED + INTERVIEW (Guide 04) | **Done** | Stranger-clone + FAQ |
+| Root GETTING_STARTED + FAQ (Guide 04) | **Done** | Stranger-clone + FAQ |
 | Fixture golden growth N≥18 (Guide 05) | **Done** | 18 easy |
 | CE-effectiveness measure (Guide 06) | **Done** | CE-success 18/18 `ce`; fusion+CE-success hit@K 1.0; `ce_keep=false`; degrade `error` + stage-gated metrics |
 | Hard-negative / `neg_at_k` (Guide 07) | **Done** | First 6 `hn*` + harness; per-arm `neg_at_k`; excluded from hit@K + keep math |

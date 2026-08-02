@@ -59,7 +59,7 @@ MCP wiring, discovery commands, and optional BYO YouTube overlay: [`GETTING_STAR
 - [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md) — packaging intent  
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — contracts / how  
 - [`GETTING_STARTED.md`](GETTING_STARTED.md) — operator path  
-- [`INTERVIEW.md`](INTERVIEW.md) — staff FAQ  
+- [`FAQ.md`](FAQ.md) — Technical FAQ  
 - [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md) — cross-encoder keep note  
 - [`LICENSE`](LICENSE) — MIT  
 

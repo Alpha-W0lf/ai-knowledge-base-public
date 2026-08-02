@@ -5,7 +5,7 @@ Clone-depth path for the **fixture-first hybrid → fusion → optional CE** ver
 - Skim: [`README.md`](README.md)
 - Contracts: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - Portfolio why: [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md)
-- Technical FAQ: [`INTERVIEW.md`](INTERVIEW.md)
+- Technical FAQ: [`FAQ.md`](FAQ.md)
 
 Public demo = committed synthetic `fixtures/` only. Eval-complete claims are separate diligence notes (see Honesty) — not required to complete this clone path.
 
@@ -73,7 +73,7 @@ After fixture ingest works, you can attach this repo as a local MCP server (Curs
 3. Public tools (read-only): `search`, `discover`, `get_context`, `get_status`.
 4. Mutation tools stay off unless `AI_KB_MCP_PRIVATE=1` (not part of the stranger demo).
 
-Discovery details and gotchas: [`INTERVIEW.md`](INTERVIEW.md) §3 (Technical FAQ).
+Discovery details and gotchas: [`FAQ.md`](FAQ.md) §3 (Technical FAQ).
 
 ---
 
@@ -126,4 +126,4 @@ uv run python -m src.search "your query" --hybrid --db data/lancedb
 
 ---
 
-**Technical FAQ:** [`INTERVIEW.md`](INTERVIEW.md) · **Skim:** [`README.md`](README.md)
+**Technical FAQ:** [`FAQ.md`](FAQ.md) · **Skim:** [`README.md`](README.md)

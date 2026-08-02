@@ -1,6 +1,6 @@
 # Docs index — AI Knowledge Base (public)
 
-**Stranger start:** root [`README.md`](../README.md) · [`GETTING_STARTED.md`](../GETTING_STARTED.md) · [`INTERVIEW.md`](../INTERVIEW.md)
+**Stranger start:** root [`README.md`](../README.md) · [`GETTING_STARTED.md`](../GETTING_STARTED.md) · [`FAQ.md`](../FAQ.md)
 
 ## Source of truth (read these)
 

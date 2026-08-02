@@ -6,7 +6,7 @@
 **Supersedes:** `docs/2026-01-30_architecture.md` (historical only; clean rewrite **rejected**; January file is **non-binding**)  
 **Vision:** `docs/PORTFOLIO_VISION.md`  
 **Decisions:** KB1–KB5 in `second_brain/docs/2026-07-12_portfolio_vision_workspace_and_decisions.md`; ranking detail in `second_brain/docs/2026-07-12_hybrid_rag_reranker_decision.md`  
-**Guides 01–08:** Implemented + Aligned on this public sibling (spine, packaging, surface, GETTING_STARTED/INTERVIEW, eval growth, CE measure, hard-neg, confusable traps). **Guide 09:** build-MV packaging — **portfolio public success / build MV Met**; **eval-complete claim Parked (E3)**; private flip out of scope for this repo’s build %. Optional private tip scrub remains separate hygiene — not required for “having a public AI KB.”
+**Guides 01–08:** Implemented + Aligned on this public sibling (spine, packaging, surface, GETTING_STARTED/FAQ, eval growth, CE measure, hard-neg, confusable traps). **Guide 09:** build-MV packaging — **portfolio public success / build MV Met**; **eval-complete claim Parked (E3)**; private flip out of scope for this repo’s build %. Optional private tip scrub remains separate hygiene — not required for “having a public AI KB.”
 
 This document describes the **current intended system** after pass-1 critical review and pass-4 KB5 reconcile. It is implementation-shaped and binding. Do not treat the January mega-doc as an executable plan.
 
@@ -247,7 +247,7 @@ Minimum for stranger-runnable portfolio surface vs private-remote flip:
 | 4 | CE on → `ce`; forced fail → `fusion_degraded` | **Done** | — |
 | 5 | Eval stub + CE keep/justify (no false lift ads) | **Done** (`ce_keep_note`) | Guide 08 confusable baseline attempted — still flat; **eval-complete claim Parked (E3)** — not an open build gate |
 | 6 | MCP RO allowlist contract test | **Done** | — |
-| 7 | README fixture-first vs optional BYO sync + packaging DoD | **Done** (Guide 02–04: thin README + `GETTING_STARTED` + `INTERVIEW`) | — |
+| 7 | README fixture-first vs optional BYO sync + packaging DoD | **Done** (Guide 02–04: thin README + `GETTING_STARTED` + `FAQ`) | — |
 | 8 | Tip-transcript / history scrub | **(a) Portfolio public surface = this sibling** — met by sibling existence + fixtures/packaging (tip paths curated out). **(b) Flipping the private remote public** would still need scrub — **out of scope** for this repo. | Optional private hygiene only for (b) |
 
 Schema/import must not require Ollama for status/help that does not embed (**Done** — lazy schema).
