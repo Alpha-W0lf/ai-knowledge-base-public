@@ -69,7 +69,8 @@ Identity fields (`source_id`, `content_hash`, `embedding_version`) are binding; 
 | Lane | Status |
 |------|--------|
 | Portfolio public success / **build MV Met** | **Yes** — Guides 01–08 delivery + §4 / §9(a); Guide 09 packages the honesty |
-| **Eval-complete** claim | **Parked (E3)** — flat Guide 08 metrics; do **not** tick without Tom unlock |
+| **Eval-complete** claim | **Parked** — flat hard-neg / no CE rejection lift; do **not** tick without unlock |
+
 | Private flip | **Out of scope** for this repo’s build % (optional private-archive hygiene only) |
 | CE proven relevance lift | **No** — `ce_keep=false`; see `ce_keep_note` |
 
