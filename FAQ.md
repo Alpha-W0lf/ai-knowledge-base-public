@@ -2,7 +2,7 @@
 
 Staff-facing Q&A for the **fixture-first hybrid → fusion → optional CE** vertical slice on the public sibling. Contracts SSOT: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Portfolio intent: [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md). CE keep honesty: [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md).
 
-**Three-lane honesty:** (1) **portfolio public success / build MV Met**; (2) **eval-complete claim Parked (E3)** — do not tick from flat Guide 08; (3) **private flip** — not this repo’s build gate.
+**Honesty:** (1) public stranger-runnable build path is Met; (2) eval-complete claim is **parked** (flat hard-neg / no CE rejection lift — do not tick without unlock); (3) private archive flip is out of scope for this repo’s build gate.
 
 ---
 
