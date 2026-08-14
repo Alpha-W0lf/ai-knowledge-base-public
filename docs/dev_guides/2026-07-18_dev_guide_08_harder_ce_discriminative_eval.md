@@ -8,8 +8,8 @@
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-18_harder_ce_discriminative_eval_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_align_ce_eval_pass153_handoff.md`  
-**Review note:** `docs/2026-07-18_guide08_harder_ce_discriminative_review.md`  
-**Align note:** `docs/2026-07-18_guide08_harder_ce_discriminative_align.md`  
+**Review note:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_review.md`  
+**Align note:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_align.md`  
 **Prerequisite:** Guide 07 Align done — harness + `hn1`–`hn6`; fusion/CE `neg_at_k` **0.0**; `ce_keep=false`; not eval-complete.
 
 **Tom / hub locks (do not reopen — pass 152):**
@@ -51,7 +51,7 @@
 
 - `ai-knowledge-base-public/docs/2026-07-18_harder_ce_discriminative_eval_context_summary.md`
 - `ai-knowledge-base-public/docs/2026-07-12_ce_keep_note.md`
-- `ai-knowledge-base-public/docs/2026-07-17_guide07_hard_negative_review.md` (R1)
+- `ai-knowledge-base-public/docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide07_hard_negative_review.md` (R1)
 - `ai-knowledge-base-public/docs/dev_guides/2026-07-17_dev_guide_07_hard_negative_neg_at_k.md`
 - `ai-knowledge-base-public/docs/PORTFOLIO_VISION.md`
 - `ai-knowledge-base-public/docs/ARCHITECTURE.md` (KB1 ≈3–8; KB5)
@@ -261,7 +261,7 @@ Exact markdown bodies, slug strings, and final `hn7+` query wording are Implemen
 |-------|------------------|--------------|------------|
 | Guide 08 harder CE-discriminative eval | **Yes** (await Tom authorize Implement) | **8.7** | Fixture slug/body invent; `hn7+` + B2 yield; easy hit@K regression runtime; Ollama/HF live eval; prefer +4 new hn to keep total hard-neg ≤10 |
 
-**Artifact:** `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md`  
+**Artifact:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_ready_check.md`  
 **Further Refine-dev-guide:** **Not required.**  
 **Implement now:** **Authorized** (pass 152) — Implement done below.
 
@@ -288,7 +288,7 @@ Exact markdown bodies, slug strings, and final `hn7+` query wording are Implemen
 |------|--------|
 | Shippable as-is? | **Yes** |
 | Must-fix? | **None** |
-| Review note | `docs/2026-07-18_guide08_harder_ce_discriminative_review.md` |
+| Review note | `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_review.md` |
 | Re-verify | pytest honesty + neg_at_k → **16 passed**; fixtures **8**; goldens **28**; hard-neg **10** |
 | E3 / flat | Confirmed shippable — fusion/CE `neg_at_k` 0.0; eval-complete unchecked |
 | Next | **Await Tom authorize Align** (optional banners) — do not self-start |

@@ -4,7 +4,7 @@
 **Repo:** `ai-knowledge-base-public`  
 **Work item:** Guide 06 — make `ranking_stage=ce` measurable; surface CE degrade errors; stage-gated eval metrics; re-run N=18 ablation; refresh honesty docs  
 **Stage that authored this:** Write-dev-guide; **Refine-dev-guide** (pass 1, 2026-07-17)  
-**Status:** **Review shippable** 2026-07-17 — see `docs/2026-07-17_guide06_ce_effectiveness_review.md` (no must-fix; Align optional)
+**Status:** **Review shippable** 2026-07-17 — see `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide06_ce_effectiveness_review.md` (no must-fix; Align optional)
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-17_ce_effectiveness_eval_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_ce_eval_gather_handoff.md`  
@@ -223,7 +223,7 @@ Revert `search.py` / `eval` / tests / honesty doc commits; goldens untouched so 
 |-------|------------------|--------------|------------|
 | Guide 06 CE-effectiveness eval | **Yes** (await Tom authorize Implement) | **8.9** | Justify sentence craft; optional logging/D1; Phase C needs Ollama+HF at runtime; A4 stub vs IdentityReranker choice. No pin conflicts found vs context/code seams. |
 
-**Artifact:** `docs/2026-07-17_guide06_ce_effectiveness_ready_check.md`  
+**Artifact:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide06_ce_effectiveness_ready_check.md`  
 **Implement:** **Done** 2026-07-17 — CE-success 18/18; flat hit@K; `ce_keep=false`; tests 20 passed.  
-**Review:** **Shippable as-is** 2026-07-17 — `docs/2026-07-17_guide06_ce_effectiveness_review.md` (soft residuals R1–R5 only).  
+**Review:** **Shippable as-is** 2026-07-17 — `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide06_ce_effectiveness_review.md` (soft residuals R1–R5 only).  
 **Align docs:** Optional (stale Gather context banner) — do not self-start.

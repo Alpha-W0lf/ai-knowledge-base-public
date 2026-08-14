@@ -49,7 +49,7 @@
 - `ai-knowledge-base-public/docs/PORTFOLIO_VISION.md`
 - `ai-knowledge-base-public/docs/ARCHITECTURE.md` (§9)
 - `ai-knowledge-base-public/docs/2026-07-12_ce_keep_note.md`
-- `ai-knowledge-base-public/docs/2026-07-18_guide08_harder_ce_discriminative_align.md`
+- `ai-knowledge-base-public/docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_align.md`
 - `ai-knowledge-base-public/GETTING_STARTED.md`
 - `ai-knowledge-base-public/INTERVIEW.md`
 - `ai-knowledge-base-public/README.md`
@@ -75,7 +75,7 @@
 | Pin | Locked default |
 |-----|----------------|
 | Files to edit | `docs/PORTFOLIO_VISION.md`, `docs/ARCHITECTURE.md` (§9 header / gate-5 note as needed), `README.md`, `GETTING_STARTED.md`, `INTERVIEW.md` |
-| Optional | `docs/2026-07-12_ce_keep_note.md` one-line pointer that build MV packaging ≠ eval-complete; thin `docs/2026-07-18_guide09_build_mv_packaging_align.md` at Align |
+| Optional | `docs/2026-07-12_ce_keep_note.md` one-line pointer that build MV packaging ≠ eval-complete; thin `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_align.md` at Align |
 | PORTFOLIO_VISION §4 | Keep existing Done rows; **add** explicit residual row or footnote: `Eval-complete claim \| Parked (E3) \| flat Guide 08; not a build MV blocker` — status must **not** read as Done/checked |
 | PORTFOLIO_VISION §1 | Rewrite so Guides 01–08 + §4 Done ⇒ **build MV Met**; separately: eval-complete parked; private flip not required |
 | ARCHITECTURE top banner | Refresh Guide 01–08 status; stop implying open public delivery when §9 1–7 + 8(a) are Met |
@@ -196,7 +196,7 @@ Revert Guide 09 doc commits only.
 |-------|------------------|--------------|------------|
 | Guide 09 build-MV packaging | **Yes** (authorized → Implement Met) | **9.2** | Three-lane prose invent; v1-phrasing craft risk; optional C1; multi-file banner consistency |
 
-**Artifact:** `docs/2026-07-18_guide09_build_mv_packaging_ready_check.md`  
+**Artifact:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_ready_check.md`  
 **Further Refine-dev-guide:** **Not required.**  
 **Implement now:** **Authorized** (pass 153) — Implement done below.
 
@@ -222,7 +222,7 @@ Revert Guide 09 doc commits only.
 |------|--------|
 | Shippable as-is? | **Yes** |
 | Must-fix? | **None** |
-| Review note | `docs/2026-07-18_guide09_build_mv_packaging_review.md` |
+| Review note | `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_review.md` |
 | Re-verify | HEAD `68238cb`; docs-only; DoD `rg` Met; eval-complete Parked (E3); no CE lift / private-flip-ready / code |
 | Soft residuals | G09-R1 Ready/Gather banners · G09-R2 optional align note · G09-R3 INTERVIEW flip-lane phrasing — Align polish only |
 | Next | **Await Tom authorize Align** — do not self-start |
@@ -235,7 +235,7 @@ Revert Guide 09 doc commits only.
 |------|---------|
 | Slice | **Closed** — Guide 09 Met; build MV Met; eval-complete Parked (E3) |
 | G09-R1 | Superseded banners on Ready-check + Gather closeout |
-| G09-R2 | Align artifact `docs/2026-07-18_guide09_build_mv_packaging_align.md` |
+| G09-R2 | Align artifact `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_align.md` |
 | G09-R3 | INTERVIEW §8 “Private flip \| Out of scope” |
 | Private flip / CE lift / eval-complete tick / code | **Not** done (locks held) |
 | Next | None for Guide 09 — hub may fan-in closeout |

@@ -1,6 +1,11 @@
+> **ARCHIVED** — moved under Workflow OS documentation sprawl reform.
+> Do not treat this file as living SSOT.
+> Living successor: `docs/PORTFOLIO_VISION.md` · `docs/ARCHITECTURE.md` · `docs/LIVING_DOCS_INDEX.md` · matching living guide under `docs/dev_guides/`
+> Batch: `2026-08_sprawl_c3b_aikb_public_stage_notes`
+> Date: 2026-08-14
 # Ready-check — Guide 09 build-MV packaging
 
-> **Superseded (Align 2026-07-18):** Guide 09 Implement `68238cb` + Review shippable `0acf3c1` + Align closed. Pre-Implement “await authorize” / drift notes below are **historical**. Current honesty: **build MV Met**; **eval-complete Parked (E3)**. See `docs/2026-07-18_guide09_build_mv_packaging_align.md`.
+> **Superseded (Align 2026-07-18):** Guide 09 Implement `68238cb` + Review shippable `0acf3c1` + Align closed. Pre-Implement “await authorize” / drift notes below are **historical**. Current honesty: **build MV Met**; **eval-complete Parked (E3)**. See `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_align.md`.
 
 **Date:** 2026-07-18  
 **Repo:** `ai-knowledge-base-public`  

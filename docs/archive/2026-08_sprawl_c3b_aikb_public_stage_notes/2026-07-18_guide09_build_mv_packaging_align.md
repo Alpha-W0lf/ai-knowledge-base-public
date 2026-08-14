@@ -1,3 +1,8 @@
+> **ARCHIVED** — moved under Workflow OS documentation sprawl reform.
+> Do not treat this file as living SSOT.
+> Living successor: `docs/PORTFOLIO_VISION.md` · `docs/ARCHITECTURE.md` · `docs/LIVING_DOCS_INDEX.md` · matching living guide under `docs/dev_guides/`
+> Batch: `2026-08_sprawl_c3b_aikb_public_stage_notes`
+> Date: 2026-08-14
 # Align — Guide 09 build-MV packaging
 
 **Date:** 2026-07-18  
@@ -5,7 +10,7 @@
 **Stage:** Align docs  
 **Mode:** spoke  
 **Implement:** `68238cb`  
-**Review:** shippable as-is (`0acf3c1` / `docs/2026-07-18_guide09_build_mv_packaging_review.md`)  
+**Review:** shippable as-is (`0acf3c1` / `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_review.md`)  
 **Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_align_guide09_pass153_handoff.md`  
 
 ## Slice status
@@ -24,8 +29,8 @@
 | Artifact | Change |
 |----------|--------|
 | `docs/2026-07-18_post_guide08_build_doneness_closeout_context_summary.md` | Superseded banner + Outcome; status Aligned/closed; readiness Done through Align |
-| `docs/2026-07-18_guide09_build_mv_packaging_ready_check.md` | Superseded banner; stop line historical |
-| `docs/2026-07-18_guide09_build_mv_packaging_review.md` | Align Done; G09-R1–R3 closed |
+| `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_ready_check.md` | Superseded banner; stop line historical |
+| `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_review.md` | Align Done; G09-R1–R3 closed |
 | `INTERVIEW.md` §8 | G09-R3 — “Private flip \| Out of scope” (no “flip ready” lane label) |
 | `docs/dev_guides/2026-07-18_dev_guide_09_build_mv_packaging.md` | Align result; status closed |
 | This file | Thin Align artifact (G09-R2) |

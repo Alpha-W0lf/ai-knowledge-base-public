@@ -1,3 +1,8 @@
+> **ARCHIVED** — moved under Workflow OS documentation sprawl reform.
+> Do not treat this file as living SSOT.
+> Living successor: `docs/PORTFOLIO_VISION.md` · `docs/ARCHITECTURE.md` · `docs/LIVING_DOCS_INDEX.md` · matching living guide under `docs/dev_guides/`
+> Batch: `2026-08_sprawl_c3b_aikb_public_stage_notes`
+> Date: 2026-08-14
 # Align — Guide 08 harder CE-discriminative eval
 
 **Date:** 2026-07-18  
@@ -5,7 +10,7 @@
 **Stage:** Align docs  
 **Mode:** spoke  
 **Implement:** `ec6d8fe`  
-**Review:** shippable as-is (`316bd93` / `docs/2026-07-18_guide08_harder_ce_discriminative_review.md`)  
+**Review:** shippable as-is (`316bd93` / `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_review.md`)  
 **Handoff:** `second_brain/docs/2026-07-18_spoke_aikb_align_ce_eval_pass153_handoff.md`  
 
 ## Slice status
@@ -24,8 +29,8 @@
 | Artifact | Change |
 |----------|--------|
 | `docs/2026-07-18_harder_ce_discriminative_eval_context_summary.md` | Superseded banner + Outcome table; status Aligned/closed |
-| `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md` | Superseded banner; stop line historical |
-| `docs/2026-07-18_guide08_harder_ce_discriminative_review.md` | Align Done; G08-R1 closed |
+| `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_ready_check.md` | Superseded banner; stop line historical |
+| `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_review.md` | Align Done; G08-R1 closed |
 | `docs/dev_guides/2026-07-18_dev_guide_08_harder_ce_discriminative_eval.md` | Align-docs done; Align result table |
 | `docs/2026-07-17_post_guide07_next_slice_inventory_context_summary.md` | Outcome banner: Option B / Guide 08 closed |
 

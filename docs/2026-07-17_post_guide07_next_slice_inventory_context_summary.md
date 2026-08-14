@@ -58,7 +58,7 @@ This Gather inventories evidence and recommends one — **no** Implement, **no**
 - `ai-knowledge-base-public/docs/PORTFOLIO_VISION.md` (no root `VISION.md` — portfolio SSOT is this file)  
 - `ai-knowledge-base-public/docs/ARCHITECTURE.md` (§9 gate 8 sibling vs private flip; §10 tip table)  
 - `ai-knowledge-base-public/docs/2026-07-12_ce_keep_note.md`  
-- `ai-knowledge-base-public/docs/2026-07-17_guide07_hard_negative_review.md` (R1–R5)  
+- `ai-knowledge-base-public/docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide07_hard_negative_review.md` (R1–R5)  
 - `ai-knowledge-base-public/docs/dev_guides/2026-07-17_dev_guide_07_hard_negative_neg_at_k.md`  
 - `ai-knowledge-base-public/fixtures/` (6 transcripts; 24 golden lines)  
 - `second_brain/docs/2026-07-17_hub_fanin_ai_kb_align_pass117.md`  

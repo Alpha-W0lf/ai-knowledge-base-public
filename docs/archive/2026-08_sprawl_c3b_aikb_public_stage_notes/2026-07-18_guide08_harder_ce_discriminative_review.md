@@ -1,3 +1,8 @@
+> **ARCHIVED** — moved under Workflow OS documentation sprawl reform.
+> Do not treat this file as living SSOT.
+> Living successor: `docs/PORTFOLIO_VISION.md` · `docs/ARCHITECTURE.md` · `docs/LIVING_DOCS_INDEX.md` · matching living guide under `docs/dev_guides/`
+> Batch: `2026-08_sprawl_c3b_aikb_public_stage_notes`
+> Date: 2026-08-14
 # Review — Guide 08 harder CE-discriminative eval Implement
 
 **Date:** 2026-07-18  

@@ -1,6 +1,11 @@
+> **ARCHIVED** — moved under Workflow OS documentation sprawl reform.
+> Do not treat this file as living SSOT.
+> Living successor: `docs/PORTFOLIO_VISION.md` · `docs/ARCHITECTURE.md` · `docs/LIVING_DOCS_INDEX.md` · matching living guide under `docs/dev_guides/`
+> Batch: `2026-08_sprawl_c3b_aikb_public_stage_notes`
+> Date: 2026-08-14
 # Ready-check — Guide 07 hard-negative / `neg_at_k`
 
-> **Superseded (Align 2026-07-17):** Pre-Implement Ready-check only. Guide 07 **shipped** — Implement `ff9ad33`, Review shippable as-is (`docs/2026-07-17_guide07_hard_negative_review.md`). “Ready for Implement?” / pre-change code-seam notes below are **historical**. Current metrics: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md).
+> **Superseded (Align 2026-07-17):** Pre-Implement Ready-check only. Guide 07 **shipped** — Implement `ff9ad33`, Review shippable as-is (`docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide07_hard_negative_review.md`). “Ready for Implement?” / pre-change code-seam notes below are **historical**. Current metrics: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md).
 
 **Date:** 2026-07-17  
 **Repo:** `ai-knowledge-base-public`  

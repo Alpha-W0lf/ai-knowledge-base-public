@@ -1,6 +1,6 @@
 # Context: Harder CE-discriminative eval (unpark Park C / Option B)
 
-> **Superseded (Align 2026-07-18):** Historical Gather artifact. Guide 08 **Implement** `ec6d8fe` + **Review** shippable (`316bd93` / `docs/2026-07-18_guide08_harder_ce_discriminative_review.md`). Current honesty SSOT: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md) — **8** fixtures; 18 easy + 10 hard-neg; fusion/CE `neg_at_k` **0.0**; `ce_keep=false`; **not** eval-complete (E3). Do not treat open decision boxes or pre-Implement readiness below as open work.
+> **Superseded (Align 2026-07-18):** Historical Gather artifact. Guide 08 **Implement** `ec6d8fe` + **Review** shippable (`316bd93` / `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_review.md`). Current honesty SSOT: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md) — **8** fixtures; 18 easy + 10 hard-neg; fusion/CE `neg_at_k` **0.0**; `ce_keep=false`; **not** eval-complete (E3). Do not treat open decision boxes or pre-Implement readiness below as open work.
 
 **Date:** 2026-07-18  
 **Repos:** `ai-knowledge-base-public`  
@@ -11,9 +11,9 @@
 **Handoff (Ready):** `second_brain/docs/2026-07-18_spoke_aikb_ready_ce_eval_pass152_handoff.md`  
 **Handoff (Align):** `second_brain/docs/2026-07-18_spoke_aikb_align_ce_eval_pass153_handoff.md`  
 **Guide:** `docs/dev_guides/2026-07-18_dev_guide_08_harder_ce_discriminative_eval.md`  
-**Ready-check:** `docs/2026-07-18_guide08_harder_ce_discriminative_ready_check.md` (superseded)  
-**Review:** `docs/2026-07-18_guide08_harder_ce_discriminative_review.md`  
-**Align:** `docs/2026-07-18_guide08_harder_ce_discriminative_align.md`  
+**Ready-check:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_ready_check.md` (superseded)  
+**Review:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_review.md`  
+**Align:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_align.md`  
 **Hub:** `second_brain/docs/2026-07-18_prioritize_hub_pass151.md` / pass 152–153  
 **Tom locks (pass 152):** **B1** confusable +1–2 fixtures · **E3** no eval-complete on flat · **fold R1** — **held through Align**  
 **Prior inventory:** `docs/2026-07-17_post_guide07_next_slice_inventory_context_summary.md` (recommended **C park**; Tom later authorized **B**)  
@@ -82,7 +82,7 @@ Hub pass 151 treats harder CE-discriminative eval as the **only remaining public
 - `docs/2026-07-12_ce_keep_note.md` — live metric SSOT  
 - `docs/2026-07-17_post_guide07_next_slice_inventory_context_summary.md` — A/B/C; park lean  
 - `docs/2026-07-17_guide07_hard_negative_neg_at_k_context_summary.md` — superseded Gather  
-- `docs/2026-07-17_guide07_hard_negative_review.md` — R1–R3 soft residuals  
+- `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide07_hard_negative_review.md` — R1–R3 soft residuals  
 - `docs/dev_guides/2026-07-17_dev_guide_07_hard_negative_neg_at_k.md` — closed Align  
 - `fixtures/eval/golden_cases.jsonl` — 18 easy + 6 hard-neg  
 - `fixtures/manifest.json` — **6** `fixture:*` docs  

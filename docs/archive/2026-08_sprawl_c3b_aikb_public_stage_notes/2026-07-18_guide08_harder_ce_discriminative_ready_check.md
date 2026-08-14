@@ -1,6 +1,11 @@
+> **ARCHIVED** — moved under Workflow OS documentation sprawl reform.
+> Do not treat this file as living SSOT.
+> Living successor: `docs/PORTFOLIO_VISION.md` · `docs/ARCHITECTURE.md` · `docs/LIVING_DOCS_INDEX.md` · matching living guide under `docs/dev_guides/`
+> Batch: `2026-08_sprawl_c3b_aikb_public_stage_notes`
+> Date: 2026-08-14
 # Ready-check — Guide 08 harder CE-discriminative eval
 
-> **Superseded (Align 2026-07-18):** Pre-Implement Ready-check only. Guide 08 **shipped** — Implement `ec6d8fe`, Review shippable as-is (`docs/2026-07-18_guide08_harder_ce_discriminative_review.md`). “Ready for Implement?” / pre-change invent notes below are **historical**. Current metrics: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md).
+> **Superseded (Align 2026-07-18):** Pre-Implement Ready-check only. Guide 08 **shipped** — Implement `ec6d8fe`, Review shippable as-is (`docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_review.md`). “Ready for Implement?” / pre-change invent notes below are **historical**. Current metrics: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md).
 
 **Date:** 2026-07-18  
 **Repo:** `ai-knowledge-base-public`  

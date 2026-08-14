@@ -1,3 +1,8 @@
+> **ARCHIVED** — moved under Workflow OS documentation sprawl reform.
+> Do not treat this file as living SSOT.
+> Living successor: `docs/PORTFOLIO_VISION.md` · `docs/ARCHITECTURE.md` · `docs/LIVING_DOCS_INDEX.md` · matching living guide under `docs/dev_guides/`
+> Batch: `2026-08_sprawl_c3b_aikb_public_stage_notes`
+> Date: 2026-08-14
 # Review — Guide 09 build-MV packaging Implement
 
 **Date:** 2026-07-18  
@@ -62,7 +67,7 @@ No DoD violations. Build MV Met language is present and preferred over ambiguous
 | ID | Finding | Why not blocking | Smallest later fix |
 |----|---------|------------------|--------------------|
 | G09-R1 | Ready-check (+ Gather closeout) still speak pre-Implement drift (“await authorize”; “VISION still says not v1”) | **Aligned 2026-07-18** — superseded banners | — |
-| G09-R2 | Guide soft pin allows thin `docs/2026-07-18_guide09_build_mv_packaging_align.md` | **Aligned 2026-07-18** — align note landed | — |
+| G09-R2 | Guide soft pin allows thin `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_align.md` | **Aligned 2026-07-18** — align note landed | — |
 | G09-R3 | INTERVIEW §8 labels a lane “Private archive **flip** ready \| **No**” | **Aligned 2026-07-18** — rephrased to “Private flip \| Out of scope” | — |
 
 ### Architectural drift

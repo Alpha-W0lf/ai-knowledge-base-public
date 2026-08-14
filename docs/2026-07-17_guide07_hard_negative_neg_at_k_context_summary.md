@@ -1,6 +1,6 @@
 # Context: Guide 07 — Hard-negative goldens / `neg_at_k`
 
-> **Superseded (Align 2026-07-17):** Historical Gather artifact. Guide 07 **Implement** `ff9ad33` + **Review** shippable (`e7f59d2` / `docs/2026-07-17_guide07_hard_negative_review.md`). Current honesty SSOT: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md) — 18 easy + 6 hard-neg; fusion/CE `neg_at_k` **0.0**; `ce_keep=false`; **not** eval-complete. Do not treat unchecked boxes below as open work.
+> **Superseded (Align 2026-07-17):** Historical Gather artifact. Guide 07 **Implement** `ff9ad33` + **Review** shippable (`e7f59d2` / `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide07_hard_negative_review.md`). Current honesty SSOT: [`docs/2026-07-12_ce_keep_note.md`](./2026-07-12_ce_keep_note.md) — 18 easy + 6 hard-neg; fusion/CE `neg_at_k` **0.0**; `ce_keep=false`; **not** eval-complete. Do not treat unchecked boxes below as open work.
 
 **Date:** 2026-07-17  
 **Repos:** `ai-knowledge-base-public` (+ `ai_knowledge_base` read-only at most; not SSOT)  

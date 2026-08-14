@@ -1,6 +1,6 @@
 # Context: Post–Guide 08 build-doneness closeout
 
-> **Superseded (Align 2026-07-18):** Guide 09 packaging **Met / closed**. Implement `68238cb`; Review shippable `0acf3c1`. **Portfolio public success / build MV Met**; **eval-complete Parked (E3)** — no invent tick. Delivery-surface drift described below was the Gather target and is **resolved**. See `docs/2026-07-18_guide09_build_mv_packaging_align.md`.
+> **Superseded (Align 2026-07-18):** Guide 09 packaging **Met / closed**. Implement `68238cb`; Review shippable `0acf3c1`. **Portfolio public success / build MV Met**; **eval-complete Parked (E3)** — no invent tick. Delivery-surface drift described below was the Gather target and is **resolved**. See `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_align.md`.
 
 **Date:** 2026-07-18  
 **Repos:** `ai-knowledge-base-public`  
@@ -10,7 +10,7 @@
 **Handoff (Write):** `second_brain/docs/2026-07-18_spoke_aikb_write_build_closeout_pass153_handoff.md`  
 **Handoff (Ready):** `second_brain/docs/2026-07-18_spoke_aikb_ready_guide09_pass153_handoff.md`  
 **Guide:** `docs/dev_guides/2026-07-18_dev_guide_09_build_mv_packaging.md`  
-**Ready-check:** `docs/2026-07-18_guide09_build_mv_packaging_ready_check.md`  
+**Ready-check:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_ready_check.md`  
 **Hub:** `second_brain/docs/2026-07-18_hub_fanin_aikb_align_guide08_pass153.md` / gather closeout fan-in  
 **Tom lock (pass 153):** **A** — docs-only build MV Met; E3 eval-complete unchecked  
 **Prior:** Guide 08 Align Met (`63310b5`); doneness ~94% (pass 153)  
@@ -63,7 +63,7 @@ There is **no** unchecked §4 row labeled “eval-complete.” E3 parked a *clai
 - `docs/PORTFOLIO_VISION.md` (§1 narrative; §4 Done table; §5 CE honesty)  
 - `docs/2026-07-12_ce_keep_note.md` (Guide 08 metrics; E3)  
 - `docs/ARCHITECTURE.md` §9 gates 1–8  
-- `docs/2026-07-18_guide08_harder_ce_discriminative_align.md`  
+- `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide08_harder_ce_discriminative_align.md`  
 - `docs/dev_guides/2026-07-18_dev_guide_08_harder_ce_discriminative_eval.md`  
 - `GETTING_STARTED.md` / `INTERVIEW.md` / `README.md` (still “not v1 / eval-complete” banners)  
 - `second_brain/docs/2026-07-18_prioritize_hub_pass151.md` (build 100% definition)  
@@ -194,10 +194,10 @@ There is **no** unchecked §4 row labeled “eval-complete.” E3 parked a *clai
 ## Honest readiness
 
 - Ready for **Write-dev-guide**? **Done** (pass 153).  
-- Ready for **Ready-check**? **Done** — **9.2 / 10**; artifact `docs/2026-07-18_guide09_build_mv_packaging_ready_check.md`.  
+- Ready for **Ready-check**? **Done** — **9.2 / 10**; artifact `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_ready_check.md`.  
 - Ready for **Implement**? **Done** — `68238cb`.  
 - Ready for **Review**? **Done** — shippable `0acf3c1`.  
-- Ready for **Align**? **Done** — slice closed; `docs/2026-07-18_guide09_build_mv_packaging_align.md`.  
+- Ready for **Align**? **Done** — slice closed; `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-18_guide09_build_mv_packaging_align.md`.  
 - Further Refine-dev-guide? **No**.  
 - Next human stage name (recommended): none for Guide 09 — **slice closed** (eval-complete remains Parked E3 until a later unlock).
 

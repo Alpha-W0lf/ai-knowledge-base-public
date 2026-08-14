@@ -5,7 +5,7 @@
 **Work item:** Guide 07 — discriminative hard-negative cases + `neg_at_k` harness; report fusion vs CE without corrupting hit@K  
 **Stage that authored this:** Write-dev-guide (pass 102); **Refine-dev-guide** (pass 104)  
 **Status:** **Align-docs done** 2026-07-17 — Gather/Ready-check superseded; README Guide 07 note. Implement `ff9ad33`; Review shippable. Slice closed pending any new hub work.  
-**Review note:** `docs/2026-07-17_guide07_hard_negative_review.md`
+**Review note:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide07_hard_negative_review.md`
 
 **Context SSOT:** `ai-knowledge-base-public/docs/2026-07-17_guide07_hard_negative_neg_at_k_context_summary.md`  
 **Handoff:** `second_brain/docs/2026-07-17_spoke_ai_kb_guide07_refine_pass104_handoff.md`  
@@ -240,7 +240,7 @@ Revert eval + golden + doc commits; or delete `hn*` lines and harness fields.
 |-------|------------------|--------------|------------|
 | Guide 07 hard-negative / `neg_at_k` | **Yes** (await Tom authorize Implement) | **8.8** | `hn*` query craft; B2 may find <4 fusion-failing traps (ship-with-note OK); Phase C Ollama/HF runtime; minor docs labeling craft. No pin conflicts. |
 
-**Artifact:** `docs/2026-07-17_guide07_hard_negative_ready_check.md`  
+**Artifact:** `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide07_hard_negative_ready_check.md`  
 **Implement now:** **No** until Tom authorizes Implement Stage.  
 **Further Refine-dev-guide:** **Not required.**
 
@@ -265,7 +265,7 @@ Revert eval + golden + doc commits; or delete `hn*` lines and harness fields.
 |------|--------|
 | Shippable as-is? | **Yes** |
 | Must-fix? | **None** |
-| Review note | `docs/2026-07-17_guide07_hard_negative_review.md` |
+| Review note | `docs/archive/2026-08_sprawl_c3b_aikb_public_stage_notes/2026-07-17_guide07_hard_negative_review.md` |
 | Re-verify | pytest honesty + neg_at_k → **15 passed**; goldens **24** |
 | Next | **Await Tom authorize Align** — do not self-start |
 
