@@ -258,10 +258,8 @@ Historical inventory originated on the **private** archive before sibling curati
 
 | Path | On public sibling | Notes |
 |------|-------------------|-------|
-| `docs/2026-01-19_01_ai_second_brain_video_transcript.md` | **Not present** | Curated out; still may exist on private archive |
-| `docs/2026-01-19_02_ai_second_brain_video_transcript.md` | **Not present** | Curated out; still may exist on private archive |
-| `docs/2026-01-19_this_is_why_youre_still_slow_even_with_ai_video_transcript.md` | **Not present** | Curated out; still may exist on private archive |
-| `docs/2026-01-19_ai_second_brain_research.md` | **Not present** | Curated out; still may exist on private archive |
+| Personal tip-transcript files (`2026-01-19_*`) | **Not present** | Curated out at sibling creation |
+
 | January-era planning / research files (`2026-01-*`) | **Removed** | Superseded or personal curation; see [`PORTFOLIO_VISION.md`](./PORTFOLIO_VISION.md) |
 | `docs/PORTFOLIO_VISION.md` | **Present** | Active portfolio vision |
 | `data/raw/` transcripts / LanceDB / `sync_state.json` | **gitignored** | Never publish; optional BYO local only |
@@ -290,9 +288,7 @@ Private scrub (tip-delete vs history rewrite) is documented on the superseded pr
 |-----|-----------|
 | **This file** | Binding current architecture |
 | `PORTFOLIO_VISION.md` | Public packaging intent |
-| KB1–KB5 + `2026-07-12_hybrid_rag_reranker_decision.md` | Portfolio SSOT for ranking lock |
-| `2026-01-30_architecture.md` | Historical diagnosis only; rewrite plan superseded |
-| `2026-01-30_vision.md` | Personal product vision (private use) |
+| KB1–KB5 decision set (internal) | Portfolio SSOT for ranking lock |
 
 When code and this file disagree, **fix the code toward this file** in bounded implement/dev-guide slices — do not revive the January rewrite.
 
