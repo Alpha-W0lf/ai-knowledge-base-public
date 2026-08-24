@@ -61,6 +61,6 @@ MCP wiring, discovery commands, and optional BYO YouTube overlay: [`GETTING_STAR
 - [`GETTING_STARTED.md`](GETTING_STARTED.md) — operator path  
 - [`FAQ.md`](FAQ.md) — Technical FAQ  
 - [`docs/2026-07-12_ce_keep_note.md`](docs/2026-07-12_ce_keep_note.md) — cross-encoder keep note  
-- [`LICENSE`](LICENSE) — MIT  
+- [`LICENSE`](LICENSE) — PolyForm Noncommercial 1.0.0 (source-available / non-commercial)  
 
 Building agent knowledge systems? Reach me on [LinkedIn](https://www.linkedin.com/in/tchacko1/).

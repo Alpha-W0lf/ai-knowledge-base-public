@@ -93,7 +93,7 @@ Fills **local hybrid RAG + MCP** on LanceDB — same ranking *shape* as Mechanic
 | Personal channels out of committed public default | **Done** | Empty default + ignored `channels.local.json` |
 | Public sibling as portfolio surface | **Done** | This repo (`ai-knowledge-base-public`) |
 | Tip-transcript scrub | **N/A on public sibling / optional private hygiene** | Private remote flip would still need scrub — out of scope here |
-| LICENSE file present | **Done** | Root MIT `LICENSE` (Tom Chacko 2026) |
+| LICENSE file present | **Done** | Root PolyForm Noncommercial 1.0.0 `LICENSE` (Tom Chacko 2026) |
 | Launchd plist owner paths | **Done** | `REPLACE_WITH_REPO_ROOT` template |
 | Optional BYO live path (7-day backfill) | **Done** | Documented in GETTING_STARTED; not default / not CI |
 | No execution of January clean rewrite | **Held** | KB4 |
