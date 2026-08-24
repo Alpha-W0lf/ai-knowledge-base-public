@@ -5,7 +5,6 @@
 **Updated:** 2026-08-02 (R3 — product-why first; delivery ledger moved to appendix)  
 **Owner:** Tom  
 **Binding architecture:** [`docs/ARCHITECTURE.md`](./ARCHITECTURE.md) (KB1–KB5)  
-**Related personal vision / January architecture:** historical private notes in-repo — **non-binding**; do not execute January rewrite
 
 ---
 

@@ -3,9 +3,7 @@
 **Status:** Binding for portfolio public success / private operation  
 **Created:** 2026-07-12  
 **Updated:** 2026-07-18 (Guide 09 — build MV Met packaging; eval-complete Parked E3)  
-**Supersedes:** `docs/2026-01-30_architecture.md` (historical only; clean rewrite **rejected**; January file is **non-binding**)  
 **Vision:** `docs/PORTFOLIO_VISION.md`  
-**Decisions:** KB1–KB5 in `second_brain/docs/2026-07-12_portfolio_vision_workspace_and_decisions.md`; ranking detail in `second_brain/docs/2026-07-12_hybrid_rag_reranker_decision.md`  
 **Guides 01–08:** Implemented + Aligned on this public sibling (spine, packaging, surface, GETTING_STARTED/FAQ, eval growth, CE measure, hard-neg, confusable traps). **Guide 09:** build-MV packaging — **portfolio public success / build MV Met**; **eval-complete claim Parked (E3)**; private flip out of scope for this repo’s build %. Optional private tip scrub remains separate hygiene — not required for “having a public AI KB.”
 
 This document describes the **current intended system** after pass-1 critical review and pass-4 KB5 reconcile. It is implementation-shaped and binding. Do not treat the January mega-doc as an executable plan.
@@ -264,11 +262,7 @@ Historical inventory originated on the **private** archive before sibling curati
 | `docs/2026-01-19_02_ai_second_brain_video_transcript.md` | **Not present** | Curated out; still may exist on private archive |
 | `docs/2026-01-19_this_is_why_youre_still_slow_even_with_ai_video_transcript.md` | **Not present** | Curated out; still may exist on private archive |
 | `docs/2026-01-19_ai_second_brain_research.md` | **Not present** | Curated out; still may exist on private archive |
-| `docs/2026-01-19_ai_resources_directory.md` | **Present** | Curated public links |
-| `docs/2026-01-25_ai_youtube_channels_list.md` | **Present** | Public channel catalog; not a transcript |
-| `docs/2026-01-26_ai_knowledge_base_planning.md` | **Present** | Planning archaeology |
-| `docs/2026-01-30_architecture.md` | **Present (historical)** | Superseded by this file; do not execute |
-| `docs/2026-01-30_vision.md` | **Present** | Personal vision; non-binding stack |
+| January-era planning / research files (`2026-01-*`) | **Removed** | Superseded or personal curation; see [`PORTFOLIO_VISION.md`](./PORTFOLIO_VISION.md) |
 | `docs/PORTFOLIO_VISION.md` | **Present** | Active portfolio vision |
 | `data/raw/` transcripts / LanceDB / `sync_state.json` | **gitignored** | Never publish; optional BYO local only |
 
