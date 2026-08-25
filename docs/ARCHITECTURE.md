@@ -1,10 +1,10 @@
 # AI Knowledge Base — Current Architecture (binding)
 
-**Status:** Binding for portfolio public success / private operation  
+**Status:** Binding — describes the shipped public demo and its private-operation mode  
 **Created:** 2026-07-12  
-**Updated:** 2026-07-18 (Guide 09 — build MV Met packaging; eval-complete Parked E3)  
+**Updated:** 2026-07-18 (packaging complete; broader evaluation claims deliberately not made — see [`PORTFOLIO_VISION.md`](./PORTFOLIO_VISION.md))  
 **Vision:** `docs/PORTFOLIO_VISION.md`  
-**Guides 01–08:** Implemented + Aligned on this public sibling (spine, packaging, surface, GETTING_STARTED/FAQ, eval growth, CE measure, hard-neg, confusable traps). **Guide 09:** build-MV packaging — **portfolio public success / build MV Met**; **eval-complete claim Parked (E3)**; private flip out of scope for this repo’s build %. Optional private tip scrub remains separate hygiene — not required for “having a public AI KB.”
+**Scope note:** retrieval spine, packaging, GETTING_STARTED/FAQ, eval growth, cross-encoder measurement, hard negatives, and confusable traps are all implemented and reviewed on this public repo. The private archive stays private by design; scrubbing it is separate hygiene and not required for this repo to stand alone.
 
 This document describes the **current intended system** after pass-1 critical review and pass-4 KB5 reconcile. It is implementation-shaped and binding. Do not treat the January mega-doc as an executable plan.
 
