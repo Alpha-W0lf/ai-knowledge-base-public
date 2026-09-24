@@ -22,13 +22,26 @@ ollama pull nomic-embed-text
 uv run python -m src.ingest --fixtures
 ```
 
-The unit-test suite is designed to run **without** Ollama:
+## Tests (hub-free vs Ollama)
+
+CI runs `uv run pytest -q` on every push and pull request. Pytest collects every `tests/test_*.py` file, including `test_retrieval_spine.py` (the 14 spine / MCP / ingest tests). The older `tests_retrieval_spine.py` name was never collected.
+
+**Hub-free** (no Ollama, no Hugging Face Hub) — identity, schema-import, overlay, MCP allowlist, FTS-missing, hybrid-fail-closed, and eval-honesty helpers:
 
 ```bash
 uv run pytest -q
 ```
 
-CI runs `pytest` on every push and pull request.
+Ingest, hybrid retrieve, MCP search, and fixture-eval cases in `test_retrieval_spine.py` **skip** when Ollama + `nomic-embed-text` are not reachable, so the default clone stays green.
+
+**Ollama spine** (ingest / hybrid / MCP search / fixture eval) — same file, live embeddings:
+
+```bash
+ollama pull nomic-embed-text
+uv run pytest -q tests/test_retrieval_spine.py
+```
+
+Requires a running Ollama with `nomic-embed-text`. Cross-encoder cases that load MiniLM still degrade honestly if the Hub model is cold (`ranking_stage=fusion_degraded`).
 
 ## Ground rules
 

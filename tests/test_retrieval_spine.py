@@ -26,6 +26,28 @@ from src.rerank import IdentityReranker
 from src.search import retrieve
 
 
+def _ollama_ready() -> bool:
+    """True when Ollama is up and nomic-embed-text is listed (ingest/search path)."""
+    try:
+        import httpx
+
+        response = httpx.get("http://localhost:11434/api/tags", timeout=2.0)
+        if response.status_code != 200:
+            return False
+        names = " ".join(
+            str(model.get("name", "")) for model in response.json().get("models", [])
+        )
+        return "nomic-embed-text" in names
+    except Exception:
+        return False
+
+
+requires_ollama = pytest.mark.skipif(
+    not _ollama_ready(),
+    reason="Ollama + nomic-embed-text required for ingest/search spine tests",
+)
+
+
 @pytest.fixture()
 def tmp_db(tmp_path: Path) -> Path:
     return tmp_path / "lancedb"
@@ -33,6 +55,8 @@ def tmp_db(tmp_path: Path) -> Path:
 
 @pytest.fixture()
 def fixture_db(tmp_db: Path) -> Path:
+    if not _ollama_ready():
+        pytest.skip("Ollama + nomic-embed-text required for fixture ingest")
     ingest_fixtures(db_path=tmp_db, ensure_fts=True)
     return tmp_db
 
@@ -56,6 +80,7 @@ def test_source_id_stable_under_path_move(tmp_path: Path):
     assert id_a["doc_id"] == compute_doc_id("fixture", "fixture:rag-hooks-01")
 
 
+@requires_ollama
 def test_content_change_flips_hash_and_replaces_chunks(tmp_db: Path, tmp_path: Path):
     f = tmp_path / "fixtures" / "transcripts" / "swap-doc.md"
     f.parent.mkdir(parents=True)
@@ -274,6 +299,7 @@ def test_mcp_search_returns_ranking_stage_fields(fixture_db: Path, monkeypatch):
 # --- F1–F3 eval stub ---
 
 
+@requires_ollama
 def test_fixture_eval_hit_and_groundedness(tmp_db: Path):
     from src.eval import groundedness_ok, run_fixture_eval
 
