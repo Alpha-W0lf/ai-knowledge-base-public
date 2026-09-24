@@ -1,0 +1,25 @@
+{
+  "query": "reciprocal rank fusion RRF",
+  "mode": "hybrid",
+  "ranking_stage": "fusion",
+  "results": [
+    {
+      "chunk_id": "04b19d8d13b10048_0",
+      "source_id": "fixture:fusion-rrf-04",
+      "title": "Rank fusion with reciprocal rank fusion",
+      "channel": "fixtures",
+      "date": "",
+      "text": "# Rank fusion with reciprocal rank fusion\n\nReciprocal rank fusion, often abbreviated RRF, combines ranked lists from vector ANN\nand full-text search without needing calibrated scores.\n\nFor each chunk id, add 1/(k + rank) from each retriever leg, then sort. The fused\nshortlist of size N feeds the cross-encoder. Placeholder for fixture:fusion-rrf-04.",
+      "snippet": "# Rank fusion with reciprocal rank fusion\n\nReciprocal rank fusion, often abbreviated RRF, combines ranked lists from vector ANN\nand full-text search without needing calibrated scores.\n\nFor each chunk id, add 1/(k + rank) from each retriever leg, then sort. The fused\nshortlist of size N feeds the cross-encoder. Placeholder for fixture:fusion-rrf-04.",
+      "source_url": "fixture:fusion-rrf-04",
+      "fusion_rank": 1,
+      "ranking_stage": "fusion",
+      "retriever_scores": {},
+      "rerank_score": null,
+      "source_type": "fixture",
+      "doc_id": "04b19d8d13b10048"
+    }
+  ],
+  "count": 1,
+  "timings_ms": {}
+}

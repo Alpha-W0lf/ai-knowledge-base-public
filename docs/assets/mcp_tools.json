@@ -1,0 +1,21 @@
+{
+  "mcp_profile": "public",
+  "tools": {
+    "discover": {
+      "readOnlyHint": true,
+      "description": "Discover AI content without a specific query (honest browse/digest/heuristics)."
+    },
+    "get_context": {
+      "readOnlyHint": true,
+      "description": "Get comprehensive context via shared retrieval (+ optional recent digest)."
+    },
+    "get_status": {
+      "readOnlyHint": true,
+      "description": "Get current status of the AI knowledge base."
+    },
+    "search": {
+      "readOnlyHint": true,
+      "description": "Search the AI knowledge base for relevant content."
+    }
+  }
+}
