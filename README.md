@@ -33,6 +33,12 @@ flowchart LR
 2. **Public fixtures / private corpus split** — strangers get a working demo; personal tip libraries stay off this repo.
 3. **MCP read-only by default** — mutations stay behind an explicit private profile flag.
 
+### Prerequisites
+
+- Python 3.11+
+- [`uv`](https://docs.astral.sh/uv/) **or** pip + venv (`python3 -m venv .venv && .venv/bin/pip install -e .`)
+- [Ollama](https://ollama.com) running locally with `nomic-embed-text`
+
 ### Try it
 
 ```bash
@@ -43,7 +49,9 @@ uv run python -m src.search "reciprocal rank fusion RRF" --hybrid --db data/lanc
 uv run python -m src.eval
 ```
 
-MCP wiring, discovery commands, and optional BYO YouTube overlay: [`GETTING_STARTED.md`](GETTING_STARTED.md).
+Same steps with pip/venv: skip `uv sync`, then run the modules with `.venv/bin/python` instead of `uv run python`.
+
+MCP wiring, discovery commands, and optional BYO YouTube overlay: [`GETTING_STARTED.md`](GETTING_STARTED.md). Dogfood with [mcp-audit](https://github.com/Alpha-W0lf/mcp-audit): `mcp-audit run --server "uv run python -m src.mcp_server"` (or `.venv/bin/python -m src.mcp_server`). Public tools advertise `readOnlyHint=true`.
 
 ### Stack
 
