@@ -114,9 +114,7 @@ def load_fixture_manifest(fixtures_dir: Path | None = None) -> list[dict]:
 
     provenance = fixtures_dir / "PROVENANCE.md"
     if not provenance.exists():
-        raise FileNotFoundError(
-            f"Missing fixture provenance: {manifest_path} or {provenance}"
-        )
+        raise FileNotFoundError(f"Missing fixture provenance: {manifest_path} or {provenance}")
     # Prefer companion JSON if present; else parse simple table is optional —
     # Implement ships manifest.json for machine use.
     raise FileNotFoundError(

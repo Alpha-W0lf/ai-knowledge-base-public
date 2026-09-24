@@ -55,13 +55,10 @@ def validate_hard_negatives(cases: list[dict], manifest_ids: set[str]) -> None:
             )
         for sid in forbidden:
             if not isinstance(sid, str) or not sid.strip():
-                raise ValueError(
-                    f"hard_negative case {cid!r} has invalid forbidden id {sid!r}"
-                )
+                raise ValueError(f"hard_negative case {cid!r} has invalid forbidden id {sid!r}")
             if sid not in manifest_ids:
                 raise ValueError(
-                    f"hard_negative case {cid!r} forbidden id {sid!r} "
-                    f"not in fixture manifest"
+                    f"hard_negative case {cid!r} forbidden id {sid!r} not in fixture manifest"
                 )
 
 
@@ -169,9 +166,7 @@ def run_fixture_eval(
                 if hard:
                     hard_neg_n += 1
                     row_err["neg_ok"] = False
-                    row_err["forbidden_source_ids"] = list(
-                        case.get("forbidden_source_ids") or []
-                    )
+                    row_err["forbidden_source_ids"] = list(case.get("forbidden_source_ids") or [])
                 details.append(row_err)
                 continue
 
@@ -231,11 +226,7 @@ def run_fixture_eval(
             stage_counts = dict(
                 Counter(d.get("ranking_stage") for d in easy_details if "ranking_stage" in d)
             )
-            success_rows = [
-                d
-                for d in easy_details
-                if d.get("ranking_stage") == "ce"
-            ]
+            success_rows = [d for d in easy_details if d.get("ranking_stage") == "ce"]
             ce_success_cases = len(success_rows)
             ce_success_hits = sum(1 for d in success_rows if d.get("hit"))
             arm["stage_counts"] = stage_counts

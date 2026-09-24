@@ -29,3 +29,16 @@ def test_private_mutation_tools_are_not_readonly_on_public_profile():
     assert registered == set(mcp_mod.PUBLIC_TOOL_ALLOWLIST)
     assert "add_channel" not in registered
     assert "sync_now" not in registered
+
+
+def test_mcp_error_sanitizes_paths():
+    """Verify that sanitize_error redacts host filesystem paths."""
+    err = "/workspace/data/lancedb/table.lance: file not found"
+    sanitized = mcp_mod.sanitize_error(err)
+    assert "/workspace" not in sanitized
+    assert "[path]" in sanitized
+
+    home_err = "Error at /home/ubuntu/project/file.py line 42"
+    sanitized_home = mcp_mod.sanitize_error(home_err)
+    assert "/home/ubuntu" not in sanitized_home
+    assert "[path]" in sanitized_home

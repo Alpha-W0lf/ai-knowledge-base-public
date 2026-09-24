@@ -54,6 +54,8 @@ def retrieve(
     """
     Shared retrieval: vector | hybrid→fusion→optional CE.
 
+    limit: Number of results returned (clamped between 5 and 10 by
+    config.clamp_retrieval_k; default 8).
     Hybrid fails closed if FTS cannot be ensured.
     CE failure degrades to fused ranks with ranking_stage=fusion_degraded.
     """
@@ -217,10 +219,10 @@ def retrieve(
 
 def search(
     query: str,
-    limit: int = None,
+    limit: int | None = None,
     hybrid: bool = False,
-    channel: str = None,
-    since: str = None,
+    channel: str | None = None,
+    since: str | None = None,
     db_path: Path | None = None,
     ce_enabled: bool | None = None,
 ) -> pd.DataFrame:
@@ -228,6 +230,7 @@ def search(
     Backward-compatible DataFrame wrapper over shared retrieve().
 
     `--hybrid` is real hybrid+fusion(+CE per config), not a no-op.
+    `limit` is clamped between 5 and 10 by config.clamp_retrieval_k.
     """
     mode: Mode = "hybrid" if hybrid else "vector"
     try:
@@ -290,14 +293,27 @@ def format_results(results: pd.DataFrame, show_text: bool = True) -> None:
             console.print(f"[dim]{text}[/dim]")
 
 
-@click.command()
+@click.command(context_settings={"help_option_names": ["-h", "--help"]})
 @click.argument("query")
-@click.option("--limit", "-n", default=None, type=int, help="Number of results (K)")
-@click.option("--hybrid", "-h", is_flag=True, help="Use hybrid search (vector+FTS+fusion+CE)")
+@click.option(
+    "--limit",
+    "-n",
+    default=None,
+    type=int,
+    help="Number of results (K, clamped 5–10; default 8)",
+)
+@click.option("--hybrid", is_flag=True, help="Use hybrid search (vector+FTS+fusion+optional CE)")
 @click.option("--channel", "-c", help="Filter by channel")
 @click.option("--since", "-s", help="Filter by date (YYYY-MM-DD)")
 @click.option("--brief", "-b", is_flag=True, help="Show titles only")
-@click.option("--no-ce", is_flag=True, help="Disable cross-encoder even on hybrid")
+@click.option(
+    "--ce",
+    "ce_opt",
+    is_flag=True,
+    default=False,
+    help="Enable cross-encoder reranking (requires ce extra)",
+)
+@click.option("--no-ce", is_flag=True, default=False, help="Disable cross-encoder even on hybrid")
 @click.option("--db", "db_path", default=None, type=click.Path(), help="Override LanceDB path")
 def main(
     query: str,
@@ -306,11 +322,13 @@ def main(
     channel: str,
     since: str,
     brief: bool,
+    ce_opt: bool,
     no_ce: bool,
     db_path: str | None,
 ):
     """Search the AI knowledge base via the shared retrieval spine."""
     console.print(f"[dim]Searching for: {query} (hybrid={hybrid})[/dim]")
+    ce_choice = False if no_ce else (True if ce_opt else None)
     results = search(
         query=query,
         limit=limit,
@@ -318,7 +336,7 @@ def main(
         channel=channel,
         since=since,
         db_path=Path(db_path) if db_path else None,
-        ce_enabled=False if no_ce else None,
+        ce_enabled=ce_choice,
     )
     format_results(results, show_text=not brief)
     console.print()

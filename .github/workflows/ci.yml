@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  pytest:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,7 +18,13 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: uv sync --frozen
+        run: uv sync --frozen --extra dev
+
+      - name: Run linter
+        run: uv run ruff check
+
+      - name: Check code formatting
+        run: uv run ruff format --check
 
       - name: Run unit tests
         run: uv run pytest -q

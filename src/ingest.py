@@ -446,9 +446,7 @@ def get_stats(db_path: Path | None = None) -> dict:
         "documents": df["doc_id"].nunique() if "doc_id" in df.columns else 0,
         "chunks": len(df),
         "channels": df["channel"].unique().tolist() if "channel" in df.columns else [],
-        "source_ids": (
-            df["source_id"].nunique() if "source_id" in df.columns else 0
-        ),
+        "source_ids": (df["source_id"].nunique() if "source_id" in df.columns else 0),
     }
 
 

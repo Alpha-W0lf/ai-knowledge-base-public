@@ -5,6 +5,7 @@ AI Knowledge Base Configuration
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 # Paths
@@ -33,7 +34,8 @@ CHUNK_OVERLAP = 200  # overlap between chunks
 DEFAULT_LIMIT = 10
 RETRIEVAL_N = 30  # fused shortlist size into CE (clamp 20–50)
 RETRIEVAL_K = 8  # return size (clamp 5–10)
-CE_ENABLED = True  # default on when local CE loads; off path must work
+# Pluggable cross-encoder seam (opt-in; default off without optional ce extra)
+CE_ENABLED = os.environ.get("AI_KB_CE", "").strip() in {"1", "true", "TRUE", "yes"}
 CE_MODEL_ID = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 # Deprecated as fusion API — not wired to a weighted combiner. Prefer RRF / LanceDB hybrid.
 HYBRID_VECTOR_WEIGHT = 0.7
@@ -44,6 +46,7 @@ BACKFILL_DAYS = 7  # Public demo default; raise locally for deeper BYO backfill
 MAX_RETRY_ATTEMPTS = 2  # Retry failed downloads
 RETRY_DELAY_SECONDS = 30  # Delay between retries
 PARALLEL_WORKERS = 8  # Concurrent channel listings (8-10 is safe, higher may rate-limit)
+
 
 def load_youtube_channels(
     overlay_path: Path | None = None,
@@ -80,21 +83,19 @@ def load_youtube_channels(
     for i, item in enumerate(raw):
         if not isinstance(item, dict):
             raise ValueError(
-                f"Channel overlay {path}: entry [{i}] must be an object, "
-                f"got {type(item).__name__}"
+                f"Channel overlay {path}: entry [{i}] must be an object, got {type(item).__name__}"
             )
         handle = item.get("handle")
         description = item.get("description", "")
         if not isinstance(handle, str) or not handle.strip():
             raise ValueError(
-                f"Channel overlay {path}: entry [{i}] requires non-empty "
-                f'string "handle"'
+                f'Channel overlay {path}: entry [{i}] requires non-empty string "handle"'
             )
         if description is None:
             description = ""
         if not isinstance(description, str):
             raise ValueError(
-                f"Channel overlay {path}: entry [{i}] \"description\" must be "
+                f'Channel overlay {path}: entry [{i}] "description" must be '
                 f"a string, got {type(description).__name__}"
             )
         key = handle.strip().casefold()

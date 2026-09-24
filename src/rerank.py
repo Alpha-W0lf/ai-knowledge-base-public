@@ -27,6 +27,16 @@ class IdentityReranker:
         return list(candidates)
 
 
+def is_ce_available() -> bool:
+    """Return True if optional sentence-transformers dependency is installed."""
+    try:
+        import sentence_transformers  # noqa: F401
+
+        return True
+    except ImportError:
+        return False
+
+
 class LocalCrossEncoder:
     """
     Local sentence-transformers CrossEncoder.
@@ -40,7 +50,14 @@ class LocalCrossEncoder:
 
     def _load(self):
         if self._model is None:
-            from sentence_transformers import CrossEncoder
+            try:
+                from sentence_transformers import CrossEncoder
+            except ImportError as exc:
+                raise RuntimeError(
+                    "sentence-transformers is not installed. "
+                    "Install optional CE support with: "
+                    "uv sync --extra ce (or pip install -e '.[ce]')"
+                ) from exc
 
             self._model = CrossEncoder(self.model_id)
         return self._model
@@ -54,7 +71,9 @@ class LocalCrossEncoder:
         ranked = list(candidates)
         for hit, score in zip(ranked, scores):
             hit.rerank_score = float(score)
-        ranked.sort(key=lambda h: h.rerank_score if h.rerank_score is not None else 0.0, reverse=True)
+        ranked.sort(
+            key=lambda h: h.rerank_score if h.rerank_score is not None else 0.0, reverse=True
+        )
         return ranked
 
 
