@@ -22,11 +22,18 @@ ollama pull nomic-embed-text
 uv run python -m src.ingest --fixtures
 ```
 
-## Tests (hub-free vs Ollama)
+## Tests and Linting (hub-free vs Ollama)
 
-CI runs `uv run pytest -q` on every push and pull request. Pytest collects every `tests/test_*.py` file, including `test_retrieval_spine.py` (the 14 spine / MCP / ingest tests). The older `tests_retrieval_spine.py` name was never collected.
+CI runs `uv run ruff check`, `uv run ruff format --check`, and `uv run pytest -q` on every push and pull request. Pytest collects every `tests/test_*.py` file, including `test_retrieval_spine.py` (the 14 spine / MCP / ingest tests). The older `tests_retrieval_spine.py` name was never collected.
 
-**Hub-free** (no Ollama, no Hugging Face Hub) — identity, schema-import, overlay, MCP allowlist, FTS-missing, hybrid-fail-closed, and eval-honesty helpers:
+**Linting and formatting:**
+
+```bash
+uv run --extra dev ruff check
+uv run --extra dev ruff format --check
+```
+
+**Hub-free tests** (no Ollama, no Hugging Face Hub) — identity, schema-import, overlay, MCP allowlist, FTS-missing, hybrid-fail-closed, and eval-honesty helpers:
 
 ```bash
 uv run pytest -q
