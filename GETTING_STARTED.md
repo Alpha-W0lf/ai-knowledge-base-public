@@ -6,6 +6,7 @@ Clone-depth path for the **fixture-first hybrid → fusion → optional CE** ver
 - Contracts: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - Portfolio why: [`docs/PORTFOLIO_VISION.md`](docs/PORTFOLIO_VISION.md)
 - Technical FAQ: [`FAQ.md`](FAQ.md)
+- Security: [`SECURITY.md`](SECURITY.md)
 
 Public demo = committed synthetic `fixtures/` only. Eval-complete claims are separate diligence notes (see Honesty) — not required to complete this clone path.
 
@@ -28,7 +29,7 @@ From repo root, in order:
 uv sync
 ```
 
-**Why:** `uv` locks the Python env and deps for a reproducible stranger clone.
+**Why:** `uv` locks the Python env and deps for a reproducible stranger clone. To optionally install cross-encoder reranking, use `uv sync --extra ce` (or `pip install -e ".[ce]"`).
 
 ### 2. Pull embedding model
 

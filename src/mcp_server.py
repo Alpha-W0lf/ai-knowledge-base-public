@@ -12,8 +12,8 @@ from __future__ import annotations
 
 import json
 import os
-from datetime import datetime, timedelta
-from typing import Optional
+import re
+from typing import Any, Optional
 
 from mcp.server.fastmcp import FastMCP
 from mcp.types import ToolAnnotations
@@ -29,6 +29,18 @@ PRIVATE_MUTATION_TOOLS = frozenset({"add_channel", "sync_now"})
 PUBLIC_TOOL_ANNOTATIONS = ToolAnnotations(readOnlyHint=True)
 
 
+def sanitize_error(error: Any) -> str:
+    """Sanitize error messages to prevent leaking local filesystem paths or system internals."""
+    if error is None:
+        return "Unknown error"
+    msg = str(error)
+    # Redact common filesystem roots (/Users/..., /home/..., /workspace/..., /tmp/..., etc.)
+    msg = re.sub(r"/(?:Users|home|workspace|tmp|var|etc|opt)/[^\s'\",]+", "[path]", msg)
+    # Redact any remaining absolute Unix paths
+    msg = re.sub(r"(?:^|[\s'\"])/(?:[\w.\-]+/)+[\w.\-]+", " [path]", msg)
+    return msg.strip()
+
+
 def private_profile_enabled() -> bool:
     """Non-default private profile — mutation tools only when explicitly enabled."""
     return os.environ.get("AI_KB_MCP_PRIVATE", "").strip() in {"1", "true", "TRUE", "yes"}
@@ -42,13 +54,14 @@ def check_ollama() -> tuple[bool, str]:
         response = httpx.get("http://localhost:11434/api/tags", timeout=2.0)
         return response.status_code == 200, "Ollama is running"
     except Exception as e:
-        return False, f"Ollama not accessible: {e}. Start Ollama first."
+        return False, f"Ollama not accessible ({type(e).__name__}). Start Ollama first."
 
 
 def get_db():
     """Get LanceDB connection (status/discover only — search uses shared retrieve)."""
-    from . import config
     import lancedb
+
+    from . import config
 
     config.LANCEDB_DIR.mkdir(parents=True, exist_ok=True)
     return lancedb.connect(str(config.LANCEDB_DIR))
@@ -75,6 +88,7 @@ def search(query: str, limit: int = 5, hybrid: bool = True) -> str:
 
     Uses the shared retrieval spine (hybrid → fusion → optional CE).
     Public results cite source_id / source_url — never absolute filepath.
+    limit: Number of results to return (clamped between 5 and 10; default 5).
     """
     ok, msg = check_ollama()
     if not ok:
@@ -91,9 +105,9 @@ def search(query: str, limit: int = 5, hybrid: bool = True) -> str:
         )
         return json.dumps(result.to_public_dict(), indent=2)
     except RetrievalError as e:
-        return json.dumps({"error": e.message, "code": e.code})
+        return json.dumps({"error": sanitize_error(e.message), "code": e.code})
     except Exception as e:
-        return json.dumps({"error": str(e)})
+        return json.dumps({"error": sanitize_error(e)})
 
 
 @mcp.tool(annotations=PUBLIC_TOOL_ANNOTATIONS)
@@ -102,97 +116,15 @@ def discover(mode: str = "digest", days: int = 7, limit: int = 5) -> str:
     Discover AI content without a specific query (honest browse/digest/heuristics).
 
     Modes: random, digest, concepts, channels — not a ranking product.
+    Calls shared implementation in src.discover.
     """
     try:
-        db = get_db()
-        if not table_exists(db, "transcripts"):
-            return json.dumps({"error": "Knowledge base empty. Run ingestion first."})
+        from .discover import run_discover
 
-        table = db.open_table("transcripts")
-        df = table.to_pandas()
-
-        if mode == "random":
-            sample = df.sample(n=min(limit, len(df)))
-            items = []
-            for _, row in sample.iterrows():
-                text = row["text"]
-                items.append(
-                    {
-                        "text": text[:500] + "..." if len(text) > 500 else text,
-                        "channel": row["channel"],
-                        "title": row["title"],
-                        "source_id": row.get("source_id", ""),
-                    }
-                )
-            return json.dumps({"mode": "random", "items": items})
-
-        if mode == "digest":
-            cutoff = (datetime.now() - timedelta(days=days)).isoformat()[:10]
-            recent = (
-                df[df["date"] >= cutoff]
-                if "date" in df.columns and df["date"].notna().any()
-                else df
-            )
-
-            channels_content: dict[str, set] = {}
-            for _, row in recent.iterrows():
-                ch = row["channel"]
-                channels_content.setdefault(ch, set()).add(row["title"])
-
-            summary = [
-                {"channel": ch, "recent_videos": list(titles)[:5]}
-                for ch, titles in channels_content.items()
-            ]
-            return json.dumps(
-                {"mode": "digest", "period_days": days, "channels": summary},
-                indent=2,
-            )
-
-        if mode == "concepts":
-            import re
-            from collections import Counter
-
-            patterns = [
-                r"\b(Claude Code|Cursor|Copilot|ChatGPT|GPT-4|GPT-5)\b",
-                r"\b(LangChain|LangGraph|LlamaIndex|CrewAI)\b",
-                r"\b(RAG|MCP|vector|embedding|agent|prompt)\b",
-                r"\b(Ollama|vLLM|Hugging Face|OpenAI|Anthropic)\b",
-            ]
-            all_text = " ".join(df["text"].tolist())
-            mentions = Counter()
-            for pattern in patterns:
-                for match in re.findall(pattern, all_text, re.IGNORECASE):
-                    mentions[match.lower()] += 1
-            top_concepts = mentions.most_common(limit)
-            return json.dumps(
-                {
-                    "mode": "concepts",
-                    "top_mentions": [{"concept": c, "count": n} for c, n in top_concepts],
-                }
-            )
-
-        if mode == "channels":
-            if "doc_id" in df.columns:
-                channel_stats = (
-                    df.groupby("channel")
-                    .agg(videos=("doc_id", "nunique"), chunks=("text", "count"))
-                    .reset_index()
-                )
-            else:
-                channel_stats = (
-                    df.groupby("channel").agg(chunks=("text", "count")).reset_index()
-                )
-            return json.dumps(
-                {"mode": "channels", "channels": channel_stats.to_dict(orient="records")},
-                indent=2,
-            )
-
-        return json.dumps(
-            {"error": f"Unknown mode: {mode}. Use random, digest, concepts, or channels."}
-        )
-
+        result = run_discover(mode=mode, days=days, limit=limit)
+        return json.dumps(result, indent=2)
     except Exception as e:
-        return json.dumps({"error": str(e)})
+        return json.dumps({"error": sanitize_error(e)})
 
 
 @mcp.tool(annotations=PUBLIC_TOOL_ANNOTATIONS)
@@ -205,6 +137,7 @@ def get_context(query: str, include_recent: bool = True) -> str:
         return json.dumps({"error": msg})
 
     try:
+        from .discover import run_discover
         from .search import retrieve
 
         result = retrieve(query, mode="hybrid", limit=5)
@@ -215,13 +148,13 @@ def get_context(query: str, include_recent: bool = True) -> str:
             "timings_ms": result.timings_ms,
         }
         if include_recent:
-            digest = json.loads(discover(mode="digest", days=7))
+            digest = run_discover(mode="digest", days=7, limit=5)
             payload["recent_activity"] = digest.get("channels", [])
         return json.dumps(payload, indent=2)
     except RetrievalError as e:
-        return json.dumps({"error": e.message, "code": e.code})
+        return json.dumps({"error": sanitize_error(e.message), "code": e.code})
     except Exception as e:
-        return json.dumps({"error": str(e)})
+        return json.dumps({"error": sanitize_error(e)})
 
 
 @mcp.tool(annotations=PUBLIC_TOOL_ANNOTATIONS)
@@ -272,7 +205,7 @@ def get_status() -> str:
         return json.dumps(status, indent=2)
 
     except Exception as e:
-        return json.dumps({"error": str(e)})
+        return json.dumps({"error": sanitize_error(e)})
 
 
 def _register_private_tools() -> None:
@@ -289,9 +222,7 @@ def _register_private_tools() -> None:
             handle = f"@{handle}"
         existing = [ch[0] for ch in config.YOUTUBE_CHANNELS]
         if handle in existing:
-            return json.dumps(
-                {"status": "exists", "message": f"{handle} is already being tracked"}
-            )
+            return json.dumps({"status": "exists", "message": f"{handle} is already being tracked"})
         config.YOUTUBE_CHANNELS.append((handle, description))
         return json.dumps(
             {
@@ -324,7 +255,7 @@ def _register_private_tools() -> None:
                 stats = sync_all()
             return json.dumps({"sync_stats": stats, "status": "complete"}, indent=2)
         except Exception as e:
-            return json.dumps({"error": str(e)})
+            return json.dumps({"error": sanitize_error(e)})
 
 
 if private_profile_enabled():

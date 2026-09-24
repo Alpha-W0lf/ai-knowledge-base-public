@@ -19,7 +19,6 @@ from src.ingest import (
     get_db,
     ingest_file,
     ingest_fixtures,
-    table_exists,
 )
 from src.models import RetrievalError
 from src.rerank import IdentityReranker
@@ -34,9 +33,7 @@ def _ollama_ready() -> bool:
         response = httpx.get("http://localhost:11434/api/tags", timeout=2.0)
         if response.status_code != 200:
             return False
-        names = " ".join(
-            str(model.get("name", "")) for model in response.json().get("models", [])
-        )
+        names = " ".join(str(model.get("name", "")) for model in response.json().get("models", []))
         return "nomic-embed-text" in names
     except Exception:
         return False
@@ -237,6 +234,12 @@ def test_ce_disabled_uses_fusion_stage(fixture_db: Path):
     assert result.error is None
 
 
+def test_is_ce_available_returns_bool():
+    from src.rerank import is_ce_available
+
+    assert isinstance(is_ce_available(), bool)
+
+
 # --- E4 MCP public allowlist ---
 
 
@@ -262,9 +265,7 @@ def test_mcp_public_tool_allowlist():
         if isinstance(listed, dict):
             registered = set(listed.keys())
         else:
-            registered = {
-                getattr(t, "name", t) if not isinstance(t, str) else t for t in listed
-            }
+            registered = {getattr(t, "name", t) if not isinstance(t, str) else t for t in listed}
         assert "add_channel" not in registered
         assert "sync_now" not in registered
         assert "search" in registered
