@@ -16,6 +16,7 @@ from datetime import datetime, timedelta
 from typing import Optional
 
 from mcp.server.fastmcp import FastMCP
+from mcp.types import ToolAnnotations
 
 from .models import RetrievalError
 
@@ -24,6 +25,8 @@ mcp = FastMCP("AI Knowledge Base")
 
 PUBLIC_TOOL_ALLOWLIST = frozenset({"search", "discover", "get_status", "get_context"})
 PRIVATE_MUTATION_TOOLS = frozenset({"add_channel", "sync_now"})
+# Advertised to clients / mcp-audit: public profile does not mutate.
+PUBLIC_TOOL_ANNOTATIONS = ToolAnnotations(readOnlyHint=True)
 
 
 def private_profile_enabled() -> bool:
@@ -65,7 +68,7 @@ def public_tool_names() -> list[str]:
     return sorted(names)
 
 
-@mcp.tool()
+@mcp.tool(annotations=PUBLIC_TOOL_ANNOTATIONS)
 def search(query: str, limit: int = 5, hybrid: bool = True) -> str:
     """
     Search the AI knowledge base for relevant content.
@@ -93,7 +96,7 @@ def search(query: str, limit: int = 5, hybrid: bool = True) -> str:
         return json.dumps({"error": str(e)})
 
 
-@mcp.tool()
+@mcp.tool(annotations=PUBLIC_TOOL_ANNOTATIONS)
 def discover(mode: str = "digest", days: int = 7, limit: int = 5) -> str:
     """
     Discover AI content without a specific query (honest browse/digest/heuristics).
@@ -192,7 +195,7 @@ def discover(mode: str = "digest", days: int = 7, limit: int = 5) -> str:
         return json.dumps({"error": str(e)})
 
 
-@mcp.tool()
+@mcp.tool(annotations=PUBLIC_TOOL_ANNOTATIONS)
 def get_context(query: str, include_recent: bool = True) -> str:
     """
     Get comprehensive context via shared retrieval (+ optional recent digest).
@@ -221,7 +224,7 @@ def get_context(query: str, include_recent: bool = True) -> str:
         return json.dumps({"error": str(e)})
 
 
-@mcp.tool()
+@mcp.tool(annotations=PUBLIC_TOOL_ANNOTATIONS)
 def get_status() -> str:
     """
     Get current status of the AI knowledge base.
