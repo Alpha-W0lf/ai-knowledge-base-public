@@ -1,8 +1,8 @@
 # AI Knowledge Base
 
-Production-grade local **hybrid RAG** + **MCP** knowledge spine for coding agents.
+Production-grade local **hybrid RAG** + **MCP** knowledge spine for coding agents — vector + FTS fused with **RRF**, optional CE that degrades safely, read-only MCP tools agents can call.
 
-Public demo runs on committed synthetic fixtures; the architecture and evaluation honesty are the product.
+Public clone runs on committed synthetic fixtures (private corpora stay gitignored); architecture and eval honesty are the product.
 
 ![Sources → transcripts → RAG + MCP → agents](docs/assets/pipeline_overview.png)
 
