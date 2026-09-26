@@ -46,3 +46,5 @@ config.local.py
 
 # Sync state (local)
 data/sync_state.json
+CLAUDE.md
+.cursor/
