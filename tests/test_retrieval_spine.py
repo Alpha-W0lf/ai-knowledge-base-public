@@ -18,6 +18,7 @@ from src.identity import compute_doc_id, content_hash, resolve_source_identity
 from src.ingest import (
     FTSIndexError,
     assert_table_embedding_version,
+    build_fts_index_if_needed,
     ensure_fts_index,
     get_db,
     ingest_file,
@@ -276,6 +277,34 @@ def test_ensure_fts_raises_when_missing(tmp_db: Path):
     db = get_db(tmp_db)
     with pytest.raises(FTSIndexError):
         ensure_fts_index(db)
+
+
+def test_fts_stop_words_are_pinned(tmp_db: Path):
+    """A lancedb upgrade must not change which words keyword search ignores.
+
+    lancedb 0.40 added "how", "should", "between" and "what" (among others) to its
+    built-in English stop-word list, which moved the eval. Ingest pins the list.
+    """
+    db = get_db(tmp_db)
+    words = ["how", "should", "between", "what", "the", "with"]
+    db.create_table("transcripts", [{"id": w, "text": w} for w in words])
+    ensure_fts_index(db)
+    table = db.open_table("transcripts")
+    found = {w for w in words if len(table.search(w, query_type="fts").limit(1).to_pandas())}
+    assert found == {"how", "should", "between", "what"}
+
+
+def test_ingest_rebuilds_an_index_built_with_other_stop_words(tmp_db: Path):
+    """An index from an older lancedb (built-in stop words) is rebuilt on the next ingest."""
+    from lancedb.index import FTS
+
+    db = get_db(tmp_db)
+    db.create_table("transcripts", [{"id": "1", "text": "how should we decide"}])
+    db.open_table("transcripts").create_index("text", config=FTS(), replace=True)
+    assert build_fts_index_if_needed(db, changed=False) is True
+    table = db.open_table("transcripts")
+    assert len(table.search("how should", query_type="fts").limit(1).to_pandas()) == 1
+    assert build_fts_index_if_needed(db, changed=False) is False  # now current
 
 
 @pytest.mark.parametrize(
