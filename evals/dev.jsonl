@@ -1,0 +1,48 @@
+{"id": "q02", "query": "merge results from a vector retriever and a keyword engine whose scores are on totally different scales, without calibrating them", "kind": "intent", "relevance": {"eval:fusion-rrf": 2, "eval:fusion-borda": 1}}
+{"id": "q03", "query": "CombMNZ multiply summed scores by number of retrievers", "kind": "lexical", "relevance": {"eval:fusion-combsum": 2}}
+{"id": "q06", "query": "treat each retriever as a voter and decide by pairwise majority which document should rank higher", "kind": "intent", "relevance": {"eval:fusion-borda": 2}}
+{"id": "q07", "query": "alpha parameter blend dense and sparse scores hybrid", "kind": "lexical", "relevance": {"eval:fusion-weighted": 2}}
+{"id": "q10", "query": "the model that reads the question and a passage together to score them is crashing in production; what should the search do", "kind": "intent", "relevance": {"eval:rerank-cross-encoder": 2, "eval:cache-timeouts-fallbacks": 1}}
+{"id": "q12", "query": "why does semantic search confuse enable and disable caching, and why is it fast enough for millions of passages", "kind": "intent", "relevance": {"eval:rerank-bi-encoder": 2}}
+{"id": "q13", "query": "ColBERT MaxSim token-level embeddings", "kind": "lexical", "relevance": {"eval:rerank-late-interaction": 2}}
+{"id": "q15", "query": "LLM listwise reranking sliding window RankGPT", "kind": "lexical", "relevance": {"eval:rerank-llm-listwise": 2}}
+{"id": "q17", "query": "fixed size chunks 1500 characters 200 overlap", "kind": "lexical", "relevance": {"eval:chunk-fixed-window": 2}}
+{"id": "q19", "query": "recursive splitter markdown headings separators", "kind": "lexical", "relevance": {"eval:chunk-structure-aware": 2}}
+{"id": "q22", "query": "cut documents where the topic shifts rather than every N characters, and is it worth embedding every sentence twice", "kind": "intent", "relevance": {"eval:chunk-semantic": 2}}
+{"id": "q24", "query": "match on a few sentences but hand the model the whole surrounding section, without returning the same section three times", "kind": "intent", "relevance": {"eval:chunk-parent-child": 2}}
+{"id": "q26", "query": "we switched to a new embedding model and half the documents stopped showing up in results", "kind": "intent", "relevance": {"eval:emb-versioning": 2}}
+{"id": "q28", "query": "our vectors use 30 GB of RAM; how can we store each one in far fewer bits and get the lost accuracy back", "kind": "intent", "relevance": {"eval:emb-quantization": 2, "eval:emb-matryoshka": 1, "eval:ann-ivf-pq": 1}}
+{"id": "q29", "query": "Matryoshka representation learning truncate dimensions", "kind": "lexical", "relevance": {"eval:emb-matryoshka": 2}}
+{"id": "q31", "query": "fine-tune embedding model synthetic queries hard negative mining", "kind": "lexical", "relevance": {"eval:emb-domain-adaptation": 2, "eval:rerank-bi-encoder": 1}}
+{"id": "q33", "query": "HNSW efSearch M efConstruction parameters", "kind": "lexical", "relevance": {"eval:ann-hnsw": 2}}
+{"id": "q36", "query": "cluster the vectors with k-means and only scan the closest few clusters per query; how many clusters should I use", "kind": "intent", "relevance": {"eval:ann-ivf-pq": 2}}
+{"id": "q38", "query": "do I even need an approximate index for ten thousand vectors, and how do I measure the recall of the index I have", "kind": "intent", "relevance": {"eval:ann-flat-scan": 2, "eval:ann-hnsw": 1}}
+{"id": "q39", "query": "DiskANN Vamana graph SSD", "kind": "lexical", "relevance": {"eval:ann-diskann": 2}}
+{"id": "q41", "query": "BM25 k1 b parameters term frequency saturation", "kind": "lexical", "relevance": {"eval:lex-bm25": 2}}
+{"id": "q44", "query": "searching for user_id or v2.3.1 matches documents that only contain the fragments", "kind": "intent", "relevance": {"eval:lex-tokenization": 2}}
+{"id": "q46", "query": "users paste an exact error message from the logs and expect the document with that exact string, not ones that contain the words scattered around", "kind": "intent", "relevance": {"eval:lex-phrase-proximity": 2}}
+{"id": "q47", "query": "SPLADE learned sparse term expansion", "kind": "lexical", "relevance": {"eval:lex-learned-sparse": 2}}
+{"id": "q50", "query": "a metric for when the user only needs one good answer and stops once they find it", "kind": "intent", "relevance": {"eval:metric-mrr": 2}}
+{"id": "q51", "query": "nDCG graded relevance discount log2 ideal DCG", "kind": "lexical", "relevance": {"eval:metric-ndcg": 2}}
+{"id": "q53", "query": "recall@k hit rate shortlist first stage", "kind": "lexical", "relevance": {"eval:metric-recall-at-k": 2}}
+{"id": "q56", "query": "a metric for legal discovery where every relevant document must appear early, not just the first", "kind": "intent", "relevance": {"eval:metric-map": 2}}
+{"id": "q57", "query": "pre-registration held-out set decision rule checksum", "kind": "lexical", "relevance": {"eval:evalm-heldout-prereg": 2}}
+{"id": "q60", "query": "system B beats A by 0.02 on 50 queries; is that real or noise", "kind": "intent", "relevance": {"eval:evalm-bootstrap": 2, "eval:metric-mrr": 1}}
+{"id": "q61", "query": "LLM as a judge relevance grading Cohen's kappa agreement", "kind": "lexical", "relevance": {"eval:evalm-llm-judge": 2}}
+{"id": "q64", "query": "write test queries that describe the need instead of naming the concept, so keyword matching on the word to avoid does not win", "kind": "intent", "relevance": {"eval:evalm-golden-set": 2}}
+{"id": "q65", "query": "MCP readOnlyHint tool annotations allowlist", "kind": "lexical", "relevance": {"eval:mcp-tool-allowlist": 2}}
+{"id": "q68", "query": "a transcript we indexed contains text telling the assistant to call the delete tool", "kind": "intent", "relevance": {"eval:mcp-prompt-injection": 2, "eval:mcp-tool-allowlist": 1}}
+{"id": "q70", "query": "the agent's chat log shows our home directory and database URL when a tool fails", "kind": "intent", "relevance": {"eval:mcp-error-sanitization": 2}}
+{"id": "q71", "query": "stdio versus streamable HTTP transport OAuth", "kind": "lexical", "relevance": {"eval:mcp-transport-auth": 2}}
+{"id": "q73", "query": "pre-tool-use hook blocks shell command", "kind": "lexical", "relevance": {"eval:agent-hooks": 2}}
+{"id": "q75", "query": "AGENTS.md guidance file commands definition of done", "kind": "lexical", "relevance": {"eval:agent-guidance-files": 2}}
+{"id": "q78", "query": "a broad code search fills the main conversation with file dumps; how do I keep only the conclusion", "kind": "intent", "relevance": {"eval:agent-subagents": 2}}
+{"id": "q80", "query": "users click approve on every prompt without reading it", "kind": "intent", "relevance": {"eval:agent-permission-modes": 2}}
+{"id": "q81", "query": "semantic cache similarity threshold false hits", "kind": "lexical", "relevance": {"eval:cache-semantic": 2}}
+{"id": "q83", "query": "prompt caching prefix cache breakpoints", "kind": "lexical", "relevance": {"eval:cache-prompt": 2}}
+{"id": "q86", "query": "every nightly sync re-embeds the whole corpus even though only three files changed, and moving a folder triggers it too", "kind": "intent", "relevance": {"eval:cache-embedding": 2}}
+{"id": "q88", "query": "one stalled dependency makes the whole search request hang", "kind": "intent", "relevance": {"eval:cache-timeouts-fallbacks": 2}}
+{"id": "q89", "query": "HyDE hypothetical document embeddings", "kind": "lexical", "relevance": {"eval:query-hyde": 2}}
+{"id": "q92", "query": "rephrase the question several ways, search each, and merge the lists", "kind": "intent", "relevance": {"eval:query-multi-query": 2}}
+{"id": "q93", "query": "query routing intent classification router", "kind": "lexical", "relevance": {"eval:query-routing": 2}}
+{"id": "q96", "query": "only two percent of documents match the user's channel filter and the search returns almost nothing", "kind": "intent", "relevance": {"eval:query-metadata-filtering": 2}}

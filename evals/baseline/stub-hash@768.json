@@ -1,0 +1,42 @@
+{
+ "embedder": "stub-hash@768",
+ "git_sha": "b8ea769f9d36252e21c97951c64596697b6ac0fe",
+ "git_sha_scope": "pre-release history (the public repo is a one-commit snapshot)",
+ "date": "2026-10-18",
+ "datasets": {
+  "corpus_manifest": "c7027c2e8dfabbdac8db56e52df846b9b904ff14c80f7aa8b999ac41eafd413e",
+  "corpus_docs": "ae0d95f54a25b3845d6e0e066f511de39622ffc9dd6fd57d6850e13d8655baff",
+  "dev": "5fb4b85b0041c2e6ff2b258ab1e37a8bdb779b9b74864daafddc912db71607c3",
+  "heldout_v2": "b5a3887fe0618b7074d69e0565ca86fee373f56740a23a0e463b8a70f26dd0f0"
+ },
+ "sets": {
+  "dev": {
+   "n": 48,
+   "summary": {
+    "fusion": {
+     "mrr@10": 0.9618055555555555,
+     "ndcg@10": 0.9725625267038794,
+     "hit@1": 0.9375,
+     "latency_ms": {
+      "p50": 30.96689551603049,
+      "p95": 36.430411908077076
+     }
+    }
+   }
+  },
+  "heldout_v2": {
+   "n": 48,
+   "summary": {
+    "fusion": {
+     "mrr@10": 0.9184027777777778,
+     "ndcg@10": 0.9408460860665557,
+     "hit@1": 0.875,
+     "latency_ms": {
+      "p50": 33.77518750494346,
+      "p95": 44.742954534012824
+     }
+    }
+   }
+  }
+ }
+}

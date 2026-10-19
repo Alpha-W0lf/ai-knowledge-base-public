@@ -1,0 +1,60 @@
+name: Eval
+
+# Retrieval eval on the pre-registered corpus (evals/PREREGISTRATION_v2.md), offline
+# stub embedder. Fails on a fusion regression vs evals/baseline/stub-hash@768.json.
+on:
+  pull_request:
+    paths:
+      - "src/search.py"
+      - "src/rerank.py"
+      - "src/retrieval_helpers.py"
+      - "src/config.py"
+      - "src/ingest.py"
+      - "src/embed.py"
+      - "src/schema.py"
+      - "src/identity.py"
+      - "src/models.py"
+      - "src/eval/**"
+      - "evals/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".github/workflows/eval.yml"
+  push:
+    branches: [main]
+    paths:
+      - "src/search.py"
+      - "src/rerank.py"
+      - "src/retrieval_helpers.py"
+      - "src/config.py"
+      - "src/ingest.py"
+      - "src/embed.py"
+      - "src/schema.py"
+      - "src/identity.py"
+      - "src/models.py"
+      - "src/eval/**"
+      - "evals/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".github/workflows/eval.yml"
+  workflow_dispatch:
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    env:
+      AI_KB_EMBEDDINGS: stub
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen --extra dev
+
+      - name: Run eval and regression gate
+        shell: bash
+        run: uv run python -m src.eval --check --no-ce | tee -a "$GITHUB_STEP_SUMMARY"

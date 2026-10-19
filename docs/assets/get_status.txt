@@ -1,0 +1,22 @@
+# Static MCP capture — get_status (public profile, clean clone)
+# Command: python -m src.mcp_server  →  get_status()
+# Indexed counts are 0 until `python -m src.ingest --fixtures`.
+
+{
+  "ollama": false,
+  "mcp_profile": "public",
+  "public_tools": [
+    "discover",
+    "get_context",
+    "get_status",
+    "search"
+  ],
+  "tracked_channels": 0,
+  "embedding_version": "nomic-embed-text@768",
+  "indexed": {
+    "documents": 0,
+    "chunks": 0,
+    "channels_with_content": 0
+  },
+  "fixture_files": 8
+}

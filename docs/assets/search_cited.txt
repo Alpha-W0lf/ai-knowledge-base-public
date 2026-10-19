@@ -1,0 +1,115 @@
+# MCP search capture: cited hybrid search result
+# search("reciprocal rank fusion RRF", limit=5) on the 8 smoke fixtures, 2026-10-19,
+# offline stub embedder (AI_KB_EMBEDDINGS=stub), cross-encoder off.
+# Public fields only: source_id / source_url, never a file path.
+
+{
+  "query": "reciprocal rank fusion RRF",
+  "mode": "hybrid",
+  "ranking_stage": "fusion",
+  "results": [
+    {
+      "chunk_id": "04b19d8d13b10048_0",
+      "source_id": "fixture:fusion-rrf-04",
+      "title": "Rank fusion with reciprocal rank fusion",
+      "channel": "fixtures",
+      "date": "",
+      "text": "# Rank fusion with reciprocal rank fusion\n\nReciprocal rank fusion, often abbreviated RRF, combines ranked lists from vector ANN\nand full-text search without needing calibrated scores.\n\nFor each chunk id, add 1/(k + rank) from each retriever leg, then sort. The fused\nshortlist of size N feeds the cross-encoder.",
+      "snippet": "# Rank fusion with reciprocal rank fusion\n\nReciprocal rank fusion, often abbreviated RRF, combines ranked lists from vector ANN\nand full-text search without needing calibrated scores.\n\nFor each chunk id, add 1/(k + rank) from each retriever leg, then sort. The fused\nshortlist of size N feeds the cross-encoder.",
+      "source_url": "fixture:fusion-rrf-04",
+      "fusion_rank": 1,
+      "ranking_stage": "fusion",
+      "retriever_scores": {
+        "vector_rank": 1.0,
+        "fts_rank": 1.0
+      },
+      "rerank_score": null,
+      "source_type": "fixture",
+      "doc_id": "04b19d8d13b10048"
+    },
+    {
+      "chunk_id": "4237f8eaf3a414e2_0",
+      "source_id": "fixture:combsum-fusion-07",
+      "title": "Rank fusion with CombSUM score summing",
+      "channel": "fixtures",
+      "date": "",
+      "text": "# Rank fusion with CombSUM score summing\n\nCombSUM combines ranked lists from vector ANN and full-text search by summing\nnormalized retriever scores for each chunk id, then sorting the fused shortlist.\n\nUnlike reciprocal rank fusion, CombSUM needs comparable score scales and does\nnot use the 1/(k + rank) term. The fused shortlist of size N can still feed a\nlater reranker.",
+      "snippet": "# Rank fusion with CombSUM score summing\n\nCombSUM combines ranked lists from vector ANN and full-text search by summing\nnormalized retriever scores for each chunk id, then sorting the fused shortlist.\n\nUnlike reciprocal rank fusion, CombSUM needs comparable score scales and does\nnot use the 1/(k + rank) term. The fused shortlist of size N can still feed a\nlater reranker.",
+      "source_url": "fixture:combsum-fusion-07",
+      "fusion_rank": 2,
+      "ranking_stage": "fusion",
+      "retriever_scores": {
+        "vector_rank": 2.0,
+        "fts_rank": 2.0
+      },
+      "rerank_score": null,
+      "source_type": "fixture",
+      "doc_id": "4237f8eaf3a414e2"
+    },
+    {
+      "chunk_id": "52aac3b3b120ee35_0",
+      "source_id": "fixture:rag-hooks-01",
+      "title": "RAG hooks and retrieval stages",
+      "channel": "fixtures",
+      "date": "",
+      "text": "# RAG hooks and retrieval stages\n\nThis synthetic transcript explains RAG hooks for a retrieval pipeline.\n\nWhen you wire Claude Code hooks into a knowledge base demo, the important stages are:\nidentity, content hash, hybrid retrieval, rank fusion, and optional cross-encoder rerank.\n\nUse hooks to validate that hybrid search really ran vector plus keyword legs before fusion.",
+      "snippet": "# RAG hooks and retrieval stages\n\nThis synthetic transcript explains RAG hooks for a retrieval pipeline.\n\nWhen you wire Claude Code hooks into a knowledge base demo, the important stages are:\nidentity, content hash, hybrid retrieval, rank fusion, and optional cross-encoder rerank.\n\nUse hooks to validate that hybrid search really ran vector plus keyword legs before fusion.",
+      "source_url": "fixture:rag-hooks-01",
+      "fusion_rank": 3,
+      "ranking_stage": "fusion",
+      "retriever_scores": {
+        "vector_rank": 3.0,
+        "fts_rank": 3.0
+      },
+      "rerank_score": null,
+      "source_type": "fixture",
+      "doc_id": "52aac3b3b120ee35"
+    },
+    {
+      "chunk_id": "cfd830c3006d93c0_0",
+      "source_id": "fixture:cross-encoder-05",
+      "title": "Cross-encoder rerank shortlist",
+      "channel": "fixtures",
+      "date": "",
+      "text": "# Cross-encoder rerank shortlist\n\nA cross-encoder scores the query and a passage together. It is too slow for the whole\ncorpus, so retrieve broadly, fuse to N candidates, then rerank to K results.\n\nIf the local cross-encoder fails, degrade to fused ranks and label the stage\nfusion_degraded.",
+      "snippet": "# Cross-encoder rerank shortlist\n\nA cross-encoder scores the query and a passage together. It is too slow for the whole\ncorpus, so retrieve broadly, fuse to N candidates, then rerank to K results.\n\nIf the local cross-encoder fails, degrade to fused ranks and label the stage\nfusion_degraded.",
+      "source_url": "fixture:cross-encoder-05",
+      "fusion_rank": 4,
+      "ranking_stage": "fusion",
+      "retriever_scores": {
+        "vector_rank": 4.0,
+        "fts_rank": 4.0
+      },
+      "rerank_score": null,
+      "source_type": "fixture",
+      "doc_id": "cfd830c3006d93c0"
+    },
+    {
+      "chunk_id": "23e5c469665f6aee_0",
+      "source_id": "fixture:bi-encoder-rerank-08",
+      "title": "Bi-encoder late scoring on a shortlist",
+      "channel": "fixtures",
+      "date": "",
+      "text": "# Bi-encoder late scoring on a shortlist\n\nA bi-encoder embeds the query and each passage separately, then scores with a\ncheap similarity such as dot product. On a fused shortlist of size N it can\nrerank to K without joint cross-attention.\n\nBi-encoder late scoring is not a cross-encoder: it does not score the query and\npassage together in one forward pass, and it has no fusion_degraded fail-open\nlabel of its own.",
+      "snippet": "# Bi-encoder late scoring on a shortlist\n\nA bi-encoder embeds the query and each passage separately, then scores with a\ncheap similarity such as dot product. On a fused shortlist of size N it can\nrerank to K without joint cross-attention.\n\nBi-encoder late scoring is not a cross-encoder: it does not score the query and\npassage together in one forward pass, and it has no fusion_degraded fail-open\nlabel of its own.",
+      "source_url": "fixture:bi-encoder-rerank-08",
+      "fusion_rank": 5,
+      "ranking_stage": "fusion",
+      "retriever_scores": {
+        "vector_rank": 5.0,
+        "fts_rank": 5.0
+      },
+      "rerank_score": null,
+      "source_type": "fixture",
+      "doc_id": "23e5c469665f6aee"
+    }
+  ],
+  "count": 5,
+  "timings_ms": {
+    "fts_check_ms": 0.8420419180765748,
+    "embed_ms": 0.08016591891646385,
+    "retrieve_ms": 7.751708966679871,
+    "fuse_ms": 0.007125083357095718,
+    "total_ms": 13.118249946273863
+  }
+}

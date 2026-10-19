@@ -1,0 +1,6706 @@
+{
+ "schema": 1,
+ "date": "2026-10-18",
+ "git_sha": "b8ea769f9d36252e21c97951c64596697b6ac0fe",
+ "git_sha_scope": "pre-release history (the public repo is a one-commit snapshot)",
+ "git_dirty": false,
+ "preregistration": "evals/PREREGISTRATION_v2.md",
+ "embedder": "nomic-embed-text@768",
+ "embedder_digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+ "cross_encoder_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+ "cross_encoder_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+ "runtime": {
+  "python": "3.13.6",
+  "lancedb": "0.27.1"
+ },
+ "datasets": {
+  "corpus_manifest": "c7027c2e8dfabbdac8db56e52df846b9b904ff14c80f7aa8b999ac41eafd413e",
+  "corpus_docs": "ae0d95f54a25b3845d6e0e066f511de39622ffc9dd6fd57d6850e13d8655baff",
+  "dev": "5fb4b85b0041c2e6ff2b258ab1e37a8bdb779b9b74864daafddc912db71607c3",
+  "heldout_v2": "b5a3887fe0618b7074d69e0565ca86fee373f56740a23a0e463b8a70f26dd0f0"
+ },
+ "criteria": {
+  "H1 well above chance": "Pass",
+  "H2 quality floor": "Pass",
+  "H3 beats each leg": "Pass",
+  "H3 beats each leg (CI above 0)": "No"
+ },
+ "sets": {
+  "dev": {
+   "n": 48,
+   "summary": {
+    "random": {
+     "mrr@10": 0.061020171957672044,
+     "ndcg@10": 0.09621562753196362,
+     "hit@1": 0.020833333333333332
+    },
+    "vector": {
+     "mrr@10": 0.8265873015873016,
+     "ndcg@10": 0.8589036741348944,
+     "hit@1": 0.7708333333333334,
+     "latency_ms": {
+      "p50": 54.243416991084814,
+      "p95": 61.39061423600651
+     }
+    },
+    "keyword": {
+     "mrr@10": 0.9520833333333334,
+     "ndcg@10": 0.9595469703647282,
+     "hit@1": 0.9166666666666666,
+     "latency_ms": {
+      "p50": 17.587395501323044,
+      "p95": 20.16982155619189
+     }
+    },
+    "fusion": {
+     "mrr@10": 0.9201388888888888,
+     "ndcg@10": 0.93315804175815,
+     "hit@1": 0.8541666666666666,
+     "latency_ms": {
+      "p50": 72.61402043513954,
+      "p95": 80.58964813244529
+     }
+    },
+    "fusion+ce": {
+     "mrr@10": 0.9791666666666666,
+     "ndcg@10": 0.9802392708429211,
+     "hit@1": 0.9583333333333334,
+     "latency_ms": {
+      "p50": 134.28297900827602,
+      "p95": 158.89942686771974
+     }
+    }
+   },
+   "by_kind": {
+    "lexical": {
+     "random": {
+      "mrr@10": 0.060712103174603266,
+      "ndcg@10": 0.09495793896470468,
+      "hit@1": 0.0205
+     },
+     "vector": {
+      "mrr@10": 1.0,
+      "ndcg@10": 0.9963798886901784,
+      "hit@1": 1.0,
+      "latency_ms": {
+       "p50": 54.31679147295654,
+       "p95": 61.128508870024234
+      }
+     },
+     "keyword": {
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "hit@1": 1.0,
+      "latency_ms": {
+       "p50": 14.30745847756043,
+       "p95": 18.928381201112643
+      }
+     },
+     "fusion": {
+      "mrr@10": 1.0,
+      "ndcg@10": 0.9977019981899827,
+      "hit@1": 1.0,
+      "latency_ms": {
+       "p50": 69.92264545988292,
+       "p95": 77.25604723091237
+      }
+     },
+     "fusion+ce": {
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "hit@1": 1.0,
+      "latency_ms": {
+       "p50": 129.10222954815254,
+       "p95": 156.2538097787183
+      }
+     }
+    },
+    "intent": {
+     "random": {
+      "mrr@10": 0.061328240740740836,
+      "ndcg@10": 0.09747331609922257,
+      "hit@1": 0.021166666666666667
+     },
+     "vector": {
+      "mrr@10": 0.6531746031746032,
+      "ndcg@10": 0.7214274595796106,
+      "hit@1": 0.5416666666666666,
+      "latency_ms": {
+       "p50": 54.229145986028016,
+       "p95": 61.40223921393044
+      }
+     },
+     "keyword": {
+      "mrr@10": 0.9041666666666667,
+      "ndcg@10": 0.9190939407294564,
+      "hit@1": 0.8333333333333334,
+      "latency_ms": {
+       "p50": 18.490770482458174,
+       "p95": 20.534725108882412
+      }
+     },
+     "fusion": {
+      "mrr@10": 0.8402777777777778,
+      "ndcg@10": 0.8686140853263171,
+      "hit@1": 0.7083333333333334,
+      "latency_ms": {
+       "p50": 76.74456248059869,
+       "p95": 83.09287499869242
+      }
+     },
+     "fusion+ce": {
+      "mrr@10": 0.9583333333333334,
+      "ndcg@10": 0.9604785416858421,
+      "hit@1": 0.9166666666666666,
+      "latency_ms": {
+       "p50": 137.1238335268572,
+       "p95": 157.726912596263
+      }
+     }
+    }
+   },
+   "comparisons": {
+    "fusion - random": {
+     "mrr@10": {
+      "diff": 0.8591187169312168,
+      "ci_low": 0.7999105040922618,
+      "ci_high": 0.9087398823991402
+     },
+     "ndcg@10": {
+      "diff": 0.8369424142261863,
+      "ci_low": 0.7903912495774704,
+      "ci_high": 0.8772088176515276
+     },
+     "hit@1": {
+      "diff": 0.8333333333333334,
+      "ci_low": 0.7288119791666666,
+      "ci_high": 0.9178130208333334
+     }
+    },
+    "fusion - vector": {
+     "mrr@10": {
+      "diff": 0.0935515873015873,
+      "ci_low": 0.036458333333333336,
+      "ci_high": 0.16230468749999996
+     },
+     "ndcg@10": {
+      "diff": 0.07425436762325544,
+      "ci_low": 0.029575246015436547,
+      "ci_high": 0.1275583754282192
+     },
+     "hit@1": {
+      "diff": 0.08333333333333333,
+      "ci_low": 0.020833333333333332,
+      "ci_high": 0.16666666666666666
+     }
+    },
+    "fusion - keyword": {
+     "mrr@10": {
+      "diff": -0.03194444444444445,
+      "ci_low": -0.09722222222222222,
+      "ci_high": 0.027083333333333334
+     },
+     "ndcg@10": {
+      "diff": -0.026388928606578266,
+      "ci_low": -0.07350263410018616,
+      "ci_high": 0.014229712292477352
+     },
+     "hit@1": {
+      "diff": -0.0625,
+      "ci_low": -0.16666666666666666,
+      "ci_high": 0.041666666666666664
+     }
+    },
+    "fusion+ce - random": {
+     "mrr@10": {
+      "diff": 0.9181464947089947,
+      "ci_low": 0.8869121453373016,
+      "ci_high": 0.9393424700314154
+     },
+     "ndcg@10": {
+      "diff": 0.8840236433109574,
+      "ci_low": 0.8624673865051597,
+      "ci_high": 0.8996484360631772
+     },
+     "hit@1": {
+      "diff": 0.9375,
+      "ci_low": 0.8749375,
+      "ci_high": 0.9795208333333333
+     }
+    },
+    "fusion+ce - vector": {
+     "mrr@10": {
+      "diff": 0.1525793650793651,
+      "ci_low": 0.0652765376984127,
+      "ci_high": 0.24960813492063486
+     },
+     "ndcg@10": {
+      "diff": 0.12133559670802653,
+      "ci_low": 0.056834742073947786,
+      "ci_high": 0.19402179740328523
+     },
+     "hit@1": {
+      "diff": 0.1875,
+      "ci_low": 0.0625,
+      "ci_high": 0.3125
+     }
+    },
+    "fusion+ce - keyword": {
+     "mrr@10": {
+      "diff": 0.027083333333333334,
+      "ci_low": -0.020833333333333332,
+      "ci_high": 0.07916666666666666
+     },
+     "ndcg@10": {
+      "diff": 0.02069230047819283,
+      "ci_low": -0.010697999735430364,
+      "ci_high": 0.056852774104813625
+     },
+     "hit@1": {
+      "diff": 0.041666666666666664,
+      "ci_low": -0.041666666666666664,
+      "ci_high": 0.125
+     }
+    },
+    "fusion+ce - fusion": {
+     "mrr@10": {
+      "diff": 0.05902777777777778,
+      "ci_low": 0.003472222222222225,
+      "ci_high": 0.11805555555555557
+     },
+     "ndcg@10": {
+      "diff": 0.0470812290847711,
+      "ci_low": 0.011269259413841794,
+      "ci_high": 0.08772583273958072
+     },
+     "hit@1": {
+      "diff": 0.10416666666666667,
+      "ci_low": 0.0,
+      "ci_high": 0.20833333333333334
+     }
+    }
+   },
+   "cross_encoder": "measured",
+   "per_query": {
+    "vector": [
+     {
+      "id": "q02",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:fusion-weighted",
+       "eval:fusion-combsum",
+       "eval:rerank-late-interaction"
+      ],
+      "total_ms": 70.04941697232425,
+      "metrics": {
+       "mrr@10": 0.16666666666666666,
+       "ndcg@10": 0.2943107231069255,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q03",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:lex-bm25",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 60.89716695714742,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q06",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:fusion-borda",
+       "eval:evalm-golden-set",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 56.3658750616014,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q07",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:fusion-weighted",
+       "eval:fusion-combsum",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 61.067875009030104,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q10",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:query-hyde",
+       "eval:emb-domain-adaptation",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 52.43274988606572,
+      "metrics": {
+       "mrr@10": 0.25,
+       "ndcg@10": 0.35583989829307827,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q12",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:rerank-bi-encoder",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 52.774708019569516,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q13",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:rerank-late-interaction",
+       "eval:emb-versioning",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 55.08483399171382,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q15",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:rerank-llm-listwise",
+       "eval:rerank-cross-encoder",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 54.810832953080535,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q17",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:chunk-structure-aware"
+      ],
+      "total_ms": 59.14791696704924,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q19",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-structure-aware",
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 56.58145796041936,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q22",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-semantic",
+       "eval:chunk-fixed-window",
+       "eval:chunk-structure-aware"
+      ],
+      "total_ms": 52.58174997288734,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q24",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:chunk-parent-child"
+      ],
+      "total_ms": 50.73829204775393,
+      "metrics": {
+       "mrr@10": 0.3333333333333333,
+       "ndcg@10": 0.5,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q26",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-versioning",
+       "eval:query-hyde",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 55.18929206300527,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q28",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:ann-flat-scan",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 54.66408398933709,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.9515234565959557,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q29",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-matryoshka",
+       "eval:emb-quantization",
+       "eval:emb-versioning"
+      ],
+      "total_ms": 49.67429197859019,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q31",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:evalm-golden-set",
+       "eval:emb-versioning"
+      ],
+      "total_ms": 56.85587495099753,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.91311732856428,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q33",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:ann-hnsw",
+       "eval:emb-versioning",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 61.139208963140845,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q36",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-matryoshka",
+       "eval:ann-flat-scan",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 61.41095794737339,
+      "metrics": {
+       "mrr@10": 0.25,
+       "ndcg@10": 0.4306765580733931,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q38",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:ann-ivf-pq",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 58.28991695307195,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.9243382314975351,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q39",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:ann-diskann",
+       "eval:ann-hnsw",
+       "eval:fusion-combsum"
+      ],
+      "total_ms": 51.76450009457767,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q41",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:lex-bm25",
+       "eval:lex-learned-sparse",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 53.82274999283254,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q44",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-parent-child",
+       "eval:emb-versioning",
+       "eval:query-metadata-filtering"
+      ],
+      "total_ms": 55.441166972741485,
+      "metrics": {
+       "mrr@10": 0.25,
+       "ndcg@10": 0.4306765580733931,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q46",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:mcp-prompt-injection",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 57.567625073716044,
+      "metrics": {
+       "mrr@10": 0.14285714285714285,
+       "ndcg@10": 0.3333333333333333,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q47",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:lex-learned-sparse",
+       "eval:lex-bm25",
+       "eval:query-multi-query"
+      ],
+      "total_ms": 50.52779195830226,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q50",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:lex-tokenization",
+       "eval:evalm-bootstrap",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 48.771249945275486,
+      "metrics": {
+       "mrr@10": 0.125,
+       "ndcg@10": 0.3154648767857287,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q51",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:metric-ndcg",
+       "eval:metric-map",
+       "eval:fusion-combsum"
+      ],
+      "total_ms": 58.12237493228167,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q53",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:metric-recall-at-k",
+       "eval:rerank-cross-encoder",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 47.45154094416648,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q56",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:metric-recall-at-k",
+       "eval:query-metadata-filtering",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 59.21104096341878,
+      "metrics": {
+       "mrr@10": 0.125,
+       "ndcg@10": 0.3154648767857287,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q57",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:evalm-heldout-prereg",
+       "eval:agent-permission-modes",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 50.49437494017184,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q60",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:evalm-bootstrap",
+       "eval:metric-mrr",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 55.69045897573233,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q61",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:evalm-llm-judge",
+       "eval:metric-ndcg",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 57.1086669806391,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q64",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:query-hyde",
+       "eval:lex-phrase-proximity",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 52.97149997204542,
+      "metrics": {
+       "mrr@10": 0.3333333333333333,
+       "ndcg@10": 0.5,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q65",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:mcp-tool-allowlist",
+       "eval:agent-permission-modes",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 53.73241601046175,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q68",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:mcp-prompt-injection",
+       "eval:mcp-error-sanitization",
+       "eval:lex-tokenization"
+      ],
+      "total_ms": 51.27995798829943,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.944847956559586,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q70",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:mcp-tool-allowlist",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 45.22120801266283,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q71",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:mcp-transport-auth",
+       "eval:agent-hooks",
+       "eval:query-routing"
+      ],
+      "total_ms": 49.503459013067186,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q73",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:agent-hooks",
+       "eval:agent-permission-modes",
+       "eval:mcp-tool-allowlist"
+      ],
+      "total_ms": 53.14279196318239,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q75",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:agent-guidance-files",
+       "eval:agent-permission-modes",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 47.20416700001806,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q78",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-parent-child",
+       "eval:cache-prompt",
+       "eval:query-hyde"
+      ],
+      "total_ms": 51.131749991327524,
+      "metrics": {
+       "mrr@10": 0.2,
+       "ndcg@10": 0.38685280723454163,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q80",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:agent-permission-modes",
+       "eval:mcp-tool-allowlist",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 53.794207982718945,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q81",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:chunk-semantic",
+       "eval:metric-recall-at-k"
+      ],
+      "total_ms": 53.54487500153482,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q83",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:cache-prompt",
+       "eval:chunk-semantic",
+       "eval:cache-semantic"
+      ],
+      "total_ms": 63.55670897755772,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q86",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:cache-embedding",
+       "eval:emb-versioning",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 61.35283305775374,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q88",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:cache-timeouts-fallbacks",
+       "eval:evalm-heldout-prereg",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 58.87162499129772,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q89",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:query-hyde",
+       "eval:cache-embedding",
+       "eval:emb-versioning"
+      ],
+      "total_ms": 54.9154580803588,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q92",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:query-multi-query",
+       "eval:evalm-golden-set",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 53.774707950651646,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q93",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:query-routing",
+       "eval:agent-guidance-files",
+       "eval:rerank-cross-encoder"
+      ],
+      "total_ms": 41.86220793053508,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q96",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:query-metadata-filtering",
+       "eval:chunk-parent-child",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 51.47099995519966,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     }
+    ],
+    "keyword": [
+     {
+      "id": "q02",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:lex-phrase-proximity",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 19.848374999128282,
+      "metrics": {
+       "mrr@10": 0.2,
+       "ndcg@10": 0.4382444959756785,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q03",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:evalm-golden-set",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 18.98849999997765,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q06",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:fusion-borda",
+       "eval:evalm-bootstrap",
+       "eval:emb-versioning"
+      ],
+      "total_ms": 19.34633299242705,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q07",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:fusion-weighted",
+       "eval:lex-learned-sparse",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 15.987541992217302,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q10",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:rerank-bi-encoder",
+       "eval:rerank-cross-encoder",
+       "eval:emb-domain-adaptation"
+      ],
+      "total_ms": 20.17970907036215,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.52129602861432,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q12",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:rerank-bi-encoder",
+       "eval:cache-semantic",
+       "eval:ann-flat-scan"
+      ],
+      "total_ms": 19.20683402568102,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q13",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:rerank-late-interaction",
+       "eval:chunk-fixed-window",
+       "eval:chunk-parent-child"
+      ],
+      "total_ms": 15.462709008716047,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q15",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:rerank-llm-listwise",
+       "eval:evalm-llm-judge",
+       "eval:chunk-fixed-window"
+      ],
+      "total_ms": 12.86741707008332,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q17",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:chunk-parent-child"
+      ],
+      "total_ms": 14.973292010836303,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q19",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:chunk-structure-aware",
+       "eval:chunk-semantic",
+       "eval:fusion-borda"
+      ],
+      "total_ms": 13.641624944284558,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q22",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:chunk-parent-child"
+      ],
+      "total_ms": 19.70095804426819,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q24",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:chunk-parent-child",
+       "eval:chunk-fixed-window",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 19.2235839786008,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q26",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:emb-versioning",
+       "eval:evalm-heldout-prereg",
+       "eval:lex-tokenization"
+      ],
+      "total_ms": 18.708082963712513,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q28",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:ann-diskann",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 17.671999987214804,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.7262287617954056,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q29",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:emb-matryoshka",
+       "eval:emb-quantization",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 11.696000001393259,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q31",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:rerank-bi-encoder",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 17.033707932569087,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q33",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:ann-hnsw",
+       "eval:ann-ivf-pq",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 9.623916004784405,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q36",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:ann-ivf-pq",
+       "eval:ann-flat-scan",
+       "eval:query-metadata-filtering"
+      ],
+      "total_ms": 17.953332979232073,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q38",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:ann-ivf-pq",
+       "eval:cache-semantic"
+      ],
+      "total_ms": 17.14633300434798,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.944847956559586,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q39",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:ann-diskann",
+       "eval:ann-hnsw",
+       "eval:query-metadata-filtering"
+      ],
+      "total_ms": 8.359374944120646,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q41",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:lex-bm25",
+       "eval:lex-tokenization",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 11.791500030085444,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q44",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:lex-tokenization",
+       "eval:lex-phrase-proximity",
+       "eval:metric-map"
+      ],
+      "total_ms": 17.637499957345426,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q46",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:lex-phrase-proximity",
+       "eval:mcp-error-sanitization",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 17.592999967746437,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q47",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:lex-learned-sparse",
+       "eval:query-multi-query",
+       "eval:emb-domain-adaptation"
+      ],
+      "total_ms": 10.838416987098753,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q50",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:chunk-semantic",
+       "eval:metric-recall-at-k"
+      ],
+      "total_ms": 17.193709034472704,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q51",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:metric-ndcg",
+       "eval:metric-map",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 12.988375034183264,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q53",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:metric-recall-at-k",
+       "eval:rerank-cross-encoder",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 17.04612502362579,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q56",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:metric-map",
+       "eval:metric-recall-at-k",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 17.581791034899652,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q57",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:evalm-heldout-prereg",
+       "eval:agent-permission-modes",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 16.877250047400594,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q60",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:evalm-bootstrap",
+       "eval:fusion-borda"
+      ],
+      "total_ms": 18.075125059112906,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.7967075809905066,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q61",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:evalm-llm-judge",
+       "eval:rerank-llm-listwise",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 16.359291970729828,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q64",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:evalm-golden-set",
+       "eval:lex-phrase-proximity",
+       "eval:evalm-llm-judge"
+      ],
+      "total_ms": 17.94175000395626,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q65",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:mcp-tool-allowlist",
+       "eval:mcp-transport-auth",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 10.50245901569724,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q68",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:mcp-prompt-injection",
+       "eval:mcp-tool-allowlist",
+       "eval:mcp-error-sanitization"
+      ],
+      "total_ms": 18.186582950875163,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q70",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:mcp-prompt-injection",
+       "eval:mcp-tool-allowlist"
+      ],
+      "total_ms": 17.164917080663145,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q71",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:mcp-transport-auth",
+       "eval:lex-phrase-proximity",
+       "eval:metric-map"
+      ],
+      "total_ms": 10.089457966387272,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q73",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:agent-hooks",
+       "eval:agent-permission-modes",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 18.41270795557648,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q75",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:agent-guidance-files",
+       "eval:agent-hooks",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 11.621791985817254,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q78",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:agent-subagents",
+       "eval:cache-semantic",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 18.273458001203835,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q80",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:agent-permission-modes",
+       "eval:mcp-tool-allowlist",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 19.021624932065606,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q81",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:cache-prompt",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 14.997542020864785,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q83",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-prompt",
+       "eval:chunk-semantic",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 13.216709019616246,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q86",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-embedding",
+       "eval:emb-versioning",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 19.204832962714136,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q88",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-timeouts-fallbacks",
+       "eval:rerank-bi-encoder",
+       "eval:lex-phrase-proximity"
+      ],
+      "total_ms": 18.999458057805896,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q89",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:query-hyde",
+       "eval:chunk-parent-child",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 18.58770800754428,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q92",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:query-multi-query",
+       "eval:evalm-golden-set",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 21.79054100997746,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q93",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:query-routing",
+       "eval:cache-semantic",
+       "eval:lex-phrase-proximity"
+      ],
+      "total_ms": 20.151459029875696,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q96",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:query-metadata-filtering",
+       "eval:ann-flat-scan",
+       "eval:chunk-fixed-window"
+      ],
+      "total_ms": 20.597374998033047,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     }
+    ],
+    "fusion": [
+     {
+      "id": "q02",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:fusion-rrf",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 80.85312496405095,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6042031670319338,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q03",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:fusion-rrf",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 77.56654091645032,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q06",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:fusion-borda",
+       "eval:evalm-golden-set",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 74.62766696698964,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q07",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:fusion-weighted",
+       "eval:lex-bm25",
+       "eval:lex-learned-sparse"
+      ],
+      "total_ms": 71.40300003811717,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q10",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:rerank-cross-encoder",
+       "eval:query-hyde"
+      ],
+      "total_ms": 72.00904190540314,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.52129602861432,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q12",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:rerank-bi-encoder",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 74.82054200954735,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q13",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:rerank-late-interaction",
+       "eval:chunk-fixed-window",
+       "eval:emb-versioning"
+      ],
+      "total_ms": 71.06237509287894,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q15",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:rerank-llm-listwise",
+       "eval:rerank-cross-encoder",
+       "eval:metric-recall-at-k"
+      ],
+      "total_ms": 66.21162500232458,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q17",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:chunk-structure-aware"
+      ],
+      "total_ms": 71.13195897545666,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q19",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:chunk-structure-aware",
+       "eval:chunk-semantic",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 68.46529198810458,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q22",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:chunk-semantic",
+       "eval:chunk-fixed-window",
+       "eval:chunk-structure-aware"
+      ],
+      "total_ms": 76.14329096395522,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q24",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-parent-child",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 84.14866705425084,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q26",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-versioning",
+       "eval:evalm-heldout-prereg",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 77.4055840447545,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q28",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:ann-flat-scan",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 79.4441249454394,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.9005687248376789,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q29",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-matryoshka",
+       "eval:emb-quantization",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 66.30712503101677,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q31",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:evalm-golden-set",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 78.26337509322912,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.944847956559586,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q33",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:ann-hnsw",
+       "eval:lex-bm25",
+       "eval:ann-flat-scan"
+      ],
+      "total_ms": 67.97608302440494,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q36",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:ann-hnsw",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 77.37470895517617,
+      "metrics": {
+       "mrr@10": 0.3333333333333333,
+       "ndcg@10": 0.5,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q38",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:ann-ivf-pq",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 80.10033401660621,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.9639404333166532,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q39",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:ann-diskann",
+       "eval:ann-hnsw",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 68.76825005747378,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q41",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:lex-bm25",
+       "eval:lex-learned-sparse",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 67.8279169369489,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q44",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:lex-tokenization",
+       "eval:query-metadata-filtering",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 73.97833396680653,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q46",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:lex-phrase-proximity",
+       "eval:mcp-prompt-injection"
+      ],
+      "total_ms": 73.48549994640052,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q47",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:lex-learned-sparse",
+       "eval:query-multi-query",
+       "eval:emb-domain-adaptation"
+      ],
+      "total_ms": 67.53791600931436,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q50",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:lex-tokenization",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 83.48812500480562,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q51",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:metric-ndcg",
+       "eval:metric-map",
+       "eval:evalm-llm-judge"
+      ],
+      "total_ms": 64.8202080046758,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q53",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:metric-recall-at-k",
+       "eval:rerank-cross-encoder",
+       "eval:metric-map"
+      ],
+      "total_ms": 71.6275000013411,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q56",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:metric-recall-at-k",
+       "eval:metric-mrr",
+       "eval:metric-map"
+      ],
+      "total_ms": 80.00570896547288,
+      "metrics": {
+       "mrr@10": 0.3333333333333333,
+       "ndcg@10": 0.5,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q57",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:evalm-heldout-prereg",
+       "eval:agent-permission-modes",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 72.98254198394716,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q60",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:evalm-bootstrap",
+       "eval:metric-mrr",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 72.59233295917511,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q61",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:evalm-llm-judge",
+       "eval:metric-ndcg",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 70.53875003475696,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q64",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:evalm-golden-set",
+       "eval:lex-phrase-proximity",
+       "eval:query-hyde"
+      ],
+      "total_ms": 76.81424997281283,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q65",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:mcp-tool-allowlist",
+       "eval:agent-hooks",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 69.68645798042417,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q68",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:mcp-prompt-injection",
+       "eval:mcp-error-sanitization",
+       "eval:mcp-tool-allowlist"
+      ],
+      "total_ms": 78.361582942307,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.9639404333166532,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q70",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:mcp-tool-allowlist",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 73.05524998810142,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q71",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:mcp-transport-auth",
+       "eval:rerank-bi-encoder",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 70.48595801461488,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q73",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:agent-hooks",
+       "eval:agent-permission-modes",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 75.496583012864,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q75",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:agent-guidance-files",
+       "eval:agent-permission-modes",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 68.59412498306483,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q78",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:agent-subagents",
+       "eval:chunk-parent-child",
+       "eval:mcp-error-sanitization"
+      ],
+      "total_ms": 72.2307920223102,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q80",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:agent-permission-modes",
+       "eval:mcp-tool-allowlist",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 77.48545904178172,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q81",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:chunk-semantic",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 69.10437496844679,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q83",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:cache-prompt",
+       "eval:chunk-semantic",
+       "eval:cache-semantic"
+      ],
+      "total_ms": 70.15883293934166,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q86",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:cache-embedding",
+       "eval:emb-versioning",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 76.67487498838454,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q88",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:cache-timeouts-fallbacks",
+       "eval:ann-flat-scan",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 71.57837506383657,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q89",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:query-hyde",
+       "eval:cache-embedding",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 70.74341597035527,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q92",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:query-multi-query",
+       "eval:evalm-golden-set",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 72.63570791110396,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q93",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:query-routing",
+       "eval:agent-guidance-files",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 64.83874993864447,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q96",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:query-metadata-filtering",
+       "eval:chunk-parent-child",
+       "eval:ann-flat-scan"
+      ],
+      "total_ms": 79.05633305199444,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     }
+    ],
+    "fusion+ce": [
+     {
+      "id": "q02",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:fusion-rrf",
+       "eval:fusion-borda",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 5421.038166969083,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q03",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:fusion-rrf",
+       "eval:fusion-borda"
+      ],
+      "total_ms": 180.10654102545232,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q06",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:fusion-borda",
+       "eval:fusion-rrf",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 140.4194999486208,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q07",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:fusion-weighted",
+       "eval:lex-learned-sparse",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 136.379792005755,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q10",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-cross-encoder",
+       "eval:rerank-llm-listwise",
+       "eval:query-hyde"
+      ],
+      "total_ms": 139.22804105095565,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.8262346571285599,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q12",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-bi-encoder",
+       "eval:cache-semantic",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 150.7500420557335,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q13",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-late-interaction",
+       "eval:emb-versioning",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 132.76649999897927,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q15",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-llm-listwise",
+       "eval:rerank-cross-encoder",
+       "eval:metric-recall-at-k"
+      ],
+      "total_ms": 128.67408408783376,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q17",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:chunk-parent-child"
+      ],
+      "total_ms": 130.21308300085366,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q19",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:chunk-structure-aware",
+       "eval:chunk-semantic",
+       "eval:evalm-heldout-prereg"
+      ],
+      "total_ms": 122.50275001861155,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q22",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:chunk-semantic",
+       "eval:chunk-fixed-window",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 138.66900000721216,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q24",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:chunk-parent-child",
+       "eval:chunk-fixed-window",
+       "eval:lex-phrase-proximity"
+      ],
+      "total_ms": 158.95812504459172,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q26",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:emb-versioning",
+       "eval:cache-embedding",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 137.23612506873906,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q28",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:ann-flat-scan",
+       "eval:ann-diskann"
+      ],
+      "total_ms": 135.52641693968326,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.8888246188934468,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q29",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:emb-matryoshka",
+       "eval:ann-ivf-pq",
+       "eval:mcp-error-sanitization"
+      ],
+      "total_ms": 139.65475000441074,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q31",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:rerank-bi-encoder",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 134.08212503418326,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q33",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:ann-hnsw",
+       "eval:lex-bm25",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 119.91704197134823,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q36",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:ann-ivf-pq",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 135.93816698994488,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q38",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:ann-ivf-pq",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 137.01154198497534,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.944847956559586,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q39",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:ann-diskann",
+       "eval:ann-hnsw",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 125.8697499288246,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q41",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:lex-bm25",
+       "eval:fusion-weighted",
+       "eval:lex-learned-sparse"
+      ],
+      "total_ms": 140.75775002129376,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q44",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:lex-tokenization",
+       "eval:query-metadata-filtering",
+       "eval:lex-phrase-proximity"
+      ],
+      "total_ms": 136.67020807042718,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q46",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:lex-phrase-proximity",
+       "eval:mcp-error-sanitization",
+       "eval:query-hyde"
+      ],
+      "total_ms": 127.78462504502386,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q47",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:lex-learned-sparse",
+       "eval:query-multi-query",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 119.64754201471806,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q50",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:metric-recall-at-k",
+       "eval:cache-semantic"
+      ],
+      "total_ms": 128.21058300323784,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q51",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:metric-ndcg",
+       "eval:metric-map",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 120.87433296255767,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q53",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:metric-recall-at-k",
+       "eval:rerank-cross-encoder",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 158.79041596781462,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q56",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:metric-map",
+       "eval:metric-recall-at-k",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 146.83479198720306,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q57",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:evalm-heldout-prereg",
+       "eval:lex-bm25",
+       "eval:emb-domain-adaptation"
+      ],
+      "total_ms": 141.87970804050565,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q60",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:evalm-bootstrap",
+       "eval:ann-flat-scan"
+      ],
+      "total_ms": 129.60154097527266,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.7967075809905066,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "q61",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:evalm-llm-judge",
+       "eval:rerank-llm-listwise",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 127.99066700972617,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q64",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:evalm-golden-set",
+       "eval:lex-phrase-proximity",
+       "eval:query-hyde"
+      ],
+      "total_ms": 139.3897500820458,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q65",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:mcp-tool-allowlist",
+       "eval:mcp-transport-auth",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 117.14845790993422,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q68",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:mcp-prompt-injection",
+       "eval:mcp-error-sanitization",
+       "eval:mcp-tool-allowlist"
+      ],
+      "total_ms": 140.67229197826236,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.9639404333166532,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q70",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:mcp-tool-allowlist",
+       "eval:mcp-prompt-injection"
+      ],
+      "total_ms": 132.7889170497656,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q71",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:mcp-transport-auth",
+       "eval:query-metadata-filtering",
+       "eval:ann-diskann"
+      ],
+      "total_ms": 121.1992499884218,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q73",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:agent-hooks",
+       "eval:agent-permission-modes",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 133.42249998822808,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q75",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:agent-guidance-files",
+       "eval:agent-hooks",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 124.81462501455098,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q78",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:agent-subagents",
+       "eval:mcp-error-sanitization",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 149.6259169653058,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q80",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:agent-permission-modes",
+       "eval:mcp-tool-allowlist",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 135.98404196090996,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q81",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:cache-prompt",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 129.5303750084713,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q83",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:cache-prompt",
+       "eval:cache-semantic",
+       "eval:mcp-prompt-injection"
+      ],
+      "total_ms": 124.40145900472999,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q86",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:cache-embedding",
+       "eval:emb-versioning",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 132.9158339649439,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q88",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:cache-timeouts-fallbacks",
+       "eval:rerank-cross-encoder",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 148.46733398735523,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q89",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:query-hyde",
+       "eval:chunk-semantic",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 124.0477500250563,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q92",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:query-multi-query",
+       "eval:evalm-golden-set",
+       "eval:fusion-borda"
+      ],
+      "total_ms": 132.13191705290228,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q93",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:query-routing",
+       "eval:rerank-cross-encoder",
+       "eval:rerank-late-interaction"
+      ],
+      "total_ms": 132.13749998249114,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "q96",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:query-metadata-filtering",
+       "eval:ann-flat-scan",
+       "eval:chunk-parent-child"
+      ],
+      "total_ms": 134.48383298236877,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     }
+    ]
+   }
+  },
+  "heldout_v2": {
+   "n": 48,
+   "summary": {
+    "random": {
+     "mrr@10": 0.061020171957672044,
+     "ndcg@10": 0.09555444251854017,
+     "hit@1": 0.020833333333333332
+    },
+    "vector": {
+     "mrr@10": 0.8930555555555556,
+     "ndcg@10": 0.9219026350968046,
+     "hit@1": 0.8125,
+     "latency_ms": {
+      "p50": 83.49749998888001,
+      "p95": 158.0363642948214
+     }
+    },
+    "keyword": {
+     "mrr@10": 0.921875,
+     "ndcg@10": 0.9387638584162444,
+     "hit@1": 0.8958333333333334,
+     "latency_ms": {
+      "p50": 21.04835450882092,
+      "p95": 37.37837721710093
+     }
+    },
+    "fusion": {
+     "mrr@10": 0.9253472222222222,
+     "ndcg@10": 0.9518712195583893,
+     "hit@1": 0.875,
+     "latency_ms": {
+      "p50": 79.25454148789868,
+      "p95": 93.36033301660791
+     }
+    },
+    "fusion+ce": {
+     "mrr@10": 0.9479166666666666,
+     "ndcg@10": 0.9624475907741098,
+     "hit@1": 0.8958333333333334,
+     "latency_ms": {
+      "p50": 131.70574995456263,
+      "p95": 178.8316535472404
+     }
+    }
+   },
+   "by_kind": {
+    "lexical": {
+     "random": {
+      "mrr@10": 0.060424454365079455,
+      "ndcg@10": 0.09438672949241737,
+      "hit@1": 0.02025
+     },
+     "vector": {
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "hit@1": 1.0,
+      "latency_ms": {
+       "p50": 81.4814375480637,
+       "p95": 158.13498932984658
+      }
+     },
+     "keyword": {
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "hit@1": 1.0,
+      "latency_ms": {
+       "p50": 19.736145448405296,
+       "p95": 37.055175006389625
+      }
+     },
+     "fusion": {
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "hit@1": 1.0,
+      "latency_ms": {
+       "p50": 77.13754195719957,
+       "p95": 85.95266870688647
+      }
+     },
+     "fusion+ce": {
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "hit@1": 1.0,
+      "latency_ms": {
+       "p50": 124.54295856878161,
+       "p95": 154.33482771622948
+      }
+     }
+    },
+    "intent": {
+     "random": {
+      "mrr@10": 0.061615889550264646,
+      "ndcg@10": 0.09672215554466296,
+      "hit@1": 0.021416666666666667
+     },
+     "vector": {
+      "mrr@10": 0.7861111111111111,
+      "ndcg@10": 0.843805270193609,
+      "hit@1": 0.625,
+      "latency_ms": {
+       "p50": 84.14033352164552,
+       "p95": 141.09432947589087
+      }
+     },
+     "keyword": {
+      "mrr@10": 0.84375,
+      "ndcg@10": 0.8775277168324888,
+      "hit@1": 0.7916666666666666,
+      "latency_ms": {
+       "p50": 21.384332969319075,
+       "p95": 35.98022955120542
+      }
+     },
+     "fusion": {
+      "mrr@10": 0.8506944444444445,
+      "ndcg@10": 0.9037424391167787,
+      "hit@1": 0.75,
+      "latency_ms": {
+       "p50": 81.42362552462146,
+       "p95": 94.30033304961398
+      }
+     },
+     "fusion+ce": {
+      "mrr@10": 0.8958333333333334,
+      "ndcg@10": 0.9248951815482195,
+      "hit@1": 0.7916666666666666,
+      "latency_ms": {
+       "p50": 139.75995854707435,
+       "p95": 183.22030356503095
+      }
+     }
+    }
+   },
+   "comparisons": {
+    "fusion - random": {
+     "mrr@10": {
+      "diff": 0.8643270502645501,
+      "ci_low": 0.804307820147156,
+      "ci_high": 0.9153367757936507
+     },
+     "ndcg@10": {
+      "diff": 0.8563167770398491,
+      "ci_low": 0.8162745980087577,
+      "ci_high": 0.8904558512209547
+     },
+     "hit@1": {
+      "diff": 0.8541666666666666,
+      "ci_low": 0.7504375,
+      "ci_high": 0.9379380208333333
+     }
+    },
+    "fusion - vector": {
+     "mrr@10": {
+      "diff": 0.03229166666666667,
+      "ci_low": -0.020833333333333332,
+      "ci_high": 0.08333333333333333
+     },
+     "ndcg@10": {
+      "diff": 0.02996858446158482,
+      "ci_low": -0.00012825115393061878,
+      "ci_high": 0.06387203282355819
+     },
+     "hit@1": {
+      "diff": 0.0625,
+      "ci_low": -0.020833333333333332,
+      "ci_high": 0.16666666666666666
+     }
+    },
+    "fusion - keyword": {
+     "mrr@10": {
+      "diff": 0.0034722222222222203,
+      "ci_low": -0.060763888888888895,
+      "ci_high": 0.06944444444444445
+     },
+     "ndcg@10": {
+      "diff": 0.013107361142144927,
+      "ci_low": -0.03705632553339944,
+      "ci_high": 0.06478639334914273
+     },
+     "hit@1": {
+      "diff": -0.020833333333333332,
+      "ci_low": -0.125,
+      "ci_high": 0.08333333333333333
+     }
+    },
+    "fusion+ce - random": {
+     "mrr@10": {
+      "diff": 0.8868964947089947,
+      "ci_low": 0.8367546850198412,
+      "ci_high": 0.9276925595238095
+     },
+     "ndcg@10": {
+      "diff": 0.8668931482555696,
+      "ci_low": 0.8351128682961162,
+      "ci_high": 0.8935951122109925
+     },
+     "hit@1": {
+      "diff": 0.875,
+      "ci_low": 0.7723749999999999,
+      "ci_high": 0.9577291666666666
+     }
+    },
+    "fusion+ce - vector": {
+     "mrr@10": {
+      "diff": 0.05486111111111111,
+      "ci_low": 0.0034722222222222225,
+      "ci_high": 0.11251736111111087
+     },
+     "ndcg@10": {
+      "diff": 0.040544955677305296,
+      "ci_low": 0.00754221859836362,
+      "ci_high": 0.0805036679443281
+     },
+     "hit@1": {
+      "diff": 0.08333333333333333,
+      "ci_low": -0.020833333333333332,
+      "ci_high": 0.1875
+     }
+    },
+    "fusion+ce - keyword": {
+     "mrr@10": {
+      "diff": 0.026041666666666668,
+      "ci_low": -0.036458333333333336,
+      "ci_high": 0.08854166666666667
+     },
+     "ndcg@10": {
+      "diff": 0.023683732357865406,
+      "ci_low": -0.02538475557942094,
+      "ci_high": 0.07763118798268152
+     },
+     "hit@1": {
+      "diff": 0.0,
+      "ci_low": -0.10416666666666667,
+      "ci_high": 0.10416666666666667
+     }
+    },
+    "fusion+ce - fusion": {
+     "mrr@10": {
+      "diff": 0.022569444444444448,
+      "ci_low": -0.01736111111111111,
+      "ci_high": 0.06597222222222222
+     },
+     "ndcg@10": {
+      "diff": 0.010576371215720479,
+      "ci_low": -0.016270335044938914,
+      "ci_high": 0.040113765634016384
+     },
+     "hit@1": {
+      "diff": 0.020833333333333332,
+      "ci_low": -0.041666666666666664,
+      "ci_high": 0.10416666666666667
+     }
+    }
+   },
+   "cross_encoder": "measured",
+   "per_query": {
+    "vector": [
+     {
+      "id": "v2q01",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:fusion-rrf",
+       "eval:fusion-borda",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 84.18962499126792,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q02",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:fusion-weighted",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 61.92783289588988,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q03",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:fusion-borda",
+       "eval:evalm-golden-set",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 144.03454202692956,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q04",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:fusion-weighted",
+       "eval:emb-matryoshka",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 48.77812508493662,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q05",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:rerank-cross-encoder",
+       "eval:rerank-llm-listwise",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 48.15249994862825,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q06",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:rerank-bi-encoder",
+       "eval:rerank-late-interaction"
+      ],
+      "total_ms": 61.198916053399444,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.7967075809905066,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q07",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:rerank-late-interaction",
+       "eval:chunk-fixed-window",
+       "eval:emb-quantization"
+      ],
+      "total_ms": 62.27749993558973,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q08",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:rerank-llm-listwise",
+       "eval:cache-prompt",
+       "eval:metric-recall-at-k"
+      ],
+      "total_ms": 64.21883299481124,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q09",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:lex-tokenization"
+      ],
+      "total_ms": 56.451458018273115,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q10",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-structure-aware",
+       "eval:chunk-semantic",
+       "eval:chunk-fixed-window"
+      ],
+      "total_ms": 64.83087502419949,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q11",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:chunk-structure-aware"
+      ],
+      "total_ms": 60.51074992865324,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q12",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:chunk-parent-child",
+       "eval:chunk-fixed-window",
+       "eval:lex-phrase-proximity"
+      ],
+      "total_ms": 61.54333392623812,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q13",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-versioning",
+       "eval:fusion-weighted",
+       "eval:rerank-late-interaction"
+      ],
+      "total_ms": 56.113500031642616,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q14",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:emb-matryoshka",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 53.24820801615715,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q15",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:ann-ivf-pq",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 59.08449995331466,
+      "metrics": {
+       "mrr@10": 0.3333333333333333,
+       "ndcg@10": 0.5,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q16",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:evalm-golden-set",
+       "eval:fusion-combsum"
+      ],
+      "total_ms": 59.1401249403134,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q17",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:ann-hnsw",
+       "eval:metric-recall-at-k",
+       "eval:cache-timeouts-fallbacks"
+      ],
+      "total_ms": 63.79954097792506,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q18",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:emb-quantization",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 65.21383300423622,
+      "metrics": {
+       "mrr@10": 0.3333333333333333,
+       "ndcg@10": 0.5,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q19",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:emb-matryoshka",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 64.66279097367078,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q20",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:ann-diskann",
+       "eval:ann-hnsw",
+       "eval:emb-quantization"
+      ],
+      "total_ms": 66.40233309008181,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q21",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:lex-bm25",
+       "eval:rerank-llm-listwise",
+       "eval:lex-tokenization"
+      ],
+      "total_ms": 215.16662498470396,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q22",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:lex-tokenization",
+       "eval:rerank-bi-encoder",
+       "eval:rerank-cross-encoder"
+      ],
+      "total_ms": 160.25233396794647,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q23",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:lex-tokenization",
+       "eval:lex-phrase-proximity",
+       "eval:chunk-structure-aware"
+      ],
+      "total_ms": 124.43312502000481,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q24",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:lex-learned-sparse",
+       "eval:lex-bm25",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 157.71583293098956,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q25",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:fusion-rrf",
+       "eval:metric-recall-at-k"
+      ],
+      "total_ms": 158.20895810611546,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q26",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:metric-ndcg",
+       "eval:metric-map",
+       "eval:fusion-combsum"
+      ],
+      "total_ms": 132.75120803155005,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q27",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:rerank-cross-encoder",
+       "eval:metric-recall-at-k",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 114.79679204057902,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q28",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:metric-ndcg",
+       "eval:metric-recall-at-k",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 99.44633301347494,
+      "metrics": {
+       "mrr@10": 0.2,
+       "ndcg@10": 0.38685280723454163,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q29",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:evalm-heldout-prereg",
+       "eval:chunk-fixed-window",
+       "eval:fusion-borda"
+      ],
+      "total_ms": 91.36416704859585,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q30",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:evalm-bootstrap",
+       "eval:rerank-cross-encoder",
+       "eval:emb-domain-adaptation"
+      ],
+      "total_ms": 84.12204205524176,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.91311732856428,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q31",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:evalm-llm-judge",
+       "eval:rerank-llm-listwise",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 81.12016611266881,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q32",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:evalm-golden-set",
+       "eval:emb-domain-adaptation",
+       "eval:query-hyde"
+      ],
+      "total_ms": 77.75404199492186,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q33",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:mcp-tool-allowlist",
+       "eval:agent-permission-modes",
+       "eval:mcp-prompt-injection"
+      ],
+      "total_ms": 81.84270898345858,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q34",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:mcp-prompt-injection",
+       "eval:mcp-error-sanitization",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 97.25837502628565,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q35",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:agent-hooks",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 88.302957941778,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q36",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:mcp-transport-auth",
+       "eval:agent-permission-modes",
+       "eval:mcp-tool-allowlist"
+      ],
+      "total_ms": 92.33408293221146,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q37",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:agent-hooks",
+       "eval:agent-permission-modes",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 105.53945798892528,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q38",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:agent-guidance-files",
+       "eval:agent-permission-modes",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 79.05466598458588,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q39",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:agent-subagents",
+       "eval:agent-guidance-files",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 84.00587504729629,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q40",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:agent-permission-modes",
+       "eval:mcp-tool-allowlist",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 93.25783397071064,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q41",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:query-multi-query",
+       "eval:cache-semantic",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 84.15862498804927,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q42",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:cache-prompt",
+       "eval:cache-embedding",
+       "eval:cache-semantic"
+      ],
+      "total_ms": 104.46554201189429,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q43",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:emb-versioning",
+       "eval:cache-embedding",
+       "eval:rerank-late-interaction"
+      ],
+      "total_ms": 94.94529198855162,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q44",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:cache-timeouts-fallbacks",
+       "eval:rerank-cross-encoder",
+       "eval:query-routing"
+      ],
+      "total_ms": 82.98912493046373,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q45",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:query-hyde",
+       "eval:chunk-semantic",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 72.7488329866901,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q46",
+      "kind": "lexical",
+      "stage": "vector",
+      "top3": [
+       "eval:query-multi-query",
+       "eval:fusion-combsum",
+       "eval:evalm-heldout-prereg"
+      ],
+      "total_ms": 85.01333300955594,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q47",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:query-routing",
+       "eval:lex-phrase-proximity",
+       "eval:query-hyde"
+      ],
+      "total_ms": 88.45508308149874,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q48",
+      "kind": "intent",
+      "stage": "vector",
+      "top3": [
+       "eval:query-metadata-filtering",
+       "eval:ann-flat-scan",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 116.09029199462384,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     }
+    ],
+    "keyword": [
+     {
+      "id": "v2q01",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:fusion-rrf",
+       "eval:fusion-borda",
+       "eval:query-multi-query"
+      ],
+      "total_ms": 39.631666033528745,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q02",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:fusion-weighted",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 22.477874998003244,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q03",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:evalm-bootstrap",
+       "eval:fusion-borda",
+       "eval:fusion-combsum"
+      ],
+      "total_ms": 29.9292920390144,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q04",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:fusion-weighted",
+       "eval:cache-semantic",
+       "eval:query-routing"
+      ],
+      "total_ms": 37.04804205335677,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q05",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:rerank-cross-encoder",
+       "eval:rerank-llm-listwise",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 28.961249976418912,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q06",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:rerank-bi-encoder",
+       "eval:emb-domain-adaptation",
+       "eval:rerank-cross-encoder"
+      ],
+      "total_ms": 29.46720807813108,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q07",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:rerank-late-interaction",
+       "eval:emb-quantization",
+       "eval:chunk-fixed-window"
+      ],
+      "total_ms": 28.744124923832715,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q08",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:metric-recall-at-k",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 20.57958405930549,
+      "metrics": {
+       "mrr@10": 0.25,
+       "ndcg@10": 0.4306765580733931,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q09",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:chunk-parent-child"
+      ],
+      "total_ms": 19.682290963828564,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q10",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:chunk-structure-aware",
+       "eval:chunk-semantic",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 15.163874952122569,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q11",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:chunk-semantic",
+       "eval:fusion-borda",
+       "eval:chunk-fixed-window"
+      ],
+      "total_ms": 19.855333026498556,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q12",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:chunk-parent-child",
+       "eval:chunk-fixed-window",
+       "eval:chunk-structure-aware"
+      ],
+      "total_ms": 21.192707936279476,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q13",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:emb-versioning",
+       "eval:cache-embedding",
+       "eval:query-metadata-filtering"
+      ],
+      "total_ms": 20.66733397077769,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q14",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:emb-matryoshka",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 12.736957985907793,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q15",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:emb-quantization",
+       "eval:rerank-late-interaction"
+      ],
+      "total_ms": 22.315833950415254,
+      "metrics": {
+       "mrr@10": 0.25,
+       "ndcg@10": 0.4306765580733931,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q16",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:rerank-bi-encoder",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 21.293625002726912,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q17",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:ann-hnsw",
+       "eval:query-multi-query",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 34.21575005631894,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q18",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:ann-ivf-pq",
+       "eval:ann-diskann",
+       "eval:ann-flat-scan"
+      ],
+      "total_ms": 28.48016598727554,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q19",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:emb-domain-adaptation",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 22.12291699834168,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q20",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:ann-diskann",
+       "eval:ann-hnsw",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 17.03925000037998,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q21",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:lex-bm25",
+       "eval:lex-tokenization",
+       "eval:cache-semantic"
+      ],
+      "total_ms": 21.73420798499137,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q22",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:lex-tokenization",
+       "eval:lex-bm25",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 19.228292047046125,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q23",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:lex-phrase-proximity",
+       "eval:cache-semantic",
+       "eval:mcp-error-sanitization"
+      ],
+      "total_ms": 21.835708990693092,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q24",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:lex-learned-sparse",
+       "eval:query-multi-query",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 21.569250035099685,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q25",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:metric-map",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 19.789999932982028,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q26",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:metric-ndcg",
+       "eval:metric-map",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 15.675749978981912,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q27",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:metric-recall-at-k",
+       "eval:rerank-bi-encoder",
+       "eval:rerank-cross-encoder"
+      ],
+      "total_ms": 20.47691703774035,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q28",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:metric-map",
+       "eval:metric-recall-at-k",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 23.768417071551085,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q29",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:evalm-heldout-prereg",
+       "eval:agent-permission-modes",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 22.668916964903474,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q30",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:metric-mrr",
+       "eval:query-routing"
+      ],
+      "total_ms": 23.736875038594007,
+      "metrics": {
+       "mrr@10": 0.0,
+       "ndcg@10": 0.17376534287144002,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q31",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:evalm-llm-judge",
+       "eval:rerank-llm-listwise",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 37.55624999757856,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q32",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:query-routing",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 47.312958049587905,
+      "metrics": {
+       "mrr@10": 0.25,
+       "ndcg@10": 0.4306765580733931,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q33",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:mcp-tool-allowlist",
+       "eval:ann-diskann",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 22.37358398269862,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q34",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:mcp-prompt-injection",
+       "eval:agent-subagents",
+       "eval:cache-semantic"
+      ],
+      "total_ms": 21.178708993829787,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q35",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:agent-subagents",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 18.2345409411937,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q36",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:mcp-transport-auth",
+       "eval:mcp-tool-allowlist",
+       "eval:mcp-error-sanitization"
+      ],
+      "total_ms": 20.918000023812056,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q37",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:agent-hooks",
+       "eval:agent-permission-modes",
+       "eval:cache-semantic"
+      ],
+      "total_ms": 21.575958002358675,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q38",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:agent-guidance-files",
+       "eval:agent-hooks",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 20.435041980817914,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q39",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:agent-subagents",
+       "eval:cache-semantic",
+       "eval:evalm-heldout-prereg"
+      ],
+      "total_ms": 19.04299994930625,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q40",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:agent-permission-modes",
+       "eval:agent-hooks",
+       "eval:query-routing"
+      ],
+      "total_ms": 16.158374957740307,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q41",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:query-hyde",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 18.92449997831136,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q42",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-prompt",
+       "eval:mcp-tool-allowlist",
+       "eval:chunk-fixed-window"
+      ],
+      "total_ms": 15.950500033795834,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q43",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-embedding",
+       "eval:evalm-golden-set",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 19.192041945643723,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q44",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:cache-timeouts-fallbacks",
+       "eval:rerank-cross-encoder",
+       "eval:mcp-error-sanitization"
+      ],
+      "total_ms": 10.365874972194433,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q45",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:query-hyde",
+       "eval:emb-domain-adaptation",
+       "eval:evalm-llm-judge"
+      ],
+      "total_ms": 17.52312493044883,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q46",
+      "kind": "lexical",
+      "stage": "keyword",
+      "top3": [
+       "eval:query-multi-query",
+       "eval:metric-map",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 17.970583052374423,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q47",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:query-routing",
+       "eval:cache-semantic",
+       "eval:fusion-combsum"
+      ],
+      "total_ms": 18.99849995970726,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q48",
+      "kind": "intent",
+      "stage": "keyword",
+      "top3": [
+       "eval:query-metadata-filtering",
+       "eval:cache-semantic",
+       "eval:ann-flat-scan"
+      ],
+      "total_ms": 18.844292033463717,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.9639404333166532,
+       "hit@1": 1.0
+      }
+     }
+    ],
+    "fusion": [
+     {
+      "id": "v2q01",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:fusion-rrf",
+       "eval:fusion-borda",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 95.2543750172481,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q02",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:fusion-weighted",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 77.75279204361141,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q03",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:fusion-borda",
+       "eval:fusion-combsum",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 87.1192499762401,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q04",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:fusion-weighted",
+       "eval:evalm-golden-set",
+       "eval:rerank-late-interaction"
+      ],
+      "total_ms": 76.41258300282061,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q05",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:rerank-cross-encoder",
+       "eval:rerank-llm-listwise",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 79.77312500588596,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q06",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:rerank-bi-encoder",
+       "eval:rerank-late-interaction"
+      ],
+      "total_ms": 80.01241704914719,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.7967075809905066,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q07",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:rerank-late-interaction",
+       "eval:chunk-fixed-window",
+       "eval:emb-quantization"
+      ],
+      "total_ms": 71.78433297667652,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q08",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:rerank-llm-listwise",
+       "eval:metric-recall-at-k",
+       "eval:cache-prompt"
+      ],
+      "total_ms": 77.4189590010792,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q09",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 77.19404192175716,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q10",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:chunk-structure-aware",
+       "eval:chunk-semantic",
+       "eval:chunk-fixed-window"
+      ],
+      "total_ms": 71.55062491074204,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q11",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:chunk-structure-aware"
+      ],
+      "total_ms": 81.74808404874057,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q12",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:chunk-parent-child",
+       "eval:chunk-fixed-window",
+       "eval:emb-domain-adaptation"
+      ],
+      "total_ms": 74.11291706375778,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q13",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-versioning",
+       "eval:fusion-weighted",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 81.09916700050235,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q14",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:emb-matryoshka",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 64.67424996662885,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q15",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:rerank-late-interaction",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 90.30533290933818,
+      "metrics": {
+       "mrr@10": 0.3333333333333333,
+       "ndcg@10": 0.5,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q16",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:evalm-golden-set",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 80.3767089964822,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q17",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:ann-hnsw",
+       "eval:metric-recall-at-k",
+       "eval:query-multi-query"
+      ],
+      "total_ms": 68.82833305280656,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q18",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:ann-ivf-pq",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 83.55820795986801,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q19",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:rerank-late-interaction",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 77.81824993435293,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q20",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:ann-diskann",
+       "eval:ann-hnsw",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 77.08104199264199,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q21",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:lex-bm25",
+       "eval:lex-tokenization",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 85.22129198536277,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q22",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:lex-tokenization",
+       "eval:fusion-weighted",
+       "eval:rerank-cross-encoder"
+      ],
+      "total_ms": 78.45274999272078,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q23",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:lex-phrase-proximity",
+       "eval:mcp-error-sanitization",
+       "eval:lex-tokenization"
+      ],
+      "total_ms": 98.49491703789681,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q24",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:lex-learned-sparse",
+       "eval:ann-ivf-pq",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 81.23541693203151,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q25",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:fusion-rrf",
+       "eval:metric-recall-at-k"
+      ],
+      "total_ms": 86.21274994220585,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q26",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:metric-ndcg",
+       "eval:metric-map",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 84.47887504007667,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q27",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:metric-recall-at-k",
+       "eval:rerank-cross-encoder",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 95.00533307436854,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q28",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:metric-recall-at-k",
+       "eval:metric-mrr",
+       "eval:metric-map"
+      ],
+      "total_ms": 86.83529100380838,
+      "metrics": {
+       "mrr@10": 0.3333333333333333,
+       "ndcg@10": 0.5,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q29",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:evalm-heldout-prereg",
+       "eval:rerank-llm-listwise",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 76.82550000026822,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q30",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:fusion-combsum",
+       "eval:emb-domain-adaptation"
+      ],
+      "total_ms": 83.56366702355444,
+      "metrics": {
+       "mrr@10": 0.25,
+       "ndcg@10": 0.631251450669265,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q31",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:evalm-llm-judge",
+       "eval:rerank-llm-listwise",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 75.94875001814216,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q32",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:evalm-golden-set",
+       "eval:cache-semantic",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 85.59220796450973,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q33",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:mcp-tool-allowlist",
+       "eval:agent-permission-modes",
+       "eval:mcp-prompt-injection"
+      ],
+      "total_ms": 80.17945906613022,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q34",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:mcp-prompt-injection",
+       "eval:mcp-error-sanitization",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 78.40004202444106,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q35",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:agent-hooks",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 74.37783305067569,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q36",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:mcp-transport-auth",
+       "eval:agent-permission-modes",
+       "eval:mcp-tool-allowlist"
+      ],
+      "total_ms": 82.14783295989037,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q37",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:agent-hooks",
+       "eval:agent-permission-modes",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 78.56620801612735,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q38",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:agent-guidance-files",
+       "eval:agent-permission-modes",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 75.41283301543444,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q39",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:agent-subagents",
+       "eval:agent-guidance-files",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 78.7359579699114,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q40",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:agent-permission-modes",
+       "eval:agent-hooks",
+       "eval:agent-guidance-files"
+      ],
+      "total_ms": 81.06074994429946,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q41",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:query-multi-query",
+       "eval:query-hyde"
+      ],
+      "total_ms": 84.60662502329797,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q42",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:cache-prompt",
+       "eval:chunk-semantic",
+       "eval:cache-semantic"
+      ],
+      "total_ms": 70.73137501720339,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q43",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:cache-embedding",
+       "eval:emb-versioning",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 74.63570800609887,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q44",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:cache-timeouts-fallbacks",
+       "eval:rerank-cross-encoder",
+       "eval:query-routing"
+      ],
+      "total_ms": 66.03545893449336,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q45",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:query-hyde",
+       "eval:emb-domain-adaptation",
+       "eval:chunk-semantic"
+      ],
+      "total_ms": 76.40291703864932,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q46",
+      "kind": "lexical",
+      "stage": "fusion",
+      "top3": [
+       "eval:query-multi-query",
+       "eval:metric-mrr",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 79.86958301626146,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q47",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:query-routing",
+       "eval:evalm-golden-set",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 78.29912495799363,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q48",
+      "kind": "intent",
+      "stage": "fusion",
+      "top3": [
+       "eval:query-metadata-filtering",
+       "eval:ann-flat-scan",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 80.30883397441357,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     }
+    ],
+    "fusion+ce": [
+     {
+      "id": "v2q01",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:fusion-rrf",
+       "eval:fusion-borda",
+       "eval:query-multi-query"
+      ],
+      "total_ms": 193.58704099431634,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q02",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:fusion-combsum",
+       "eval:fusion-weighted",
+       "eval:evalm-golden-set"
+      ],
+      "total_ms": 124.51950006652623,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q03",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:fusion-borda",
+       "eval:fusion-rrf",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 124.27854200359434,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q04",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:fusion-weighted",
+       "eval:evalm-golden-set",
+       "eval:fusion-combsum"
+      ],
+      "total_ms": 132.7510830014944,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q05",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-cross-encoder",
+       "eval:rerank-llm-listwise",
+       "eval:rerank-late-interaction"
+      ],
+      "total_ms": 120.03712495788932,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q06",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-bi-encoder",
+       "eval:rerank-cross-encoder",
+       "eval:emb-domain-adaptation"
+      ],
+      "total_ms": 138.60599999316037,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.9639404333166532,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q07",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-late-interaction",
+       "eval:emb-quantization",
+       "eval:emb-versioning"
+      ],
+      "total_ms": 124.20308403670788,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q08",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-llm-listwise",
+       "eval:cache-prompt",
+       "eval:mcp-prompt-injection"
+      ],
+      "total_ms": 149.53900000546128,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q09",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 127.19533406198025,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q10",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:chunk-structure-aware",
+       "eval:chunk-semantic",
+       "eval:chunk-fixed-window"
+      ],
+      "total_ms": 131.4677499467507,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q11",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:chunk-fixed-window",
+       "eval:chunk-semantic",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 140.20666701253504,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q12",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:chunk-parent-child",
+       "eval:rerank-llm-listwise",
+       "eval:chunk-fixed-window"
+      ],
+      "total_ms": 148.21183297317475,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q13",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:emb-versioning",
+       "eval:cache-embedding",
+       "eval:fusion-weighted"
+      ],
+      "total_ms": 164.5685409894213,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q14",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:emb-quantization",
+       "eval:ann-ivf-pq",
+       "eval:emb-matryoshka"
+      ],
+      "total_ms": 110.25429202709347,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q15",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-late-interaction",
+       "eval:emb-matryoshka",
+       "eval:emb-quantization"
+      ],
+      "total_ms": 138.11162498313934,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q16",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:emb-domain-adaptation",
+       "eval:emb-matryoshka",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 126.45937502384186,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q17",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:ann-hnsw",
+       "eval:query-multi-query",
+       "eval:ann-diskann"
+      ],
+      "total_ms": 121.30825000349432,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q18",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:ann-diskann",
+       "eval:ann-ivf-pq",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 131.2494999729097,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q19",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:ann-flat-scan",
+       "eval:rerank-late-interaction",
+       "eval:ann-ivf-pq"
+      ],
+      "total_ms": 124.37591596972197,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q20",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:ann-diskann",
+       "eval:ann-ivf-pq",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 121.11491698306054,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q21",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:lex-bm25",
+       "eval:lex-tokenization",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 135.01025002915412,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q22",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:lex-tokenization",
+       "eval:fusion-weighted",
+       "eval:lex-bm25"
+      ],
+      "total_ms": 115.15874997712672,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q23",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:lex-phrase-proximity",
+       "eval:lex-tokenization",
+       "eval:mcp-error-sanitization"
+      ],
+      "total_ms": 139.31325008161366,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q24",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:lex-learned-sparse",
+       "eval:ann-ivf-pq",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 119.47495897766203,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q25",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:metric-ndcg",
+       "eval:metric-recall-at-k"
+      ],
+      "total_ms": 129.63308405596763,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q26",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:metric-ndcg",
+       "eval:metric-map",
+       "eval:metric-mrr"
+      ],
+      "total_ms": 122.1590000204742,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q27",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:rerank-cross-encoder",
+       "eval:metric-recall-at-k",
+       "eval:rerank-llm-listwise"
+      ],
+      "total_ms": 156.91987506579608,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.6309297535714574,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q28",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:metric-map",
+       "eval:metric-mrr",
+       "eval:metric-recall-at-k"
+      ],
+      "total_ms": 119.4394159829244,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q29",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:evalm-heldout-prereg",
+       "eval:lex-bm25",
+       "eval:evalm-bootstrap"
+      ],
+      "total_ms": 125.46079093590379,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q30",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:metric-mrr",
+       "eval:evalm-bootstrap",
+       "eval:fusion-rrf"
+      ],
+      "total_ms": 136.5915829082951,
+      "metrics": {
+       "mrr@10": 0.5,
+       "ndcg@10": 0.7967075809905066,
+       "hit@1": 0.0
+      }
+     },
+     {
+      "id": "v2q31",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:evalm-llm-judge",
+       "eval:rerank-llm-listwise",
+       "eval:metric-ndcg"
+      ],
+      "total_ms": 130.58866607025266,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q32",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:evalm-golden-set",
+       "eval:query-hyde",
+       "eval:evalm-llm-judge"
+      ],
+      "total_ms": 136.5714999847114,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q33",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:mcp-tool-allowlist",
+       "eval:mcp-transport-auth",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 123.1825000140816,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q34",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:mcp-prompt-injection",
+       "eval:mcp-error-sanitization",
+       "eval:mcp-tool-allowlist"
+      ],
+      "total_ms": 160.96995794214308,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q35",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:mcp-error-sanitization",
+       "eval:mcp-prompt-injection",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 155.64133401494473,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q36",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:mcp-transport-auth",
+       "eval:mcp-error-sanitization",
+       "eval:mcp-tool-allowlist"
+      ],
+      "total_ms": 186.5117910783738,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q37",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:agent-hooks",
+       "eval:agent-permission-modes",
+       "eval:query-multi-query"
+      ],
+      "total_ms": 134.69895895104855,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q38",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:agent-guidance-files",
+       "eval:agent-hooks",
+       "eval:agent-permission-modes"
+      ],
+      "total_ms": 127.03120801597834,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q39",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:agent-subagents",
+       "eval:mcp-error-sanitization",
+       "eval:agent-hooks"
+      ],
+      "total_ms": 144.70416703261435,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q40",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:agent-permission-modes",
+       "eval:agent-hooks",
+       "eval:query-metadata-filtering"
+      ],
+      "total_ms": 131.94374996237457,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q41",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:cache-semantic",
+       "eval:query-hyde",
+       "eval:query-multi-query"
+      ],
+      "total_ms": 153.07737502735108,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q42",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:cache-prompt",
+       "eval:cache-semantic",
+       "eval:cache-embedding"
+      ],
+      "total_ms": 121.68045889120549,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q43",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:cache-embedding",
+       "eval:emb-versioning",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 140.88324992917478,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q44",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:cache-timeouts-fallbacks",
+       "eval:rerank-cross-encoder",
+       "eval:ann-hnsw"
+      ],
+      "total_ms": 146.93129202350974,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q45",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:query-hyde",
+       "eval:emb-domain-adaptation",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 124.566417071037,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q46",
+      "kind": "lexical",
+      "stage": "ce",
+      "top3": [
+       "eval:query-multi-query",
+       "eval:rerank-cross-encoder",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 122.33000004198402,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q47",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:query-routing",
+       "eval:query-hyde",
+       "eval:ann-flat-scan"
+      ],
+      "total_ms": 143.00204196479172,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 1.0,
+       "hit@1": 1.0
+      }
+     },
+     {
+      "id": "v2q48",
+      "kind": "intent",
+      "stage": "ce",
+      "top3": [
+       "eval:query-metadata-filtering",
+       "eval:fusion-rrf",
+       "eval:rerank-bi-encoder"
+      ],
+      "total_ms": 346.86649998184294,
+      "metrics": {
+       "mrr@10": 1.0,
+       "ndcg@10": 0.91311732856428,
+       "hit@1": 1.0
+      }
+     }
+    ]
+   }
+  }
+ }
+}

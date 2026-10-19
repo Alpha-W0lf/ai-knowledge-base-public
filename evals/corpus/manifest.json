@@ -1,0 +1,437 @@
+{
+  "description": "Eval corpus: 48 synthetic docs in 12 look-alike clusters of 4, written for this eval (AI-assisted) on 2026-10-18. Not copied from any source.",
+  "fixtures": [
+    {
+      "source_id": "eval:fusion-rrf",
+      "title": "Reciprocal rank fusion in a hybrid retriever",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/fusion-rrf.md",
+      "cluster": "rank fusion"
+    },
+    {
+      "source_id": "eval:fusion-combsum",
+      "title": "CombSUM and CombMNZ score fusion",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/fusion-combsum.md",
+      "cluster": "rank fusion"
+    },
+    {
+      "source_id": "eval:fusion-borda",
+      "title": "Borda count and Condorcet fusion for ranked lists",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/fusion-borda.md",
+      "cluster": "rank fusion"
+    },
+    {
+      "source_id": "eval:fusion-weighted",
+      "title": "Weighted linear interpolation between dense and sparse scores",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/fusion-weighted.md",
+      "cluster": "rank fusion"
+    },
+    {
+      "source_id": "eval:rerank-cross-encoder",
+      "title": "Cross-encoder reranking of a fused shortlist",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/rerank-cross-encoder.md",
+      "cluster": "reranking"
+    },
+    {
+      "source_id": "eval:rerank-bi-encoder",
+      "title": "Bi-encoders: embedding queries and documents separately",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/rerank-bi-encoder.md",
+      "cluster": "reranking"
+    },
+    {
+      "source_id": "eval:rerank-late-interaction",
+      "title": "Late interaction retrieval with ColBERT-style token vectors",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/rerank-late-interaction.md",
+      "cluster": "reranking"
+    },
+    {
+      "source_id": "eval:rerank-llm-listwise",
+      "title": "Listwise reranking with a large language model",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/rerank-llm-listwise.md",
+      "cluster": "reranking"
+    },
+    {
+      "source_id": "eval:chunk-fixed-window",
+      "title": "Fixed-size chunking with overlap",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/chunk-fixed-window.md",
+      "cluster": "chunking"
+    },
+    {
+      "source_id": "eval:chunk-structure-aware",
+      "title": "Structure-aware and recursive chunking",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/chunk-structure-aware.md",
+      "cluster": "chunking"
+    },
+    {
+      "source_id": "eval:chunk-semantic",
+      "title": "Semantic chunking with embedding breakpoints",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/chunk-semantic.md",
+      "cluster": "chunking"
+    },
+    {
+      "source_id": "eval:chunk-parent-child",
+      "title": "Parent-child retrieval: search small chunks, return large ones",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/chunk-parent-child.md",
+      "cluster": "chunking"
+    },
+    {
+      "source_id": "eval:emb-versioning",
+      "title": "Embedding model versioning and full index rebuilds",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/emb-versioning.md",
+      "cluster": "embedding operations"
+    },
+    {
+      "source_id": "eval:emb-quantization",
+      "title": "Vector quantization: int8 and binary embeddings",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/emb-quantization.md",
+      "cluster": "embedding operations"
+    },
+    {
+      "source_id": "eval:emb-matryoshka",
+      "title": "Matryoshka embeddings and dimension truncation",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/emb-matryoshka.md",
+      "cluster": "embedding operations"
+    },
+    {
+      "source_id": "eval:emb-domain-adaptation",
+      "title": "Fine-tuning embedding models for a specific domain",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/emb-domain-adaptation.md",
+      "cluster": "embedding operations"
+    },
+    {
+      "source_id": "eval:ann-hnsw",
+      "title": "HNSW graph indexes for approximate nearest neighbour search",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/ann-hnsw.md",
+      "cluster": "vector indexes"
+    },
+    {
+      "source_id": "eval:ann-ivf-pq",
+      "title": "IVF-PQ: inverted file indexes with product quantization",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/ann-ivf-pq.md",
+      "cluster": "vector indexes"
+    },
+    {
+      "source_id": "eval:ann-flat-scan",
+      "title": "Exact brute-force search: when you do not need an index",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/ann-flat-scan.md",
+      "cluster": "vector indexes"
+    },
+    {
+      "source_id": "eval:ann-diskann",
+      "title": "DiskANN: graph search on SSDs",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/ann-diskann.md",
+      "cluster": "vector indexes"
+    },
+    {
+      "source_id": "eval:lex-bm25",
+      "title": "BM25 scoring and its two parameters",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/lex-bm25.md",
+      "cluster": "keyword search"
+    },
+    {
+      "source_id": "eval:lex-tokenization",
+      "title": "Tokenization, stemming and stop words in keyword search",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/lex-tokenization.md",
+      "cluster": "keyword search"
+    },
+    {
+      "source_id": "eval:lex-phrase-proximity",
+      "title": "Phrase and proximity queries",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/lex-phrase-proximity.md",
+      "cluster": "keyword search"
+    },
+    {
+      "source_id": "eval:lex-learned-sparse",
+      "title": "Learned sparse retrieval with SPLADE",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/lex-learned-sparse.md",
+      "cluster": "keyword search"
+    },
+    {
+      "source_id": "eval:metric-mrr",
+      "title": "Mean reciprocal rank (MRR)",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/metric-mrr.md",
+      "cluster": "ranking metrics"
+    },
+    {
+      "source_id": "eval:metric-ndcg",
+      "title": "Normalised discounted cumulative gain (nDCG)",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/metric-ndcg.md",
+      "cluster": "ranking metrics"
+    },
+    {
+      "source_id": "eval:metric-recall-at-k",
+      "title": "Recall at k and hit rate for first-stage retrieval",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/metric-recall-at-k.md",
+      "cluster": "ranking metrics"
+    },
+    {
+      "source_id": "eval:metric-map",
+      "title": "Mean average precision (MAP)",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/metric-map.md",
+      "cluster": "ranking metrics"
+    },
+    {
+      "source_id": "eval:evalm-heldout-prereg",
+      "title": "Held-out query sets and pre-registration",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/evalm-heldout-prereg.md",
+      "cluster": "eval method"
+    },
+    {
+      "source_id": "eval:evalm-bootstrap",
+      "title": "Bootstrap confidence intervals for retrieval metrics",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/evalm-bootstrap.md",
+      "cluster": "eval method"
+    },
+    {
+      "source_id": "eval:evalm-llm-judge",
+      "title": "Using a language model as a relevance judge",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/evalm-llm-judge.md",
+      "cluster": "eval method"
+    },
+    {
+      "source_id": "eval:evalm-golden-set",
+      "title": "Building a golden query set with hard negatives",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/evalm-golden-set.md",
+      "cluster": "eval method"
+    },
+    {
+      "source_id": "eval:mcp-tool-allowlist",
+      "title": "Read-only tool allowlists for MCP servers",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/mcp-tool-allowlist.md",
+      "cluster": "MCP safety"
+    },
+    {
+      "source_id": "eval:mcp-prompt-injection",
+      "title": "Prompt injection through retrieved content",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/mcp-prompt-injection.md",
+      "cluster": "MCP safety"
+    },
+    {
+      "source_id": "eval:mcp-error-sanitization",
+      "title": "Sanitising error messages in agent-facing tools",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/mcp-error-sanitization.md",
+      "cluster": "MCP safety"
+    },
+    {
+      "source_id": "eval:mcp-transport-auth",
+      "title": "Choosing an MCP transport: stdio versus HTTP",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/mcp-transport-auth.md",
+      "cluster": "MCP safety"
+    },
+    {
+      "source_id": "eval:agent-hooks",
+      "title": "Lifecycle hooks for coding agents",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/agent-hooks.md",
+      "cluster": "agent workflow"
+    },
+    {
+      "source_id": "eval:agent-guidance-files",
+      "title": "Writing repository guidance files for coding agents",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/agent-guidance-files.md",
+      "cluster": "agent workflow"
+    },
+    {
+      "source_id": "eval:agent-subagents",
+      "title": "Delegating to subagents with narrow jobs",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/agent-subagents.md",
+      "cluster": "agent workflow"
+    },
+    {
+      "source_id": "eval:agent-permission-modes",
+      "title": "Permission rules and approval modes for agents",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/agent-permission-modes.md",
+      "cluster": "agent workflow"
+    },
+    {
+      "source_id": "eval:cache-semantic",
+      "title": "Semantic caching of LLM responses",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/cache-semantic.md",
+      "cluster": "caching and latency"
+    },
+    {
+      "source_id": "eval:cache-prompt",
+      "title": "Prompt caching for long, repeated context",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/cache-prompt.md",
+      "cluster": "caching and latency"
+    },
+    {
+      "source_id": "eval:cache-embedding",
+      "title": "Caching embeddings by content hash",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/cache-embedding.md",
+      "cluster": "caching and latency"
+    },
+    {
+      "source_id": "eval:cache-timeouts-fallbacks",
+      "title": "Timeouts, retries and fallbacks in retrieval pipelines",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/cache-timeouts-fallbacks.md",
+      "cluster": "caching and latency"
+    },
+    {
+      "source_id": "eval:query-hyde",
+      "title": "HyDE: searching with a hypothetical answer",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/query-hyde.md",
+      "cluster": "query processing"
+    },
+    {
+      "source_id": "eval:query-multi-query",
+      "title": "Multi-query rewriting and query expansion",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/query-multi-query.md",
+      "cluster": "query processing"
+    },
+    {
+      "source_id": "eval:query-routing",
+      "title": "Query routing and intent classification",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/query-routing.md",
+      "cluster": "query processing"
+    },
+    {
+      "source_id": "eval:query-metadata-filtering",
+      "title": "Metadata filtering: pre-filter versus post-filter",
+      "license": "synthetic",
+      "channel": "eval-corpus",
+      "url": null,
+      "file": "docs/query-metadata-filtering.md",
+      "cluster": "query processing"
+    }
+  ]
+}
