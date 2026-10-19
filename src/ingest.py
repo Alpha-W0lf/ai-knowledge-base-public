@@ -50,6 +50,16 @@ def table_exists(db: lancedb.DBConnection | None, table_name: str) -> bool:
     return table_name in tables.tables
 
 
+# Words the full-text index ignores: lancedb 0.27's built-in English list, which the published
+# eval was measured with. lancedb 0.27 cannot take a custom list, so this is a guard, not a
+# setting: tests/test_retrieval_spine.py fails if an upgrade changes the list (0.40 adds
+# "how", "should", "what", ...), because that moves keyword ranking.
+FTS_STOP_WORDS = (
+    "a an and are as at be but by for if in into is it no not of on or such "
+    "that the their then there these they this to was will with"
+).split()
+
+
 class FTSIndexError(RuntimeError):
     """Raised when FTS cannot be ensured — hybrid must fail closed."""
 

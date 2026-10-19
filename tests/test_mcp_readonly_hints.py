@@ -1,34 +1,56 @@
-"""Public MCP tools advertise readOnlyHint; write tools stay off the public profile."""
+"""Public MCP tools advertise readOnlyHint; write tools stay off the public profile.
+
+Checked over the MCP protocol (in-process client), so this is what a client sees.
+"""
 
 from __future__ import annotations
 
-import os
+import asyncio
+import importlib
+
+import pytest
+from mcp import Client
 
 import src.mcp_server as mcp_mod
 
 
-def test_public_mcp_tools_advertise_readonly_hint():
-    os.environ.pop("AI_KB_MCP_PRIVATE", None)
-    import importlib
+def _listed_tools(monkeypatch, private: bool) -> dict[str, dict]:
+    """tools/list as JSON on the wire, keyed by tool name."""
+    if private:
+        monkeypatch.setenv("AI_KB_MCP_PRIVATE", "1")
+    else:
+        monkeypatch.delenv("AI_KB_MCP_PRIVATE", raising=False)
+    server = importlib.reload(mcp_mod).mcp
 
+    async def list_tools():
+        async with Client(server) as client:
+            return await client.list_tools()
+
+    result = asyncio.run(list_tools())
+    wire = result.model_dump(mode="json", by_alias=True, exclude_none=True)
+    return {tool["name"]: tool for tool in wire["tools"]}
+
+
+@pytest.fixture(autouse=True)
+def _public_profile_after(monkeypatch):
+    yield
+    monkeypatch.undo()  # restore the real environment, then match the module to it
     importlib.reload(mcp_mod)
-    tool_manager = mcp_mod.mcp._tool_manager
-    for name in sorted(mcp_mod.PUBLIC_TOOL_ALLOWLIST):
-        tool = tool_manager.get_tool(name)
-        assert tool is not None, name
-        assert tool.annotations is not None, name
-        assert tool.annotations.readOnlyHint is True, name
 
 
-def test_private_mutation_tools_are_not_readonly_on_public_profile():
-    os.environ.pop("AI_KB_MCP_PRIVATE", None)
-    import importlib
+def test_public_profile_lists_exactly_the_read_only_tools(monkeypatch):
+    tools = _listed_tools(monkeypatch, private=False)
+    assert set(tools) == {"search", "discover", "get_status", "get_context"}
+    assert set(tools) == mcp_mod.PUBLIC_TOOL_ALLOWLIST
+    for name, tool in tools.items():
+        assert tool["annotations"]["readOnlyHint"] is True, name
 
-    importlib.reload(mcp_mod)
-    registered = set(mcp_mod.mcp._tool_manager._tools)
-    assert registered == set(mcp_mod.PUBLIC_TOOL_ALLOWLIST)
-    assert "add_channel" not in registered
-    assert "sync_now" not in registered
+
+def test_private_profile_adds_only_the_mutation_tools(monkeypatch):
+    tools = _listed_tools(monkeypatch, private=True)
+    assert set(tools) == mcp_mod.PUBLIC_TOOL_ALLOWLIST | mcp_mod.PRIVATE_MUTATION_TOOLS
+    for name in mcp_mod.PRIVATE_MUTATION_TOOLS:
+        assert tools[name].get("annotations", {}).get("readOnlyHint") is not True, name
 
 
 def test_mcp_error_sanitizes_paths():

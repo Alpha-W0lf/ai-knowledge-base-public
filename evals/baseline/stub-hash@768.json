@@ -1,8 +1,7 @@
 {
  "embedder": "stub-hash@768",
- "git_sha": "b8ea769f9d36252e21c97951c64596697b6ac0fe",
- "git_sha_scope": "pre-release history (the public repo is a one-commit snapshot)",
- "date": "2026-10-18",
+ "git_sha": "49dea4209b0eecd92967a110e835ede8413ae4dd",
+ "date": "2026-10-19",
  "datasets": {
   "corpus_manifest": "c7027c2e8dfabbdac8db56e52df846b9b904ff14c80f7aa8b999ac41eafd413e",
   "corpus_docs": "ae0d95f54a25b3845d6e0e066f511de39622ffc9dd6fd57d6850e13d8655baff",
@@ -18,8 +17,8 @@
      "ndcg@10": 0.9725625267038794,
      "hit@1": 0.9375,
      "latency_ms": {
-      "p50": 30.96689551603049,
-      "p95": 36.430411908077076
+      "p50": 43.55662496527657,
+      "p95": 46.815948240691796
      }
     }
    }
@@ -32,8 +31,8 @@
      "ndcg@10": 0.9408460860665557,
      "hit@1": 0.875,
      "latency_ms": {
-      "p50": 33.77518750494346,
-      "p95": 44.742954534012824
+      "p50": 45.489104522857815,
+      "p95": 49.120243737706915
      }
     }
    }
