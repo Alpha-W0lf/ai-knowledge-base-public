@@ -11,7 +11,7 @@ dependencies = [
     "pyarrow>=15.0.0",
     "rich>=13.0.0",
     "click>=8.0.0",
-    "mcp>=1.0.0",
+    "mcp>=2.3.0",  # MCPServer (src/mcp_server.py) and the in-process test Client
     "httpx>=0.27.0",
 ]
 
