@@ -291,9 +291,11 @@ def test_cross_encoder_is_the_default_when_installed(monkeypatch, env, installed
     monkeypatch.setattr(
         importlib.util,
         "find_spec",
-        lambda name, *a: (object() if installed else None)
-        if name == "sentence_transformers"
-        else real_find_spec(name, *a),
+        lambda name, *a: (
+            (object() if installed else None)
+            if name == "sentence_transformers"
+            else real_find_spec(name, *a)
+        ),
     )
     try:
         assert importlib.reload(config).CE_ENABLED is expected
