@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **lancedb 0.40**: the full-text index now pins its stop-word list (`FTS_STOP_WORDS` in `src/ingest.py`), because lancedb 0.40 widened its built-in English list and that moved keyword ranking. The next ingest rebuilds an index built by an older lancedb. lancedb 0.40 also ships a newer stemmer, which moves the keyword-only and fusion-only eval arms slightly.
 - **mcp 2.x**: the server is built on `MCPServer` (FastMCP was renamed in mcp 2). The public profile still lists exactly `search`, `discover`, `get_status` and `get_context` with `readOnlyHint`, now tested over the MCP protocol.
+- **sentence-transformers 6.1, pandas 3.0.6, pyarrow 26, rich 15, click 8.5, pytest 9.1, ruff 0.17**: no behaviour change. The cross-encoder still loads the pinned revision from the local cache with no network calls.
 
 ## [0.1.0] - 2026-10-18
 
