@@ -6,7 +6,7 @@ readme = "README.md"
 license = "PolyForm-Noncommercial-1.0.0"
 requires-python = ">=3.11"
 dependencies = [
-    "lancedb>=0.40.0",  # FTS index_details and custom_stop_words (src/ingest.py)
+    "lancedb>=0.27.1,<0.28",  # 0.40 moves keyword ranking; see .github/dependabot.yml
     "pandas>=2.0.0",
     "pyarrow>=15.0.0",
     "rich>=13.0.0",

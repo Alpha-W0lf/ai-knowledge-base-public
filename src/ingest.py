@@ -13,7 +13,6 @@ from datetime import datetime
 from pathlib import Path
 
 import lancedb
-from lancedb.index import FTS
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
@@ -51,9 +50,10 @@ def table_exists(db: lancedb.DBConnection | None, table_name: str) -> bool:
     return table_name in tables.tables
 
 
-# Words the full-text index ignores: the classic Lucene English list, which lancedb used
-# until its built-in list grew (0.40 adds "how", "should", "what", ...). Pinned so a
-# lancedb upgrade cannot silently change keyword ranking; changing it moves the eval.
+# Words the full-text index ignores: lancedb 0.27's built-in English list, which the published
+# eval was measured with. lancedb 0.27 cannot take a custom list, so this is a guard, not a
+# setting: tests/test_retrieval_spine.py fails if an upgrade changes the list (0.40 adds
+# "how", "should", "what", ...), because that moves keyword ranking.
 FTS_STOP_WORDS = (
     "a an and are as at be but by for if in into is it no not of on or such "
     "that the their then there these they this to was will with"
@@ -67,16 +67,6 @@ class FTSIndexError(RuntimeError):
 def has_fts_index(table: lancedb.table.Table) -> bool:
     """True if the table has an FTS index on ``text``. Read-only."""
     return any(i.index_type == "FTS" and i.columns == ["text"] for i in table.list_indices())
-
-
-def _fts_index_is_current(table: lancedb.table.Table) -> bool:
-    """True if the FTS index on ``text`` exists and was built with FTS_STOP_WORDS."""
-    return any(
-        i.index_type == "FTS"
-        and i.columns == ["text"]
-        and (i.index_details or {}).get("custom_stop_words") == FTS_STOP_WORDS
-        for i in table.list_indices()
-    )
 
 
 def ensure_fts_index(db: lancedb.DBConnection, table_name: str = "transcripts") -> None:
@@ -93,7 +83,7 @@ def ensure_fts_index(db: lancedb.DBConnection, table_name: str = "transcripts") 
 
     table = db.open_table(table_name)
     try:
-        table.create_index("text", config=FTS(custom_stop_words=FTS_STOP_WORDS), replace=True)
+        table.create_fts_index("text", replace=True)
     except Exception as e:
         msg = str(e).lower()
         if "already exists" in msg:
@@ -108,15 +98,14 @@ def build_fts_index_if_needed(
     db: lancedb.DBConnection, *, changed: bool, table_name: str = "transcripts"
 ) -> bool:
     """
-    Ingest-side: (re)build the FTS index after new chunks, or when it is missing or
-    was built with other stop words (an index from an older lancedb).
+    Ingest-side: (re)build the FTS index after new chunks, or when it is missing.
 
     Every ingest writer calls this once at the end of a run. No-op when the table
     does not exist. Returns True if it built. Raises FTSIndexError.
     """
     if not table_exists(db, table_name):
         return False
-    if not changed and _fts_index_is_current(db.open_table(table_name)):
+    if not changed and has_fts_index(db.open_table(table_name)):
         return False
     ensure_fts_index(db, table_name)
     return True
