@@ -24,7 +24,7 @@ uv run python -m src.ingest --fixtures
 
 ## Tests, lint and the eval
 
-CI runs `uv run ruff check`, `uv run ruff format --check` and `uv run pytest -q` on every push and pull request. Pytest collects every `tests/test_*.py` file. Tests use the offline stub embedder by default, so the whole suite, including ingest, hybrid search, MCP search and the eval harness, runs without Ollama or the Hugging Face Hub.
+CI runs `uv run ruff check`, `uv run ruff format --check` and `uv run pytest -q` on pushes to `main`, on pull requests, and on demand (`workflow_dispatch`). Pytest collects every `tests/test_*.py` file. Tests use the offline stub embedder by default, so the whole suite, including ingest, hybrid search, MCP search and the eval harness, runs without Ollama or the Hugging Face Hub.
 
 ```bash
 uv run ruff check && uv run ruff format --check
