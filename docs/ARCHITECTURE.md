@@ -77,6 +77,8 @@ CLI, MCP and the eval call one function, `retrieve()`.
 
 **Before hybrid or keyword search runs,** the `transcripts` table and its full-text index on `text` must exist. Ingest builds the index; search only checks for it. If it is missing, search fails with `fts_unavailable` instead of silently running vector-only. Search never writes and never creates the database directory.
 
+**Stop words.** The full-text index ignores lancedb 0.27's built-in English stop words, listed in `FTS_STOP_WORDS` (`src/ingest.py`). lancedb 0.27 cannot take a custom list, so a guard test checks that the index ignores exactly those words and still matches "how", "should", "between" and "what" (it fails on lancedb 0.40). A different list changes ranking and needs an eval run.
+
 **N and K.** N (fused shortlist into the cross-encoder) is clamped to 20-50, default 30. K (results returned) is clamped to 5-10, default 8. Results are deduplicated by `source_id` before the cross-encoder, keeping the best-ranked chunk.
 
 **Cross-encoder.** The adapter interface is `rerank(query, candidates) → ranked`, adding `rerank_score`. It runs only from `retrieve()`, after fusion. When it is off, hits report `ranking_stage=fusion`. When it fails, hits keep the fused order with `ranking_stage=fusion_degraded` and the result carries the error message. It is on by default when the `ce` extra is installed (`AI_KB_CE=0` turns it off).

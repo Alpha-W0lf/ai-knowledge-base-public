@@ -16,6 +16,7 @@ import pytest
 from src import config
 from src.identity import compute_doc_id, content_hash, resolve_source_identity
 from src.ingest import (
+    FTS_STOP_WORDS,
     FTSIndexError,
     assert_table_embedding_version,
     ensure_fts_index,
@@ -278,6 +279,21 @@ def test_ensure_fts_raises_when_missing(tmp_db: Path):
         ensure_fts_index(db)
 
 
+def test_fts_stop_words_match_the_measured_list(tmp_db: Path):
+    """Keyword search ignores exactly FTS_STOP_WORDS, the list the published eval used.
+
+    lancedb 0.40 added "how", "should", "between" and "what" (among others) to its
+    built-in English list, which moved the eval. This fails if an upgrade does that.
+    """
+    db = get_db(tmp_db)
+    words = [*FTS_STOP_WORDS, "how", "should", "between", "what"]
+    db.create_table("transcripts", [{"id": str(i), "text": w} for i, w in enumerate(words)])
+    ensure_fts_index(db)
+    table = db.open_table("transcripts")
+    found = {w for w in words if len(table.search(w, query_type="fts").limit(1).to_pandas())}
+    assert found == {"how", "should", "between", "what"}
+
+
 @pytest.mark.parametrize(
     ("env", "installed", "expected"),
     [("", True, True), ("", False, False), ("0", True, False), ("1", False, True)],
@@ -291,9 +307,11 @@ def test_cross_encoder_is_the_default_when_installed(monkeypatch, env, installed
     monkeypatch.setattr(
         importlib.util,
         "find_spec",
-        lambda name, *a: (object() if installed else None)
-        if name == "sentence_transformers"
-        else real_find_spec(name, *a),
+        lambda name, *a: (
+            (object() if installed else None)
+            if name == "sentence_transformers"
+            else real_find_spec(name, *a)
+        ),
     )
     try:
         assert importlib.reload(config).CE_ENABLED is expected

@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- **lancedb stays on 0.27.1** (capped `<0.28`, and Dependabot ignores its minor and major updates). lancedb 0.40 widens its built-in English stop-word list and ships a newer stemmer that cannot be pinned; together they move published held-out rows, so the upgrade waits for a planned re-evaluation. A guard test checks that the index ignores exactly the 33 words in `FTS_STOP_WORDS` (`src/ingest.py`) and still matches "how", "should", "between" and "what"; it fails on lancedb 0.40.
+- **mcp 2.x**: the server is built on `MCPServer` (FastMCP was renamed in mcp 2). The public profile still lists exactly `search`, `discover`, `get_status` and `get_context` with `readOnlyHint`, now tested over the MCP protocol.
+- **CI** can also be run by hand (`workflow_dispatch`), like the Eval workflow.
+- **sentence-transformers 6.1, pandas 3.0.6, pyarrow 26, rich 15, click 8.5, pytest 9.1, ruff 0.17**: no behaviour change. The cross-encoder still loads the pinned revision from the local cache with no network calls.
+
 ## [0.1.0] - 2026-10-18
 
 ### Added

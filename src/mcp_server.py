@@ -15,18 +15,18 @@ import os
 import re
 from typing import Any, Optional
 
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 from mcp.types import ToolAnnotations
 
 from .models import RetrievalError
 
 # Initialize MCP server
-mcp = FastMCP("AI Knowledge Base")
+mcp = MCPServer("AI Knowledge Base")
 
 PUBLIC_TOOL_ALLOWLIST = frozenset({"search", "discover", "get_status", "get_context"})
 PRIVATE_MUTATION_TOOLS = frozenset({"add_channel", "sync_now"})
 # Advertised to clients / mcp-audit: public profile does not mutate.
-PUBLIC_TOOL_ANNOTATIONS = ToolAnnotations(readOnlyHint=True)
+PUBLIC_TOOL_ANNOTATIONS = ToolAnnotations(read_only_hint=True)
 
 
 def sanitize_error(error: Any) -> str:

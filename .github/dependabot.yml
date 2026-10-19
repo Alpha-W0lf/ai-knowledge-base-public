@@ -4,6 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      # Published, reviewed eval numbers stay fixed; lancedb 0.40's stemmer moves held-out rows and can't be pinned.
+      - dependency-name: "lancedb"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
     groups:
       python-dependencies:
         patterns: ["*"]
