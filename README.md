@@ -65,7 +65,7 @@ Set `AI_KB_EMBEDDINGS=stub` to run every command offline on the CI embedder (add
 
 ## Stack
 
-Python 3.11+ · LanceDB 0.27 · Ollama `nomic-embed-text` (768-dim) · sentence-transformers cross-encoder `ms-marco-MiniLM-L-6-v2` · MCP Python SDK 1.28 · uv
+Python 3.11+ · LanceDB 0.27 · Ollama `nomic-embed-text` (768-dim) · sentence-transformers cross-encoder `ms-marco-MiniLM-L-6-v2` · MCP Python SDK 2.3 · uv
 
 ## Deeper docs
 

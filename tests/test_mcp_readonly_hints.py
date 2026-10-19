@@ -34,7 +34,7 @@ def _listed_tools(monkeypatch, private: bool) -> dict[str, dict]:
 @pytest.fixture(autouse=True)
 def _public_profile_after(monkeypatch):
     yield
-    monkeypatch.delenv("AI_KB_MCP_PRIVATE", raising=False)
+    monkeypatch.undo()  # restore the real environment, then match the module to it
     importlib.reload(mcp_mod)
 
 
